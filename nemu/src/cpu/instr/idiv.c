@@ -12,7 +12,7 @@ make_instr_func(idiv_rm2a_b) {
 	len += modrm_rm(eip + 1, &rm);
 	operand_read(&rm);
 	int32_t quotient  = alu_idiv(sign_ext_64(rm.val, 8), sign_ext_64(ax.val, 16), 8);
-	int32_t remainder = alu_imod(sign_ext(rm.val, 8), sign_ext_64(ax.val, 16));
+	int32_t remainder = alu_imod(sign_ext_64(rm.val, 8), sign_ext_64(ax.val, 16));
 	OPERAND ah, al;
 	ah.type = al.type = OPR_REG;
 	ah.data_size = al.data_size = 8;
@@ -43,7 +43,7 @@ make_instr_func(idiv_rm2a_v) {
 	int32_t remainder = 0;
 	if(data_size == 16) {
 		quotient = alu_idiv(sign_ext_64(rm.val, 16), sign_ext_64((d.val << 16) | a.val, 32), data_size);
-		remainder = alu_imod(sign_ext(rm.val, 16), sign_ext_64((d.val << 16) | a.val, 32));
+		remainder = alu_imod(sign_ext_64(rm.val, 16), sign_ext_64((d.val << 16) | a.val, 32));
 		print_asm_3("idiv", "w", len, &rm, &d, &a);
 	}
 	else { // data_size == 32
@@ -52,7 +52,7 @@ make_instr_func(idiv_rm2a_v) {
 		dividend = dividend << 32;
 		dividend |= a.val;
 		quotient = alu_idiv(sign_ext_64(rm.val, 32), dividend, data_size);
-		remainder = alu_imod(sign_ext(rm.val, 32), dividend);
+		remainder = alu_imod(sign_ext_64(rm.val, 32), dividend);
 		print_asm_3("idiv", "l", len, &rm, &d, &a);
 	}
 	a.val = quotient;
