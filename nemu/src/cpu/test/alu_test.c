@@ -1266,7 +1266,6 @@ void alu_test_div() {
 		assert(quo == quo_asm);
 		assert(rem == rem_asm);
 	}
-
 	printf("alu_test_div()  \e[0;32mpass\e[0m\n");
 }
 
