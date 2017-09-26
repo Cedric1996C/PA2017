@@ -55,6 +55,10 @@ cmd_handler(cmd_si) {
 
 cmd_handler(cmd_info) {
 	char * arg = strtok(NULL, " ");
+	if(arg ==NULL){
+		printf("undefined info args\n");
+		return 0;
+	}
 	if(strcmp(arg, "r") == 0) {
 		print_reg();
 	} else if (strcmp(arg, "w") == 0) {
