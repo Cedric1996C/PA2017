@@ -185,7 +185,7 @@ cmd_handler(cmd_x) {
 		bool success;
 		addr = expr(exprs, &success);
 		if(!success) {
-			printf("invalid expression: %s\n", p);
+			printf("invalid expression: %s\n", exprs);
 		} else {
 			while(n > 0) {
 				printf("0x%08x:\t", addr);
