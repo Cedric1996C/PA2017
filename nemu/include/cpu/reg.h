@@ -7,10 +7,10 @@
 typedef struct {
 
 	// general purpose registers
-	struct {
-		struct {
-			struct {
-				uint32_t _32;
+	union {
+		union {
+			union {
+				uint32_t _32; 
 				uint16_t _16;
 				uint8_t _8[2];
 			};
