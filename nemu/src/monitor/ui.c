@@ -148,7 +148,7 @@ cmd_handler(cmd_d) {
 		char c;
 		while(1) {
 			printf("Deleta all breakpoints? (y or n)");
-			// scanf("%c", &c);
+			scanf("%c", &c);
 			switch(c) {
 				case 'y': delete_all_breakpoint();
 				case 'n': return 0;
