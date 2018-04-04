@@ -4,6 +4,18 @@ void set_CF_add(uint32_t result, uint32_t src){
   cpu.eflags.CF = result < src;
 }
 
+void set_CF_adc(uint32_t result, uint32_t src){
+  // if(!cpu.eflags.CF){
+  //   set_CF_add(result, src);
+  // } else {
+
+  // }
+  if(result <= src || result <= dest)
+    cpu.eflags.CF = 1;
+	else
+    cpu.eflags.CF = 0;
+}
+
 void set_PF(uint32_t result){
   int zero_num = 0;
   for(int i=0;i<8;i++){
@@ -38,10 +50,6 @@ uint32_t alu_add(uint32_t src, uint32_t dest) {
   set_SF(result);
   set_OF_sign(result, src, dest);
 	return result;
-}
-
-void set_CF_adc(uint32_t result, uint32_t src){
-  cpu.eflags.CF = result < src; 
 }
 
 uint32_t alu_adc(uint32_t src, uint32_t dest) {
