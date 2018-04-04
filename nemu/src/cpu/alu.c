@@ -24,9 +24,9 @@ void set_SF(uint32_t result){
 
 void set_OF_add(uint32_t result, uint32_t src, uint32_t dest){
   if(sign(src) == sign(dest)){
-    cpu.eflags.SF = sign(result)==sign(src);
+    cpu.eflags.OF = sign(result)==sign(src);
   } else {
-    cpu.eflags.SF = 0;
+    cpu.eflags.OF = 0;
   }
 }
 
