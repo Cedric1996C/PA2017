@@ -63,6 +63,7 @@ void set_CF_sub(uint32_t src, uint32_t dest){
 
 void set_OF_sub(uint32_t src, uint32_t dest){
   uint32_t src_neg = ~src + 1;
+  uint32_t result = src_neg + dest;
   set_OF_add(src_neg, dest);
 }
 
