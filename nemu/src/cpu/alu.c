@@ -22,7 +22,7 @@ void set_SF(uint32_t result){
   cpu.eflags.SF = sign(result);
 }
 
-void set_OF_add(uint32_t result, uint32_t src, uint32_t dest){
+void set_OF_sign(uint32_t result, uint32_t src, uint32_t dest){
   if(sign(src) == sign(dest)){
     cpu.eflags.OF = sign(result)!=sign(src);
   } else {
@@ -36,14 +36,23 @@ uint32_t alu_add(uint32_t src, uint32_t dest) {
   set_PF(result);
   set_ZF(result);
   set_SF(result);
-  set_OF_add(result, src, dest);
+  set_OF_sign(result, src, dest);
 	return result;
 }
 
+void set_CF_adc(uint32_t result, uint32_t src){
+  cpu.eflags.CF = result < src; 
+}
+
 uint32_t alu_adc(uint32_t src, uint32_t dest) {
-	printf("\e[0;31mPlease implement me at alu.c\e[0m\n");
-	assert(0);
-	return 0;
+  uint32_t result = src + dest;
+  set_CF_adc(result, src);
+  result += cpu.eflags.CF;
+  set_PF(result);
+  set_ZF(result);
+  set_SF(result);
+  set_OF_sign(result, src, dest);
+	return result;
 }
 
 
