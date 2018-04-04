@@ -63,12 +63,12 @@ void set_CF_sub(uint32_t src, uint32_t dest){
 
 void set_OF_sub(uint32_t src, uint32_t dest){
   uint32_t src_neg = ~src + 1;
-  set_CF_add(dest+src);
+  set_CF_add(src, dest);
 }
 
 uint32_t alu_sub(uint32_t src, uint32_t dest) {
 	uint32_t result = dest - src;
-  set_CF_sub(result, dest);
+  set_CF_sub(src, dest);
   set_PF(result);
   set_ZF(result);
   set_SF(result);
