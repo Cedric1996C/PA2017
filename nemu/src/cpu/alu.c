@@ -29,7 +29,7 @@ void set_SF(uint32_t result){
   cpu.eflags.SF = sign(result);
 }
 
-void set_OF_sign(uint32_t result, uint32_t src, uint32_t dest){
+void set_OF_add(uint32_t result, uint32_t src, uint32_t dest){
   if(sign(src) == sign(dest)){
     cpu.eflags.OF = sign(result)!=sign(src);
   } else {
@@ -43,7 +43,7 @@ uint32_t alu_add(uint32_t src, uint32_t dest) {
   set_PF(result);
   set_ZF(result);
   set_SF(result);
-  set_OF_sign(result, src, dest);
+  set_OF_add(result, src, dest);
 	return result;
 }
 
@@ -53,15 +53,27 @@ uint32_t alu_adc(uint32_t src, uint32_t dest) {
   set_PF(result);
   set_ZF(result);
   set_SF(result);
-  set_OF_sign(result, src, dest);
+  set_OF_add(result, src, dest);
 	return result;
 }
 
+void set_CF_sub(uint32_t src, uint32_t dest){
+  cpu.eflags.CF = dest < src;
+}
+
+void set_OF_sub(uint32_t src, uint32_t dest){
+  uint32_t src_neg = ~src + 1;
+  set_CF_add(dest+src);
+}
 
 uint32_t alu_sub(uint32_t src, uint32_t dest) {
-	printf("\e[0;31mPlease implement me at alu.c\e[0m\n");
-	assert(0);
-	return 0;
+	uint32_t result = dest - src;
+  set_CF_sub(result, dest);
+  set_PF(result);
+  set_ZF(result);
+  set_SF(result);
+  set_OF_sub(src, dest);
+	return result;
 }
 
 uint32_t alu_sbb(uint32_t src, uint32_t dest) {
