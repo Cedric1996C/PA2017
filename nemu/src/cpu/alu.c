@@ -8,7 +8,7 @@ void set_CF_adc(uint32_t result, uint32_t src, uint32_t dest){
   if(cpu.eflags.CF && result <= src)
     cpu.eflags.CF = 1;
   else
-    set_CF_add(result, src)
+    set_CF_add(result, src);
 }
 
 void set_PF(uint32_t result){
