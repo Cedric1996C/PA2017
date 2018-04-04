@@ -9,7 +9,7 @@ void set_PF(uint32_t result){
   for(int i=0;i<8;i++){
     if(result%2 == 1)
       zero_num++;
-    result>>1;
+    result>>=1;
   }
   cpu.eflags.PF = zero_num%2 == 0;
 }
