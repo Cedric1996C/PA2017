@@ -5,15 +5,14 @@ void set_CF_add(uint32_t result, uint32_t src){
 }
 
 void set_CF_adc(uint32_t result, uint32_t src, uint32_t dest){
-  // if(!cpu.eflags.CF){
-  //   set_CF_add(result, src);
-  // } else {
-
-  // }
-  if(result <= src || result <= dest)
-    cpu.eflags.CF = 1;
-	else
-    cpu.eflags.CF = 0;
+  if(!cpu.eflags.CF){
+    set_CF_add(result, src);
+  } else {
+    if(result <= src || result <= dest)
+      cpu.eflags.CF = 1;
+    else
+      cpu.eflags.CF = 0;
+  }
 }
 
 void set_PF(uint32_t result){
