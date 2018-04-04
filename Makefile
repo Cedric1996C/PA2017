@@ -32,9 +32,10 @@ submit: clean
 	cd .. && tar cvj $(shell pwd | grep -o '[^/]*$$') > $(STU_ID).tar.bz2
 
 pa:
+	clear
 	make clean
 	make
-	cd nemu && nemu
+	./nemu/nemu
 
 #### do not use the following targets directly ####
 
