@@ -27,11 +27,14 @@ clean:
 	cd testcase && make clean
 	cd kernel && make clean
 	cd game && make clean
-	make
 
 submit: clean
 	cd .. && tar cvj $(shell pwd | grep -o '[^/]*$$') > $(STU_ID).tar.bz2
 
+pa:
+	make clean
+	make
+	cd nemu && nemu
 
 #### do not use the following targets directly ####
 
