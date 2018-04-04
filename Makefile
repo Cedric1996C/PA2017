@@ -27,6 +27,7 @@ clean:
 	cd testcase && make clean
 	cd kernel && make clean
 	cd game && make clean
+	make
 
 submit: clean
 	cd .. && tar cvj $(shell pwd | grep -o '[^/]*$$') > $(STU_ID).tar.bz2
