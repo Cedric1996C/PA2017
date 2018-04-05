@@ -289,7 +289,7 @@ uint32_t alu_sar(uint32_t src, uint32_t dest, size_t data_size) {
   switch(data_size){
     case 8:
     result = dest & 0xffffff00;
-    uint8_t low_8_bits = dest & 0xff;
+    uint32_t low_8_bits = dest & 0xff;
     sign_bit = low_8_bits & 0x80;
     if(src > 0){
       for(int i=0; i<src; i++){
@@ -304,7 +304,7 @@ uint32_t alu_sar(uint32_t src, uint32_t dest, size_t data_size) {
     break;
     case 16: 
     result = dest & 0xffff0000;
-    uint16_t low_16_bits = dest & 0xffff;
+    uint32_t low_16_bits = dest & 0xffff;
     sign_bit = low_16_bits & 0x8000;
     if(src > 0){
       for(int i=0; i<src; i++){
