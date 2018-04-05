@@ -138,14 +138,15 @@ int64_t alu_imul(int32_t src, int32_t dest, size_t data_size) {
 
 uint32_t alu_div(uint64_t src, uint64_t dest, size_t data_size) {
   if(src==0) return 0;
+  uint64_t low_16_bits,low_32_bits;
   switch(data_size){
     case 8:
-      uint64_t low_16_bits = dest & 0xffff;
+      low_16_bits = dest & 0xffff;
       src = src & 0xff;
       dest = low_16_bits / src;
       break;
     case 16:
-      uint64_t low_32_bits = dest & 0xffffffff;
+      low_32_bits = dest & 0xffffffff;
       src = src & 0xffff;
       dest = low_16_bits / src;
       break;
