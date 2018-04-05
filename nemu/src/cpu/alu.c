@@ -299,7 +299,7 @@ uint32_t alu_sar(uint32_t src, uint32_t dest, size_t data_size) {
       }
       dest = result | low_8_bits;
     }
-    set_SF(low_8_bits);
+    set_SF(low_8_bits << 24);
     set_ZF(low_8_bits);
     break;
     case 16: 
@@ -314,7 +314,7 @@ uint32_t alu_sar(uint32_t src, uint32_t dest, size_t data_size) {
       }
       dest = result | low_16_bits;
     }
-    set_SF(low_16_bits);
+    set_SF(low_16_bits << 16);
     set_ZF(low_16_bits);;
     break;
     default:
