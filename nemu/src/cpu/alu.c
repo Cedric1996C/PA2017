@@ -209,8 +209,8 @@ uint32_t alu_shl(uint32_t src, uint32_t dest, size_t data_size) {
   }
   if(src == 0){
     set_PF(dest);
-    set_SF(dest);
-    set_ZF(dest);
+    set_SF(result);
+    set_ZF(result);
     cpu.eflags.CF = 0;
     cpu.eflags.OF = 0;
   } else {
@@ -223,8 +223,8 @@ uint32_t alu_shl(uint32_t src, uint32_t dest, size_t data_size) {
       cpu.eflags.OF = OF_flag == CF_flag ? 0:1;
     }
     set_PF(dest);
-    set_SF(dest);
-    set_ZF(dest);
+    set_SF(result);
+    set_ZF(result);
   }
 	return dest;
 }
