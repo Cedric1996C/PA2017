@@ -284,12 +284,13 @@ uint32_t alu_shr(uint32_t src, uint32_t dest, size_t data_size) {
 uint32_t alu_sar(uint32_t src, uint32_t dest, size_t data_size) {
 	uint32_t result = dest;
   uint32_t CF_flag = 0;
+  uint32_t sign_bit = 0;
   if(src<0) return dest;
   switch(data_size){
     case 8:
     result = dest & 0xffffff00;
     uint8_t low_8_bits = dest & 0xff;
-    uint32_t sign_bit = low_8_bits & 0x80;
+    sign_bit = low_8_bits & 0x80;
     if(src > 0){
       for(int i=0; i<src; i++){
         CF_flag = low_8_bits & 0x1;
@@ -304,7 +305,7 @@ uint32_t alu_sar(uint32_t src, uint32_t dest, size_t data_size) {
     case 16: 
     result = dest & 0xffff0000;
     uint16_t low_16_bits = dest & 0xffff;
-    uint32_t sign_bit = low_16_bits & 0x8000;
+    sign_bit = low_16_bits & 0x8000;
     if(src > 0){
       for(int i=0; i<src; i++){
         CF_flag = low_16_bits & 0x1;
@@ -317,7 +318,7 @@ uint32_t alu_sar(uint32_t src, uint32_t dest, size_t data_size) {
     set_ZF(low_16_bits);;
     break;
     default:
-    uint32_t sign_bit = dest & 0x80000000;
+    sign_bit = dest & 0x80000000;
     if(src > 0){
       for(int i=0; i<src; i++){
         CF_flag = dest & 0x1;
