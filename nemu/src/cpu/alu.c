@@ -148,7 +148,7 @@ uint32_t alu_div(uint64_t src, uint64_t dest, size_t data_size) {
     case 16:
       low_32_bits = dest & 0xffffffff;
       src = src & 0xffff;
-      dest = low_16_bits / src;
+      dest = low_32_bits / src;
       break;
     case 32:
       dest = dest / src;
