@@ -211,10 +211,11 @@ uint32_t alu_shl(uint32_t src, uint32_t dest, size_t data_size) {
     set_PF(dest);
     set_SF(result);
     set_ZF(result);
+    cpu.eflags.CF = 0;
+    cpu.eflags.OF = 0;
   } else {
     result <<= src-1;
     uint32_t CF_flag = (result & 0x80000000) >> 31;
-    printf("%d", CF_flag);
     result <<= 1;
     uint32_t OF_flag = (result & 0x80000000) >> 31;
     cpu.eflags.CF = CF_flag;
