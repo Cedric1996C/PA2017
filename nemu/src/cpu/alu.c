@@ -237,14 +237,14 @@ uint32_t alu_shr(uint32_t src, uint32_t dest, size_t data_size) {
   switch(data_size){
     case 8:
     result = (dest & 0xff) << 24;
-    dest = (dest & 0xffffff00) | ((dest << src) & 0xff);
+    dest = (dest & 0xffffff00) | ((dest >> src) & 0xff);
     break;
     case 16: 
     result = (dest & 0xffff) << 16;
-    dest = (dest & 0xffff0000) | ((dest << src) & 0xffff);
+    dest = (dest & 0xffff0000) | ((dest >> src) & 0xffff);
     break;
     default:
-    dest = dest << src;
+    dest = dest >> src;
     break;
   }
   if(src == 0){
