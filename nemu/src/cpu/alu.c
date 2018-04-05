@@ -105,9 +105,27 @@ uint32_t alu_sbb(uint32_t src, uint32_t dest) {
 
 
 uint64_t alu_mul(uint32_t src, uint32_t dest, size_t data_size) {
-	printf("\e[0;31mPlease implement me at alu.c\e[0m\n");
-	assert(0);
-	return 0;
+	uint64_t result = uint64_t(src) * uint64_t(dest);
+  bool res;
+  switch(data_size){
+    case: 8
+      uint8_t high_8_bits = result & 0xff00 >> 8;
+      res = res || high_8_bits;
+      break;
+    case: 16
+      uint16_t high_16_bits = result & 0xffff0000 >> 16;
+      res = res || high_16_bits;
+      break;
+    case: 32
+      uint32_t high_32_bits = result & 0xffffffff00000000 >> 32;
+      res = res || high_32_bits;
+      break;
+    default:
+      break;
+  }
+  cpu.eflags.OF = res;
+  cpu.eflags.CF = res;
+	return result;
 }
 
 int64_t alu_imul(int32_t src, int32_t dest, size_t data_size) {
