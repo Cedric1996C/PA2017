@@ -85,8 +85,8 @@ uint32_t alu_sbb(uint32_t src, uint32_t dest) {
     set_CF_sub(src, dest);
     set_OF_sub(src, dest);
   } else {
-    set_CF_sub(src-1, dest);
-    set_OF_sub(src-1, dest);
+    set_CF_sub(src-0x1, dest);
+    set_OF_sub(src-0x1, dest);
   }
 	return result;
 }
