@@ -238,22 +238,24 @@ uint32_t alu_shr(uint32_t src, uint32_t dest, size_t data_size) {
   if(src<0) return dest;
   switch(data_size){
     case 8:
-    result = (dest & 0xffffff00) << 24;
+    result = dest & 0xffffff00;
     uint8_t low_8_bits = dest & 0xff;
     OF_flag = low_8_bits >> 7;
     if(src > 0){
       CF_flag = (low_8_bits >> (src-1)) & 0x1;
       dest = result | (low_8_bits >> src);
     }
+    result <<= 24;
     break;
     case 16: 
-    result = (dest & 0xffff0000) << 16;
+    result = dest & 0xffff0000;
     uint16_t low_16_bits = dest & 0xffff;
     OF_flag = low_16_bits >> 15;
     if(src > 0){
       CF_flag = (low_16_bits >> (src-1)) & 0x1;
       dest = result | (low_16_bits >> src);
     }
+    result <<= 16;
     break;
     default:
     OF_flag = dest >> 31;
