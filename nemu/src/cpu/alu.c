@@ -243,7 +243,7 @@ uint32_t alu_shr(uint32_t src, uint32_t dest, size_t data_size) {
     OF_flag = low_8_bits >> 7;
     if(src > 0){
       low_8_bits >>= (src-1);
-      CF_flag = low_8_bit & 0x1;
+      CF_flag = low_8_bits & 0x1;
       low_8_bits >>= 1;
       dest = result | low_8_bits;
     }
@@ -256,7 +256,7 @@ uint32_t alu_shr(uint32_t src, uint32_t dest, size_t data_size) {
     OF_flag = low_16_bits >> 15;
     if(src > 0){
       low_16_bits >>= (src-1);
-      CF_flag = low_16_bit & 0x1;
+      CF_flag = low_16_bits & 0x1;
       low_16_bits >>= 1;
       dest = result | low_16_bits;
     }
