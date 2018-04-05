@@ -105,7 +105,7 @@ uint32_t alu_sbb(uint32_t src, uint32_t dest) {
 
 
 uint64_t alu_mul(uint32_t src, uint32_t dest, size_t data_size) {
-	uint64_t result = uint64_t(src) * uint64_t(dest);
+	uint64_t result = (uint64_t)src * (uint64_t)dest;
   bool res;
   switch(data_size){
     case: 8
