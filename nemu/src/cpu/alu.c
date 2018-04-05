@@ -137,25 +137,25 @@ int64_t alu_imul(int32_t src, int32_t dest, size_t data_size) {
 }
 
 uint32_t alu_div(uint64_t src, uint64_t dest, size_t data_size) {
-	printf("\e[0;31mPlease implement me at alu.c\e[0m\n");
+	printf("\e[0;31mPlease implement div at alu.c\e[0m\n");
 	assert(0);
 	return 0;
 }
 
 int32_t alu_idiv(int64_t src, int64_t dest, size_t data_size) {
-	printf("\e[0;31mPlease implement me at alu.c\e[0m\n");
+	printf("\e[0;31mPlease implement idiv at alu.c\e[0m\n");
 	assert(0);
 	return 0;
 }
 
 uint32_t alu_mod(uint64_t src, uint64_t dest) {
-	printf("\e[0;31mPlease implement me at alu.c\e[0m\n");
+	printf("\e[0;31mPlease implement mod at alu.c\e[0m\n");
 	assert(0);
 	return 0;
 }
 
 int32_t alu_imod(int64_t src, int64_t dest) {
-	printf("\e[0;31mPlease implement me at alu.c\e[0m\n");
+	printf("\e[0;31mPlease implement imod at alu.c\e[0m\n");
 	assert(0);
 	return 0;
 }
