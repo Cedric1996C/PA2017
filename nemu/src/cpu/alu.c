@@ -239,7 +239,7 @@ uint32_t alu_shr(uint32_t src, uint32_t dest, size_t data_size) {
     case 8:
     result = dest & 0xffffff00;
     uint8_t low_8_bits = dest & 0xff;
-    OF_flag = low_16_bits >> 7;
+    OF_flag = low_8_bits >> 7;
     dest = result | (low_8_bits >> src);
     break;
     case 16: 
