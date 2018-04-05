@@ -218,7 +218,7 @@ uint32_t alu_shl(uint32_t src, uint32_t dest, size_t data_size) {
     if(src==1){
       cpu.eflags.OF = OF_flag == CF_flag ? 0:1;
     }
-    result << src;
+    result <<= src;
     set_PF(dest);
     set_SF(result);
     set_ZF(result);
