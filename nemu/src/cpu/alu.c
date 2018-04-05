@@ -191,9 +191,50 @@ uint32_t alu_or(uint32_t src, uint32_t dest) {
 	return result;
 }
 
+uint32_t alu_singlebit_shl(uint32_t dest, size_t data_size){
+  uint32_t result = 0;
+  switch(data_size){
+    case 8:
+    result = dest & 0xff << 24;
+    break;
+    case 16: 
+    result = dest & 0xffff << 16;
+    break;
+    default:
+    break;
+  }
+  return result << 1;
+}
+
 uint32_t alu_shl(uint32_t src, uint32_t dest, size_t data_size) {
-	printf("\e[0;31mPlease implement me at alu.c\e[0m\n");
-	assert(0);
+	uint32_t result = dest;
+  if(src<0) return result;
+  switch(data_size){
+    case 8:
+    result = dest & 0xff << 24;
+    break;
+    case 16: 
+    result = dest & 0xffff << 16;
+    break;
+    default:
+    break;
+  }
+  if(src == 0){
+    set_PF(result);
+    set_SF(result);
+    set_ZF(result);
+  } else {
+    if(src==1){
+      cpu.eflags.OF = (result & 0x80000000 >> 31) == (result & 0x40000000 >> 30) ? 0:1;
+    }
+    cpu.eflags.CF = (result << (src-1)) & 0x80000000;
+    result <<= src;
+  }
+	return result;;
+}
+
+uint32_t alu_sal(uint32_t src, uint32_t dest, size_t data_size) {
+	return alu_shl(src, dest, data_size);
 	return 0;
 }
 
@@ -208,8 +249,3 @@ uint32_t alu_sar(uint32_t src, uint32_t dest, size_t data_size) {
 	return 0;
 }
 
-uint32_t alu_sal(uint32_t src, uint32_t dest, size_t data_size) {
-	printf("\e[0;31mPlease implement me at alu.c\e[0m\n");
-	assert(0);
-	return 0;
-}
