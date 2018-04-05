@@ -110,15 +110,15 @@ uint64_t alu_mul(uint32_t src, uint32_t dest, size_t data_size) {
   switch(data_size){
     case: 8
       uint8_t high_8_bits = result & 0xff00 >> 8;
-      res = res || high_8_bits;
+      res = high_8_bits ? 1:0;
       break;
     case: 16
       uint16_t high_16_bits = result & 0xffff0000 >> 16;
-      res = res || high_16_bits;
+      res = high_16_bits ? 1:0;
       break;
     case: 32
       uint32_t high_32_bits = result & 0xffffffff00000000 >> 32;
-      res = res || high_32_bits;
+      res = high_32_bits ? 1:0;
       break;
     default:
       break;
