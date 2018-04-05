@@ -191,32 +191,20 @@ uint32_t alu_or(uint32_t src, uint32_t dest) {
 	return result;
 }
 
-uint32_t alu_singlebit_shl(uint32_t dest, size_t data_size){
-  uint32_t result = 0;
-  switch(data_size){
-    case 8:
-    result = dest & 0xff << 24;
-    break;
-    case 16: 
-    result = dest & 0xffff << 16;
-    break;
-    default:
-    break;
-  }
-  return result << 1;
-}
-
 uint32_t alu_shl(uint32_t src, uint32_t dest, size_t data_size) {
 	uint32_t result = dest;
   if(src<0) return result;
   switch(data_size){
     case 8:
     result = dest & 0xff << 24;
+    dest = (dest & 0xffffff00) | (dest & 0xff << src);
     break;
     case 16: 
     result = dest & 0xffff << 16;
+    dest = (dest & 0xffff0000) | (dest & 0xffff << src);
     break;
     default:
+    dest = dest << src;
     break;
   }
   if(src == 0){
@@ -228,9 +216,11 @@ uint32_t alu_shl(uint32_t src, uint32_t dest, size_t data_size) {
       cpu.eflags.OF = ((result & 0x80000000) >> 31) == ((result & 0x40000000) >> 30) ? 0:1;
     }
     cpu.eflags.CF = (result << (src-1)) & 0x80000000;
-    result <<= src;
+    set_PF(result);
+    set_SF(result);
+    set_ZF(result);
   }
-	return result;;
+	return dest;
 }
 
 uint32_t alu_sal(uint32_t src, uint32_t dest, size_t data_size) {
