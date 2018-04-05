@@ -242,22 +242,26 @@ uint32_t alu_shr(uint32_t src, uint32_t dest, size_t data_size) {
     uint8_t low_8_bits = dest & 0xff;
     OF_flag = low_8_bits >> 7;
     if(src > 0){
-      CF_flag = (low_8_bits >> (src-1)) & 0x1;
-      dest = result | (low_8_bits >> src);
+      low_8_bits >>= (src-1);
+      CF_flag = low_8_bit & 0x1;
+      low_8_bits >>= 1;
+      dest = result | low_8_bits;
     }
-    result <<= 24;
-    set_ZF(low_8_bits >> src);
+    set_SF(low_8_bits);
+    set_ZF(low_8_bits);
     break;
     case 16: 
     result = dest & 0xffff0000;
     uint16_t low_16_bits = dest & 0xffff;
     OF_flag = low_16_bits >> 15;
     if(src > 0){
-      CF_flag = (low_16_bits >> (src-1)) & 0x1;
-      dest = result | (low_16_bits >> src);
+      low_16_bits >>= (src-1);
+      CF_flag = low_16_bit & 0x1;
+      low_16_bits >>= 1;
+      dest = result | low_16_bits;
     }
-    result <<= 16;
-    set_ZF(low_16_bits >> src);
+    set_SF(low_16_bits);
+    set_ZF(low_16_bits);;
     break;
     default:
     OF_flag = dest >> 31;
@@ -265,6 +269,7 @@ uint32_t alu_shr(uint32_t src, uint32_t dest, size_t data_size) {
       CF_flag = (dest >> (src-1)) & 0x1;
       dest = dest >> src;
     }
+    set_SF(dest);
     set_ZF(dest);
     break;
   }
@@ -273,7 +278,6 @@ uint32_t alu_shr(uint32_t src, uint32_t dest, size_t data_size) {
   }
   cpu.eflags.CF = CF_flag;
   set_PF(dest);
-  set_SF(dest);
 	return dest;
 }
 
