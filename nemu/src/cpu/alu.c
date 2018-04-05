@@ -132,9 +132,8 @@ uint64_t alu_mul(uint32_t src, uint32_t dest, size_t data_size) {
 }
 
 int64_t alu_imul(int32_t src, int32_t dest, size_t data_size) {
-	printf("\e[0;31mPlease implement me at alu.c\e[0m\n");
-	assert(0);
-	return 0;
+  uint64_t result = (uint64_t)src * (uint64_t)dest;
+	return result;
 }
 
 uint32_t alu_div(uint64_t src, uint64_t dest, size_t data_size) {
