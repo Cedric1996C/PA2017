@@ -257,7 +257,7 @@ uint32_t alu_shr(uint32_t src, uint32_t dest, size_t data_size) {
       dest = result | (low_16_bits >> src);
     }
     result <<= 16;
-    set_ZF(low_16_bits >> src)
+    set_ZF(low_16_bits >> src);
     break;
     default:
     OF_flag = dest >> 31;
