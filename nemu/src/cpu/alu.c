@@ -273,7 +273,7 @@ uint32_t alu_shr(uint32_t src, uint32_t dest, size_t data_size) {
   }
   cpu.eflags.CF = CF_flag;
   set_PF(dest);
-  set_SF(result);
+  set_SF(dest);
 	return dest;
 }
 
