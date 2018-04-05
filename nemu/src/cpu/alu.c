@@ -77,14 +77,18 @@ uint32_t alu_sub(uint32_t src, uint32_t dest) {
 }
 
 void set_CF_sbb(uint32_t src, uint32_t dest){
-  cpu.eflags.CF = dest < src+cpu.eflags.CF;
+  if(!cpu.eflags.CF){
+    set_CF_sub(src, dest);
+  } else {
+    cpu.eflags.CF = src >= dest;
+  }
 }
 
 void set_OF_sbb(uint32_t src, uint32_t dest){
   if(!cpu.eflags.CF){
     set_OF_sub(src, dest);
   } else {
-    uint32_t src_neg = ~(src+cpu.eflags.CF) + 1;
+    uint32_t src_neg = ~(src+1) + 1;
     set_OF_add(src_neg + dest, src_neg, dest);
   }
 }
