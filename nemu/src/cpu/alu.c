@@ -193,15 +193,15 @@ uint32_t alu_or(uint32_t src, uint32_t dest) {
 
 uint32_t alu_shl(uint32_t src, uint32_t dest, size_t data_size) {
 	uint32_t result = dest;
-  if(src<0) return result;
+  if(src<0) return dest;
   switch(data_size){
     case 8:
     result = dest & 0xff << 24;
-    dest = (dest & 0xffffff00) | (dest & 0xff << src);
+    dest = (dest & 0xffffff00) | ((dest << src) & 0xff);
     break;
     case 16: 
     result = dest & 0xffff << 16;
-    dest = (dest & 0xffff0000) | (dest & 0xffff << src);
+    dest = (dest & 0xffff0000) | ((dest << src) & 0xffff);
     break;
     default:
     dest = dest << src;
@@ -227,7 +227,6 @@ uint32_t alu_shl(uint32_t src, uint32_t dest, size_t data_size) {
 
 uint32_t alu_sal(uint32_t src, uint32_t dest, size_t data_size) {
 	return alu_shl(src, dest, data_size);
-	return 0;
 }
 
 uint32_t alu_shr(uint32_t src, uint32_t dest, size_t data_size) {
