@@ -107,18 +107,20 @@ uint32_t alu_sbb(uint32_t src, uint32_t dest) {
 uint64_t alu_mul(uint32_t src, uint32_t dest, size_t data_size) {
 	uint64_t result = (uint64_t)src * (uint64_t)dest;
   bool res;
+  uint8_t high_8_bits;
+  uint16_t high_16_bits;
+  uint32_t high_32_bits;
   switch(data_size){
     case 8:
-      uint8_t high_8_bits;
       high_8_bits = (result & 0xff00) >> 8;
       res = high_8_bits ? 1:0;
       break;
     case 16:
-      uint16_t high_16_bits = (result & 0xffff0000) >> 16;
+      high_16_bits = (result & 0xffff0000) >> 16;
       res = high_16_bits ? 1:0;
       break;
     case 32:
-      uint32_t high_32_bits = (result & 0xffffffff00000000) >> 32;
+      high_32_bits = (result & 0xffffffff00000000) >> 32;
       res = high_32_bits ? 1:0;
       break;
     default:
