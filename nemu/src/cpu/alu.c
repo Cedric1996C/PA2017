@@ -106,7 +106,7 @@ uint32_t alu_sbb(uint32_t src, uint32_t dest) {
 
 uint64_t alu_mul(uint32_t src, uint32_t dest, size_t data_size) {
 	uint64_t result = (uint64_t)src * (uint64_t)dest;
-  bool res;
+  bool res=0;
   uint8_t high_8_bits;
   uint16_t high_16_bits;
   uint32_t high_32_bits;
