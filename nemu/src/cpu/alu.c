@@ -266,6 +266,7 @@ uint32_t alu_shr(uint32_t src, uint32_t dest, size_t data_size) {
   if(src == 1){
     cpu.eflags.OF = OF_flag;
   }
+  cpu.eflags.CF = CF_flag;
   set_PF(dest);
   set_SF(result);
   set_ZF(result);
