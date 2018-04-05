@@ -126,8 +126,8 @@ uint64_t alu_mul(uint32_t src, uint32_t dest, size_t data_size) {
     default:
       break;
   }
-  cpu.eflags.OF = res;
-  cpu.eflags.CF = res;
+  cpu.eflags.OF = res ? 1:0;
+  cpu.eflags.CF = res ? 1:0;
 	return result;
 }
 
