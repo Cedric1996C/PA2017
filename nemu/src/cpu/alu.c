@@ -109,7 +109,8 @@ uint64_t alu_mul(uint32_t src, uint32_t dest, size_t data_size) {
   bool res;
   switch(data_size){
     case 8:
-      uint8_t high_8_bits = (result & 0xff00) >> 8;
+      uint8_t high_8_bits;
+      high_8_bits = (result & 0xff00) >> 8;
       res = high_8_bits ? 1:0;
       break;
     case 16:
