@@ -37,7 +37,6 @@ inline uint32_t internal_normalize(uint32_t sign, int32_t exp, uint64_t sig_grs)
       sig_grs |= sticky;
 		}
 		if(exp < 0) { 
-			sign = 0;
       exp = 0;
       sig_grs =0;
 			overflow = true;
@@ -63,10 +62,12 @@ inline uint32_t internal_normalize(uint32_t sign, int32_t exp, uint64_t sig_grs)
 		/* TODO: round up and remove the GRS bits */
     uint64_t grs = sig_grs & 0x7;
     sig_grs >>=3 ;
-    if(grs>0x4){
+    if(grs>4){
       sig_grs += 1;
-    } else if(grs==0x4){
-      sig_grs &= 0xfffffffffffffffe;
+    } else if(grs==4){
+      if((sig_grs & 0x1) == 1){
+        sig_grs += 1;
+      } 
     }	
     if(((sig_grs >> 23) > 1) && exp < 0xff){
       sig_grs >>= 1;
