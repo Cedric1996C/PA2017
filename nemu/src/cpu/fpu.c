@@ -19,7 +19,7 @@ inline uint32_t internal_normalize(uint32_t sign, int32_t exp, uint64_t sig_grs)
 			(sig_grs > 0x04 && exp < 0) // condition 2
 			) {
       uint64_t sticky = sig_grs & 0x1;
-			sig_grs >> 1;
+			sig_grs >>= 1;
       sig_grs |= sticky;
       exp += 1;
 		}
@@ -33,7 +33,7 @@ inline uint32_t internal_normalize(uint32_t sign, int32_t exp, uint64_t sig_grs)
 			// we have a denormal here, the exponent is 0, but means 2^-126, 
 			// as a result, the significand should shift right once more
 		  uint64_t sticky = sig_grs & 0x1;
-			sig_grs >> 1;
+			sig_grs >>= 1;
       sig_grs |= sticky;
 		}
 		if(exp < 0) { 
@@ -51,7 +51,7 @@ inline uint32_t internal_normalize(uint32_t sign, int32_t exp, uint64_t sig_grs)
 		if(exp == 0) {
 			// denormal
 			uint64_t sticky = sig_grs & 0x1;
-			sig_grs >> 1;
+			sig_grs >>= 1;
       sig_grs |= sticky;
 		}
 	} else if(exp == 0 && sig_grs >> (23 + 3) == 1) {
@@ -66,10 +66,10 @@ inline uint32_t internal_normalize(uint32_t sign, int32_t exp, uint64_t sig_grs)
     if(grs>0x4){
       sig_grs += 1;
     } else if(grs==0x4){
-      sig_grs & 0xfffffffffffffffe;
+      sig_grs &= 0xfffffffffffffffe;
     }	
     if(((sig_grs >> 23) > 1) && exp < 0xff){
-      sig_grs >> 1;
+      sig_grs >>= 1;
       exp++;
     }
     if(exp >= 0xff) {
@@ -82,7 +82,7 @@ inline uint32_t internal_normalize(uint32_t sign, int32_t exp, uint64_t sig_grs)
 			// we have a denormal here, the exponent is 0, but means 2^-126, 
 			// as a result, the significand should shift right once more
 		  uint64_t sticky = sig_grs & 0x1;
-			sig_grs >> 1;
+			sig_grs >>= 1;
       sig_grs |= sticky;
 		}
 		if(exp < 0) { 
