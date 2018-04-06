@@ -18,43 +18,41 @@ inline uint32_t internal_normalize(uint32_t sign, int32_t exp, uint64_t sig_grs)
 			|| // or
 			(sig_grs > 0x04 && exp < 0) // condition 2
 			) {
-
-			/* TODO: shift right, pay attention to sticky bit*/
-			printf("\e[0;31mPlease implement me at fpu.c\e[0m\n");
-			assert(0);
+      uint64_t sticky = sig_grs & 0x1;
+			sig_grs >> 1;
+      sig_grs |= sticky;
+      exp += 1;
 		}
 
 		if(exp >= 0xff) {
-			/* TODO: assign the number to infinity */
-			printf("\e[0;31mPlease implement me at fpu.c\e[0m\n");
-			assert(0);
+      exp = 0xff;
+      sig_grs = 0;
 			overflow = true;
 		}
 		if(exp == 0) {
 			// we have a denormal here, the exponent is 0, but means 2^-126, 
 			// as a result, the significand should shift right once more
-			/* TODO: shift right, pay attention to sticky bit*/
-			printf("\e[0;31mPlease implement me at fpu.c\e[0m\n");
-			assert(0);
+		  uint64_t sticky = sig_grs & 0x1;
+			sig_grs >> 1;
+      sig_grs |= sticky;
 		}
 		if(exp < 0) { 
-			/* TODO: assign the number to zero */
-			printf("\e[0;31mPlease implement me at fpu.c\e[0m\n");
-			assert(0);
+			sign = 0;
+      exp = 0;
+      sig_grs =0;
 			overflow = true;
 		}
 	} else if(((sig_grs >> (23 + 3)) == 0) && exp > 0) {
 		// normalize toward left
 		while(((sig_grs >> (23 + 3)) == 0) && exp > 0) {
-			/* TODO: shift left */
-			printf("\e[0;31mPlease implement me at fpu.c\e[0m\n");
-			assert(0);
+			sig_grs <<= 1;
+      exp -= 1;
 		}
 		if(exp == 0) {
 			// denormal
-			/* TODO: shift right, pay attention to sticky bit*/
-			printf("\e[0;31mPlease implement me at fpu.c\e[0m\n");
-			assert(0);
+			uint64_t sticky = sig_grs & 0x1;
+			sig_grs >> 1;
+      sig_grs |= sticky;
 		}
 	} else if(exp == 0 && sig_grs >> (23 + 3) == 1) {
 		// two denormals result in a normal
@@ -63,10 +61,39 @@ inline uint32_t internal_normalize(uint32_t sign, int32_t exp, uint64_t sig_grs)
 
 	if(!overflow) {
 		/* TODO: round up and remove the GRS bits */
-		printf("\e[0;31mPlease implement me at fpu.c\e[0m\n");
-		assert(0);
+    uint64_t grs = sig_grs & 0x7;
+    sig_grs >>=3 ;
+    if(grs>0x4){
+      sig_grs += 1;
+    } else if(grs==0x4){
+      sig_grs & 0xfffffffffffffffe;
+    }	
+    if(((sig_grs >> 23) > 1) && exp < 0xff){
+      sig_grs >> 1;
+      exp++;
+    }
+    if(exp >= 0xff) {
+			/* TODO: assign the number to infinity */
+      exp = 0xff;
+      sig_grs = 0;
+			overflow = true;
+		}
+		if(exp == 0) {
+			// we have a denormal here, the exponent is 0, but means 2^-126, 
+			// as a result, the significand should shift right once more
+		  uint64_t sticky = sig_grs & 0x1;
+			sig_grs >> 1;
+      sig_grs |= sticky;
+		}
+		if(exp < 0) { 
+			/* TODO: assign the number to zero */
+			sign = 0;
+      exp = 0;
+      sig_grs =0;
+			overflow = true;
+		}
+    sig_grs &= 0x7fffffff;
 	}
-
 
 	FLOAT f;
 	f.sign = sign;
@@ -100,7 +127,7 @@ uint32_t internal_float_add(uint32_t b, uint32_t a) {
 	}
 	if(a == P_ZERO_F || a == N_ZERO_F) { return b; }
 	if(b == P_ZERO_F || b == N_ZERO_F) { return a; }
-
+  
 	FLOAT f, fa, fb;
 	fa.val = a;
 	fb.val = b;
@@ -108,7 +135,7 @@ uint32_t internal_float_add(uint32_t b, uint32_t a) {
 	if(fa.exponent == 0xff) { return a; }
 	if(fb.exponent == 0xff) { return b; }
 
-
+ 
 	if(fa.exponent > fb.exponent) {
 		fa.val = b;
 		fb.val = a;
@@ -122,13 +149,9 @@ uint32_t internal_float_add(uint32_t b, uint32_t a) {
 
 	// alignment shift for fa
 	uint32_t shift = 0;
-
-	/* TODO: shift = ? */
-	printf("\e[0;31mPlease implement me at fpu.c\e[0m\n");
-	assert(0);
-	assert(shift >= 0);
-
-	sig_a = (sig_a << 3); // guard, round, sticky
+  shift = (fb.exponent==0 ? fb.exponent+1 : fb.exponent) - (fa.exponent==0 ? fa.exponent+1:fa.exponent);
+	
+  sig_a = (sig_a << 3); // guard, round, sticky
 	sig_b = (sig_b << 3);
 
 
