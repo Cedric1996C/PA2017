@@ -22,5 +22,6 @@ extern uint8_t data_size;
 #include "cpu/instr/x87.h"
 
 /* TODO: add more instructions here */
+int jmp_rel_v(uint32_t eip, uint8_t opcode);
 
 #endif
