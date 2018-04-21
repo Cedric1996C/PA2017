@@ -31,11 +31,6 @@ clean:
 submit: clean
 	cd .. && tar cvj $(shell pwd | grep -o '[^/]*$$') > $(STU_ID).tar.bz2
 
-pa:
-	make clean
-	clear
-	make run | tee log.txt
-
 #### do not use the following targets directly ####
 
 do_not_call_me_game:
