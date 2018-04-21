@@ -34,7 +34,7 @@ submit: clean
 pa:
 	make clean
 	clear
-	make run mov | tee log.txt
+	make run | tee log.txt
 
 #### do not use the following targets directly ####
 
