@@ -198,3 +198,10 @@ ld -m elf_i386 -e start -Ttext=0x30000  -o src/echo src/start.o src/echo.o ../in
 cp src/echo bin/echo
 objcopy -S -O binary -B i386 bin/echo bin/echo.img
 make[2]: Leaving directory '/mnt/hgfs/pa2017/testcase'
+./nemu/nemu -run mov
+
+Execute ./testcase/bin/mov.img ./testcase/bin/mov
+(nemu) c
+nemu: HIT [0;32mGOOD[0m TRAP at eip = 0x000302b6
+NEMU2 terminated
+make[1]: Leaving directory '/mnt/hgfs/pa2017'
