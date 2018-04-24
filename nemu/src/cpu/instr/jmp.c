@@ -20,7 +20,7 @@ make_instr_func(jmp_near) {
 make_instr_func(jmp_rel_v) {
         // OPERAND imm;
 
-        // int len = 1;
+        int len = 1;
         // imm.type = OPR_IMM;
         // imm.addr = eip + len;
         // len += data_size / 8;
@@ -31,5 +31,5 @@ make_instr_func(jmp_rel_v) {
         //         len += (int32_t)(imm.val << 16) >> 16;
         // else
         //         len += imm.val;
-        // return len;
+        return len;
 }
