@@ -31,5 +31,5 @@ make_instr_func(jmp_rel_v) {
         //         len += (int32_t)(imm.val << 16) >> 16;
         // else
         //         len += imm.val;
-        return len;
+        // return len;
 }
