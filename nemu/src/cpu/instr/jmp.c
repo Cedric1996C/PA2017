@@ -25,8 +25,6 @@ make_instr_func(jmp_rel_v) {
         imm.addr = eip + len;
         len += data_size / 8;
         imm.data_size = data_size;
-        printf("%d", len);
-        print_asm_1("jmp rel", "", len, &imm);
         operand_read(&imm);
         if (imm.data_size == 16)
                 len += (int32_t)(imm.val << 16) >> 16;

@@ -27,7 +27,7 @@ void print_asm_1(char * instr, char * suffix, uint8_t len, OPERAND * opr_1) {
 			printf("%02x ", instr_fetch(cpu.eip + i, 1));
 		}
 		for(i = 0 ; i <= MAX_INSTR_BYTES - len ; i++) printf("   ");
-		printf("%s%s %d %s\n", instr, suffix, len, addr_str_1); 
+		printf("%s%s %s\n", instr, suffix, addr_str_1); 
 	}
 }
 void print_asm_2(char * instr, char * suffix, uint8_t len, OPERAND * opr_1, OPERAND * opr_2) {
