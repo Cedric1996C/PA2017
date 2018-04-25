@@ -37,3 +37,26 @@ make_instr_func(cmps_b) {
 	return 1;
 }
 
+make_instr_func(cmp_i2rm_bv)
+{
+	OPERAND imm, rm;
+
+	int len = 1;
+	rm.data_size = data_size;
+	len += modrm_opcode_rm(eip + 1, &opcode, &rm);
+	operand_read(&rm);
+
+	imm.type = OPR_IMM;
+	imm.addr = eip + len;
+	imm.data_size = 8;
+	len += 1;
+	operand_read(&imm);
+
+	print_asm_2("cmps", "", len + 1, &imm, &rm);
+
+	imm.data_size = 32;
+	imm.val = (int32_t)(imm.val << 24) >> 24; // sign extension
+
+	rm.val = alu_sub(imm.val, rm.val);
+	return len;
+}
