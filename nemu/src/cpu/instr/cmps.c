@@ -43,7 +43,7 @@ make_instr_func(cmp_i2rm_bv)
 
 	int len = 1;
 	rm.data_size = data_size;
-	len += modrm_opcode_rm(eip + 1, &opcode, &rm);
+	// len += modrm_opcode_rm(eip + 1, &opcode, &rm);
 	operand_read(&rm);
 
 	imm.type = OPR_IMM;
