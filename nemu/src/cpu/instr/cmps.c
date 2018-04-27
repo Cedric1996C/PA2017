@@ -43,7 +43,7 @@ make_instr_func(cmp_i2rm_bv)
 
 	int len = 1;
 	rm.data_size = data_size;
-	// len += modrm_opcode_rm(eip + 1, &opcode, &rm);
+	len += modrm_opcode_rm(eip + 1, &opcode, &rm);
 	operand_read(&rm);
 
 	imm.type = OPR_IMM;
@@ -51,8 +51,6 @@ make_instr_func(cmp_i2rm_bv)
 	imm.data_size = 8;
 	len += 1;
 	operand_read(&imm);
-
-	print_asm_2("cmps", "", len + 1, &imm, &rm);
 
 	imm.data_size = 32;
 	imm.val = (int32_t)(imm.val << 24) >> 24; // sign extension
