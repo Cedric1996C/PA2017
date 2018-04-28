@@ -41,7 +41,7 @@ make_instr_func(mov_r2rm_b) {
 
 
 
-make_instr_func(mov_r2rm_v) {
+/*make_instr_func(mov_r2rm_v) {
 	OPERAND r, rm;
 	r.data_size = data_size;
 	rm.data_size = data_size;
@@ -55,7 +55,6 @@ make_instr_func(mov_r2rm_v) {
 	execute(&r, &rm);
 	return len;
 }
-
 
 make_instr_func(mov_rm2r_b) {
 	OPERAND r, rm;
