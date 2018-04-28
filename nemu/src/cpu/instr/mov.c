@@ -7,7 +7,7 @@ static void instr_execute_2op() {
 }
 
 make_instr_impl_2op(mov, r, rm, b)
-// make_instr_impl_2op(mov, r, rm, v)
+make_instr_impl_2op(mov, r, rm, v)
 make_instr_impl_2op(mov, rm, r, b)
 make_instr_impl_2op(mov, rm, r, v)
 make_instr_impl_2op(mov, i, rm, b)
@@ -48,15 +48,15 @@ make_instr_func(mov_r2rm_v) {
 	int len = 1;
 	// read ModR/M for src and dest
 	len += modrm_r_rm(eip + 1, &r, &rm);
-	printf("mov_r2rm rm addr = 0x%08x\n", rm.addr);
-	operand_read(&r);
-	rm.val = r.val;
-	operand_write(&rm);
-	// execute(&r, &rm);
+	//printf("mov_r2rm rm addr = 0x%08x\n", rm.addr);
+	//operand_read(&r);
+	//rm.val = r.val;
+	//operand_write(&rm);
+	execute(&r, &rm);
 	return len;
 }
 
-/*
+
 make_instr_func(mov_rm2r_b) {
 	OPERAND r, rm;
 	r.data_size = 8;
