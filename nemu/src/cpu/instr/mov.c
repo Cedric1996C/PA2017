@@ -48,11 +48,11 @@ make_instr_func(mov_r2rm_v) {
 	int len = 1;
 	// read ModR/M for src and dest
 	len += modrm_r_rm(eip + 1, &r, &rm);
-	//printf("mov_r2rm rm addr = 0x%08x\n", rm.addr);
-	//operand_read(&r);
-	//rm.val = r.val;
-	//operand_write(&rm);
-	execute(&r, &rm);
+	printf("mov_r2rm rm addr = 0x%08x\n", rm.addr);
+	operand_read(&r);
+	rm.val = r.val;
+	operand_write(&rm);
+	// execute(&r, &rm);
 	return len;
 }
 
