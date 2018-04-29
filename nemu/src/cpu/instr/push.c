@@ -9,7 +9,7 @@ make_instr_func(push_ebp_v)
   temp_ebp.type = OPR_MEM;
   temp_ebp.data_size = data_size;
   temp_ebp.val = cpu.ebp;
-  temp_ebp.sreg = SREG_SS;
+  // temp_ebp.sreg = SREG_SS;
   temp_ebp.addr = cpu.esp;
 
   operand_write(&temp_ebp);
