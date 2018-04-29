@@ -13,7 +13,7 @@ make_instr_func(call_rel_v)
   temp_eip.addr = cpu.esp;
   operand_write(&temp_eip);
 
-  rel.type = OPR_rel;
+  rel.type = OPR_IMM;
   rel.data_size = data_size;
   rel.addr = eip + 1;
   operand_read(&rel);
