@@ -13,6 +13,6 @@ make_instr_func(push_ebp_v)
   temp_ebp.addr = cpu.esp;
 
   operand_write(&temp_ebp);
-  print_asm_0("push	ebp", "", len);
+
   return len;
 }

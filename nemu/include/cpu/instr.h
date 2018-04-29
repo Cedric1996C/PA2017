@@ -25,5 +25,6 @@ extern uint8_t data_size;
 int jmp_rel_v(uint32_t eip, uint8_t opcode);
 int cmp_i2rm_bv(uint32_t eip, uint8_t opcode);
 int push_ebp_v(uint32_t eip, uint8_t opcode);
+int call_rel_v(uint32_t eip, uint8_t opcode);
 
 #endif
