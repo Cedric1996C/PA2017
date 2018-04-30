@@ -9,7 +9,7 @@ make_instr_func(call_rel_v)
 
   temp_eip.type = OPR_MEM;
   temp_eip.data_size = data_size;
-  print_asm_1("call","",len,&temp_eip);
+  print_asm_0("call","",len);
   temp_eip.val = cpu.eip;
   temp_eip.addr = cpu.esp;
   operand_write(&temp_eip);
