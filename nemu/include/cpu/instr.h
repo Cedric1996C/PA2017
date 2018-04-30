@@ -27,6 +27,6 @@ int cmp_i2rm_bv(uint32_t eip, uint8_t opcode);
 int push_ebp_v(uint32_t eip, uint8_t opcode);
 int call_rel_v(uint32_t eip, uint8_t opcode);
 int ret_v(uint32_t eip, uint8_t opcode);
-int add_i2r_v(uint32_t eip, uint8_t opcode);
+int add_i2rm_v(uint32_t eip, uint8_t opcode);
 
 #endif
