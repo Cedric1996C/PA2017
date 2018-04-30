@@ -9,7 +9,6 @@ make_instr_func(ret_v)
   rel.addr = cpu.esp;
   rel.data_size = data_size;
   operand_read(&rel);
-  print_asm_1("ret", "", 0, &rel);
   if(data_size == 16){
     cpu.eip = rel.val & 0x0000ffff;
   } else {
