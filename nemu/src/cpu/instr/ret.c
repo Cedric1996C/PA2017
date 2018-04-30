@@ -1,6 +1,6 @@
 #include "cpu/instr.h"
 
-make_instr_func(ret_V)
+make_instr_func(ret_v)
 {
   OPERAND rel;
   cpu.esp -= data_size / 8;
