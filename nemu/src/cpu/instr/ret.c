@@ -3,7 +3,7 @@
 make_instr_func(ret_v)
 {
   OPERAND rel;
-  cpu.esp -= data_size / 8;
+  cpu.esp += data_size / 8;
 
   rel.type = OPR_MEM;
   rel.addr = cpu.esp;
