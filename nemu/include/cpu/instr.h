@@ -43,5 +43,6 @@ int push_edx_v(uint32_t eip, uint8_t opcode);
 int push_eax_v(uint32_t eip, uint8_t opcode);
 int add_i2eax_v(uint32_t eip, uint8_t opcode);
 int add_r2rm_v(uint32_t eip, uint8_t opcode);
+int leave_v(uint32_t eip, uint8_t opcode);
 
 #endif
