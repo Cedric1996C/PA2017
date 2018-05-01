@@ -29,5 +29,6 @@ int call_rel_v(uint32_t eip, uint8_t opcode);
 int ret_v(uint32_t eip, uint8_t opcode);
 int add_i2rm_v(uint32_t eip, uint8_t opcode);
 int test_r2rm_v(uint32_t eip, uint8_t opcode);
+int jz_b(uint32_t eip, uint8_t opcode);
 
 #endif
