@@ -10,7 +10,7 @@ make_instr_func(test_r2rm_v)
   len += modrm_r_rm(eip, &reg, &rm);
   operand_read(&reg);
   operand_read(&rm);
-  print_asm_2("test", "", len, &reg, &rm);
+  // print_asm_2("test", "", len, &reg, &rm);
   alu_add(reg.val, rm.val);
   
   return len;
