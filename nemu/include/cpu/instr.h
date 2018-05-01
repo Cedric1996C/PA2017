@@ -34,5 +34,6 @@ int jnle_b(uint32_t eip, uint8_t opcode);
 int add_rm2r_b(uint32_t eip, uint8_t opcode);
 
 int push_ebx_v(uint32_t eip, uint8_t opcode);
+int sub_esp_v(uint32_t eip, uint8_t opcode);
 
 #endif
