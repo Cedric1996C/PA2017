@@ -16,3 +16,20 @@ make_instr_func(push_ebp_v)
 
   return len;
 }
+
+make_instr_func(push_ebx_v)
+{
+  OPERAND temp_ebx;
+  cpu.esp -= data_size / 8;
+  int len = 1;
+
+  temp_ebx.type = OPR_MEM;
+  temp_ebx.data_size = data_size;
+  temp_ebx.val = cpu.ebx;
+  // temp_ebp.sreg = SREG_SS;
+  temp_ebx.addr = cpu.esp;
+
+  operand_write(&temp_ebx);
+
+  return len;
+}
