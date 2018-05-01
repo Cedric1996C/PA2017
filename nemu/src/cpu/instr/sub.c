@@ -13,6 +13,7 @@ make_instr_func(sub_i2rm_bv)
   imm.data_size = data_size;
   imm.addr = eip + len;
   operand_read(&imm);
+  len += 1;
 
   alu_sub(imm.val, rm.val);
   operand_write(&rm);
