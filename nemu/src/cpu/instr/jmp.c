@@ -46,6 +46,8 @@ make_instr_func(jz_b)
         operand_read(&imm);
 
         len += data_size / 8;
+        
+        print_asm_1("jz", "", len, &imm);
 
         if (cpu.eflags.ZF == 1)
                 len += (int32_t)(imm.val << 16) >> 16;
