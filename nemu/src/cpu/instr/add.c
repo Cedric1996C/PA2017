@@ -4,7 +4,7 @@ make_instr_func(add_i2rm_v)
 {
   OPERAND imm, rm;
   int len = 1;
-  int data_byte = data_size / 8;
+  // int data_byte = data_size / 8;
   len += modrm_opcode_rm(eip + 1, &opcode, &rm);
 
   imm.type = OPR_IMM;
