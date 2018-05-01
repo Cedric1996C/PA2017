@@ -11,5 +11,7 @@ make_instr_func(leave_v){
   operand_read(&ebp);
 
   cpu.ebp = ebp.val;
+  cpu.esp += data_size / 8;
+  
   return len;
 }
