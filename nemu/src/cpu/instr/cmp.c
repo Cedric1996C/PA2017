@@ -2,7 +2,7 @@
 
 make_instr_func(cmp_r2rm_v)
 {
-  APERAND reg, rm;
+  OPERAND reg, rm;
   int len = 1;
   reg.data_size = data_size;
   rm.data_size = data_size;
