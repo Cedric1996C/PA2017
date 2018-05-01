@@ -58,7 +58,7 @@ make_instr_func(add_i2eax_v)
   return len;
 }
 
-ake_instr_func(add_r2rm_v)
+make_instr_func(add_r2rm_v)
 {
   OPERAND reg, rm;
   int len = 1;
