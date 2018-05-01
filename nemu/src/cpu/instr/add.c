@@ -83,8 +83,9 @@ make_instr_func(add_i2rm_v)
   operand_read(&rm);
 
   imm.type = OPR_IMM;
-  imm.data_size = data_size;
+  imm.data_size = 8;
   imm.addr = eip + len;
+  len += 1;
   operand_read(&imm);
 
   alu_add(imm.val, rm.val);
