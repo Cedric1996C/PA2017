@@ -32,6 +32,7 @@ int test_r2rm_v(uint32_t eip, uint8_t opcode);
 int jz_b(uint32_t eip, uint8_t opcode);
 int jnle_b(uint32_t eip, uint8_t opcode);
 int jle_b(uint32_t eip, uint8_t opcode);
+int jne_b(uint32_t eip, uint8_t opcode);
 int add_rm2r_b(uint32_t eip, uint8_t opcode);
 
 int push_ebx_v(uint32_t eip, uint8_t opcode);
