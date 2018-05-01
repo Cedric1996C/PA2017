@@ -14,7 +14,7 @@ make_instr_func(add_i2rm_v)
 
   rm.data_size = data_size;
   operand_read(&rm);
-  print_asm_2("add", "", len + data_byte, &imm, &rm);
+  print_asm_2("add", "", len, &imm, &rm);
   rm.val = alu_add(imm.val, rm.val);
 
   return len;
