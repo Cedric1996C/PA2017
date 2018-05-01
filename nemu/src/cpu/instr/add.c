@@ -74,7 +74,7 @@ make_instr_func(add_r2rm_v)
   return len;
 }
 
-make_instr_func(add_i2rm_v)
+make_instr_func(add_i2rm_bv)
 {
   OPERAND rm, imm;
   int len = 1;
