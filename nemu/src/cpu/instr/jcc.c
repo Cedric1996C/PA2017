@@ -109,3 +109,23 @@ make_instr_func(jne_b)
 
 	return len;
 }
+
+make_instr_func(jbe_b)
+{
+	OPERAND imm;
+	int len = 1;
+
+	imm.type = OPR_IMM;
+	imm.data_size = 8;
+	imm.addr = eip + 1;
+	operand_read(&imm);
+
+	len += 1;
+
+	print_asm_1("jne", "", len, &imm);
+
+	if (cpu.eflags.CF == 1 || cpu.eflags.ZF == 1)
+		len += (int8_t)imm.val;
+
+	return len;
+}
