@@ -1,4 +1,4 @@
-# include "cpu/instr"
+#include "cpu/instr.h"
 
 make_instr_func(sub_i2rm_bv)
 {
