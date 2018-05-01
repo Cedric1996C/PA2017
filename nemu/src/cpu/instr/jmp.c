@@ -34,24 +34,3 @@ make_instr_func(jmp_rel_v)
                 len += imm.val;
         return len;
 }
-
-make_instr_func(jz_b)
-{
-        OPERAND imm;
-        int len = 1;
-
-        imm.type = OPR_IMM;
-        imm.data_size = data_size;
-        imm.addr = eip + 1;
-        operand_read(&imm);
-
-        len += data_size / 8;
-        
-        print_asm_1("jz", "", len, &imm);
-
-        if (cpu.eflags.ZF == 1)
-                len += (int32_t)(imm.val << 16) >> 16;
-        else
-                len += imm.val;
-        return len;
-}
