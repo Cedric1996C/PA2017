@@ -36,3 +36,24 @@ make_instr_func(add_rm2r_b)
 
   return len;
 }
+
+make_instr_func(add_i2r_v)
+{
+  OPERAND reg, imm;
+  int len = 1 + data_size / 8;
+
+  reg.type = OPR_REG;
+  reg.data_size = data_size;
+  reg.addr = cpu.eax;
+  operand_read(&reg);
+
+  imm.type = OPR_IMM;
+  imm.data_size = data_size;
+  imm.addr = eip+1;
+  operand_read(&imm);
+
+  alu_add(imm.val, reg.val);
+  operand_write(&reg);
+
+  return len;
+}

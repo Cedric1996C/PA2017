@@ -41,5 +41,6 @@ int jmp_rel_b(uint32_t eip, uint8_t opcode);
 int jbe_b(uint32_t eip, uint8_t opcode);
 int push_edx_v(uint32_t eip, uint8_t opcode);
 int push_eax_v(uint32_t eip, uint8_t opcode);
+int add_i2r_v(uint32_t eip, uint8_t opcode);
 
 #endif
