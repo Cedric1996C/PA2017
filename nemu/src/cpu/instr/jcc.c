@@ -65,7 +65,7 @@ make_instr_func(jnle_b)
 	print_asm_1("jnle", "", len, &imm);
 
 	if (cpu.eflags.ZF == 0 && cpu.eflags.SF == cpu.eflags.OF)
-		len += (int8_t)imm.val;
+		// len += (int8_t)imm.val;
 
 	return len;
 }
