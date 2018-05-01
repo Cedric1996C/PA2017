@@ -19,3 +19,20 @@ make_instr_func(add_i2rm_v)
 
   return len+data_byte;
 }
+
+make_instr_func(add_rm2r_b)
+{
+  OPERAND reg, rm;
+  int len = 1;
+  reg.data_size = 8;
+  rm.data_size = 8;
+  len += modrm_r_rm(eip+1, &reg, &rm);
+
+  operand_read(&reg);
+  operand_read(&rm);
+
+  alu_add(rm.val, reg.val);
+  operand_write(&reg);
+
+  return len;
+}
