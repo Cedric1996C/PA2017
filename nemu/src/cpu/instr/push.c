@@ -22,7 +22,7 @@ make_instr_func(push_rm_v)
 
   reg.type = OPR_MEM;
   reg.data_size = data_size;
-  reg.val = rm.val
+  reg.val = rm.val;
   reg.addr = cpu.esp;
   operand_write(&reg);
 
