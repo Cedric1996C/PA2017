@@ -10,8 +10,6 @@ static void instr_execute_1op_push()
   reg.val = opr_src.val;
   reg.addr = cpu.esp;
   operand_write(&reg);
-  print_asm_1("pushl", "", len, &rm);
-  operand_write(&opr_src);
 }
 
 make_instr_impl_1op_push(rm, v);
