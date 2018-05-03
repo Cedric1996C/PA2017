@@ -32,7 +32,7 @@ make_instr_func(add_rm2r_b)
   operand_read(&reg);
   operand_read(&rm);
 
-  alu_add(rm.val, reg.val);
+  reg.val = alu_add(rm.val, reg.val);
   operand_write(&reg);
 
   return len;
@@ -53,7 +53,7 @@ make_instr_func(add_i2eax_v)
   imm.addr = eip+1;
   operand_read(&imm);
 
-  alu_add(imm.val, reg.val);
+  reg.val = alu_add(imm.val, reg.val);
   operand_write(&reg);
 
   return len;
@@ -69,7 +69,7 @@ make_instr_func(add_r2rm_v)
   
   operand_read(&reg);
   operand_read(&rm);
-  alu_add(reg.val, rm.val);
+  rm.val = alu_add(reg.val, rm.val);
   operand_write(&rm);
 
   return len;
@@ -89,7 +89,7 @@ make_instr_func(add_i2rm_bv)
   len += 1;
   operand_read(&imm);
 
-  alu_add(imm.val, rm.val);
+  rm.val = alu_add(imm.val, rm.val);
   operand_write(&rm);
 
   return len;
