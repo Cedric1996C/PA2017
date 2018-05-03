@@ -31,8 +31,8 @@ make_instr_func(and_i2rm_bv)
   } else if(data_size == 32){
     imm.val = (uint32_t)(imm.val << 24) >> 24;
   }
-  rm.val = alu_add(imm.val, rm.val);
-  print_asm_2("add", "", len, &imm, &rm);
+  rm.val = alu_and(imm.val, rm.val);
+  print_asm_2("and", "", len, &imm, &rm);
   operand_write(&rm);
 
   return len;
