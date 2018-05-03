@@ -8,6 +8,8 @@ static void instr_execute_1op_push()
   operand_write(&opr_src);
 }
 
+make_instr_impl_1op_push(r, v);
+
 make_instr_func(push_rm_v)
 {
   OPERAND rm, reg;
