@@ -9,6 +9,4 @@ static void instr_execute_1op_inc_pass()
   operand_write(&opr_src);
 }
 
-static void instr_execute_1op_inc_fail() { /* Do nothing */};
-
 make_instr_impl_1op_inc(rm, v);
