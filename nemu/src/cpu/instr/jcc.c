@@ -29,26 +29,27 @@ jcc_helper(near)
 jcc_helper(short_)
 make_instr_impl_1op_cc(j, i, short_, ecxz)
 
+make_instr_impl_1op_cc(j, i, b, cc);
 
-make_instr_func(je_b)
-{
-	OPERAND imm;
-	int len = 1;
+// make_instr_func(je_b)
+// {
+// 	OPERAND imm;
+// 	int len = 1;
 
-	imm.type = OPR_IMM;
-	imm.data_size = 8;
-	imm.addr = eip + 1;
-	operand_read(&imm);
+// 	imm.type = OPR_IMM;
+// 	imm.data_size = 8;
+// 	imm.addr = eip + 1;
+// 	operand_read(&imm);
 
-	len += 1;
+// 	len += 1;
 	
-	print_asm_1("je", "", len, &imm);
+// 	print_asm_1("je", "", len, &imm);
 
-	if (cpu.eflags.ZF == 1)
-		len += (int8_t)imm.val;
+// 	if (cpu.eflags.ZF == 1)
+// 		len += (int8_t)imm.val;
 
-	return len;
-}
+// 	return len;
+// }
 
 make_instr_func(jnle_b)
 {
