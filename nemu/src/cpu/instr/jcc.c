@@ -30,7 +30,7 @@ jcc_helper(short_)
 make_instr_impl_1op_cc(j, i, short_, ecxz)
 
 
-make_instr_func(jz_b)
+make_instr_func(je_b)
 {
 	OPERAND imm;
 	int len = 1;
@@ -42,7 +42,7 @@ make_instr_func(jz_b)
 
 	len += 1;
 	
-	print_asm_1("jz", "", len, &imm);
+	print_asm_1("je", "", len, &imm);
 
 	if (cpu.eflags.ZF == 1)
 		len += (int8_t)imm.val;
