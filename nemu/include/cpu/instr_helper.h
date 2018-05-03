@@ -71,7 +71,7 @@ void print_asm_3(char * instr, char * suffix, uint8_t len, OPERAND * opr_1, OPER
 		int len = 1; \
 		concat(decode_data_size_, suffix) \
 		concat3(decode_operand, _, src_type) \
-		print_asm_1(#inc, len, &opr_src); \
+		print_asm_1("inc", len, &opr_src); \
 		instr_execute_1op_inc_pass(); \
 		return len; \
 	}
