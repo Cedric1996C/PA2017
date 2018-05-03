@@ -14,10 +14,10 @@ make_instr_func(push_rm_v)
 {
   OPERAND rm, reg;
   int len = 1;
-  cpu.eip -= data_size / 8;
+  cpu.esp -= data_size / 8;
 
   rm.data_size = data_size;
-  len -= modrm_opcode_rm(eip+1, &opcode, &rm);
+  len += modrm_opcode_rm(eip+1, &opcode, &rm);
   operand_read(&rm);
 
   reg.type = OPR_MEM;
