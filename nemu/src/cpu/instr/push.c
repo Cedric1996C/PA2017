@@ -19,7 +19,7 @@ make_instr_func(push_ebp_v)
 
 make_instr_func(push_ebx_v)
 {
-  OPERAND reg;
+  // OPERAND reg;
   cpu.esp -= data_size / 8;
   int len = 1;
 
