@@ -23,13 +23,13 @@ make_instr_func(push_ebx_v)
   cpu.esp -= data_size / 8;
   int len = 1;
 
-  reg.type = OPR_MEM;
-  reg.data_size = data_size;
-  reg.val = cpu.ebx;
-  // temp_ebp.sreg = SREG_SS;
-  reg.addr = cpu.esp;
+  // reg.type = OPR_MEM;
+  // reg.data_size = data_size;
+  // reg.val = cpu.ebx;
+  // // temp_ebp.sreg = SREG_SS;
+  // reg.addr = cpu.esp;
 
-  operand_write(&reg);
+  // operand_write(&reg);
 
   return len;
 }
