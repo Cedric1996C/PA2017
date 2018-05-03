@@ -43,7 +43,7 @@ void print_asm_2(char * instr, char * suffix, uint8_t len, OPERAND * opr_1, OPER
 		for(i = 0 ; i <= MAX_INSTR_BYTES - len ; i++) printf("   ");
 		printf("%s%s %s, %s ", instr, suffix,addr_str_1, addr_str_2);
 
-		printf("%d, %d\n", opr_1->val, opr_2->val); 
+		printf("%d\n", data_size); 
 	}
 }
 void print_asm_3(char * instr, char * suffix, uint8_t len, OPERAND * opr_1, OPERAND * opr_2, OPERAND * opr_3) {
