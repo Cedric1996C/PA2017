@@ -32,7 +32,7 @@ make_instr_func(and_i2rm_bv)
     imm.val = (uint32_t)(imm.val << 24) >> 24;
 
   rm.val = alu_and(imm.val, rm.val);
-  imm.data_size = data_size;
+  // imm.data_size = data_size;
   print_asm_2("and", "", len, &imm, &rm);
   operand_write(&rm);
   cpu.eflags.OF = 0;
