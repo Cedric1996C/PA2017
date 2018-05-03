@@ -24,6 +24,7 @@ make_instr_func(and_i2rm_bv)
   imm.type = OPR_IMM;
   imm.addr = eip+len;
   operand_read(&imm);
+  imm.data_size = data_size;
   len += 1;
 
   if(data_size == 16){
@@ -34,6 +35,8 @@ make_instr_func(and_i2rm_bv)
   rm.val = alu_and(imm.val, rm.val);
   print_asm_2("and", "", len, &imm, &rm);
   operand_write(&rm);
+  cpu.eflags.OF = 0;
+  cpu.eflags.CF = 0;
 
   return len;
 }
