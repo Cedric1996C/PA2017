@@ -37,14 +37,14 @@ make_instr_func(jmp_rel_v)
 
 make_instr_func(jmp_rel_b)
 {
-  // OPERAND imm;
+  OPERAND imm;
 
   int len = 1;
-  // imm.type = OPR_IMM;
-  // imm.addr = eip + len;
-  // len += 1;
-  // imm.data_size = 8;
-  // operand_read(&imm);
-  // len += (uint8_t)imm.val;
+  imm.type = OPR_IMM;
+  imm.addr = eip + len;
+  len += 1;
+  imm.data_size = 8;
+  operand_read(&imm);
+  len += (uint8_t)imm.val;
   return len;
 }
