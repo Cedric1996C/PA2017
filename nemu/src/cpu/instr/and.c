@@ -26,6 +26,7 @@ make_instr_func(and_i2rm_bv)
   operand_read(&imm);
   len += 1;
   imm.data_size = data_size;
+  imm.val = (uint32_t)(imm.val << 24) >> 24;
 
   if(data_size == 16)
     imm.val = (uint16_t)(imm.val << 8) >> 8;
