@@ -29,7 +29,7 @@ jcc_helper(near)
 jcc_helper(short_)
 make_instr_impl_1op_cc(j, i, short_, ecxz)
 
-make_instr_impl_1op_cc(j, i, b, cc);
+make_instr_impl_1op_cc(j, i, b, e);
 
 // make_instr_func(je_b)
 // {
