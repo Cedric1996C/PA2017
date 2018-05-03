@@ -49,4 +49,6 @@ int lea_rm2r_v(uint32_t eip, uint8_t opcode);
 int cmp_r2rm_v(uint32_t eip, uint8_t opcode);
 int inc_rm_v(uint32_t eip, uint8_t opcode);
 
+int and_i2rm_bv(uint32_t eip, uint8_t opcode);
+
 #endif
