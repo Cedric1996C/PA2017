@@ -25,6 +25,7 @@ make_instr_func(push_rm_v)
   reg.val = rm.val;
   reg.addr = cpu.esp;
   operand_write(&reg);
+  print_asm_1("pushl", "", len, &rm);
 
   return len;
 }
