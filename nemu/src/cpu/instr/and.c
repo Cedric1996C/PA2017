@@ -26,12 +26,12 @@ make_instr_func(and_i2rm_bv)
   operand_read(&imm);
   imm.data_size = data_size;
   len += 1;
-  print_asm_2("and", "", len, &imm, &rm);
-  if(data_size == 16){
+
+  if(data_size == 16)
     imm.val = (uint16_t)(imm.val << 8) >> 8;
-  } else if(data_size == 32){
+  else
     imm.val = (uint32_t)(imm.val << 24) >> 24;
-  }
+    
   rm.val = alu_and(imm.val, rm.val);
   print_asm_2("and", "", len, &imm, &rm);
   operand_write(&rm);
