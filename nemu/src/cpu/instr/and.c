@@ -25,7 +25,6 @@ make_instr_func(and_i2rm_bv)
   imm.addr = eip+len;
   operand_read(&imm);
   len += 1;
-  print_asm_2("add", "", len, &imm, &rm);
 
   if(data_size == 16){
     imm.val = (uint16_t)(imm.val << 8) >> 8;
@@ -33,6 +32,7 @@ make_instr_func(and_i2rm_bv)
     imm.val = (uint32_t)(imm.val << 24) >> 24;
   }
   rm.val = alu_add(imm.val, rm.val);
+  print_asm_2("add", "", len, &imm, &rm);
   operand_write(&rm);
 
   return len;
