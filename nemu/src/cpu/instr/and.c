@@ -10,7 +10,7 @@ static void instr_execute_2op_and()
   cpu.eflags.CF = 0;
 }
 
-// make_instr_impl_2op_and(i, rm, bv);
+make_instr_impl_2op_and(i, rm, bv);
 
 make_instr_func(and_i2rm_bv)
 {
