@@ -11,7 +11,7 @@ make_instr_func(cmp_r2rm_v)
   operand_read(&reg);
   operand_read(&rm);
 
-  alu_sub(reg.val, rm.val);
+  rm.val = alu_sub(reg.val, rm.val);
   print_asm_2("cmp", "", len, &reg, &rm);
 
   return len;
