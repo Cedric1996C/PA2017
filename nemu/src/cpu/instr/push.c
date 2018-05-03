@@ -1,5 +1,15 @@
 #include "cpu/instr.h"
 
+static void instr_execute_1op_push()
+{
+  cpu.eip -= data_size / 8;
+  opr_src.val = opr_src.addr;
+  opr_src.addr = cpu.esp;
+  operand_write(&opr_src);
+}
+
+make_instr_impl_1op_push(rm, v);
+
 make_instr_func(push_ebp_v)
 {
   OPERAND reg;
