@@ -24,7 +24,7 @@ make_instr_func(and_i2rm_bv)
   imm.type = OPR_IMM;
   imm.addr = eip+len;
   operand_read(&imm);
-  // imm.data_size = data_size;
+  imm.data_size = 32;
   len += 1;
 
   if(data_size == 16)
