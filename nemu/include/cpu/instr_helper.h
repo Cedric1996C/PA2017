@@ -117,8 +117,7 @@ void print_asm_3(char * instr, char * suffix, uint8_t len, OPERAND * opr_1, OPER
 		print_asm_1("dec","", len, &opr_src); \
 		return len; \
 	}
-// macro for generating the implementation of an instruction with one operand and condition
-// for inc, the opcode type are always fixed so it will not appear in the function name
+
 #define make_instr_impl_1op_inc(src_type, suffix) \
 	make_instr_func(concat5(inc, _, src_type, _, suffix)) {\
 		int len = 1; \
@@ -126,6 +125,17 @@ void print_asm_3(char * instr, char * suffix, uint8_t len, OPERAND * opr_1, OPER
 		concat3(decode_operand, _, src_type) \
 		print_asm_1("incl","", len, &opr_src); \
 		instr_execute_1op_inc(); \
+		return len; \
+	}
+
+#define make_instr_impl_1op_inc_reg(reg, suffix) \
+	make_instr_func(concat5(inc, _, reg, _, suffix)) {\
+		int len = 1; \
+		concat(decode_data_size_, suffix) \
+		opr_src.val = cpu.reg; \
+		instr_execute_1op_inc_reg(); \
+		cpu.reg = opr_src.val; \
+		print_asm_1("inc","", len, &opr_src); \
 		return len; \
 	}
 
