@@ -62,4 +62,6 @@ int pop_ebp_v(uint32_t eip, uint8_t opcode);
 int xor_r2rm_v(uint32_t eip, uint8_t opcode);
 int or_r2rm_v(uint32_t eip, uint8_t opcode);
 
+int cmp_i2rm_v(uint32_t eip, uint8_t opcode);
+
 #endif
