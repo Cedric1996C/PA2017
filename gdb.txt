@@ -78,3 +78,169 @@ Dump of assembler code for function bubble_sort:
    0x0003008c <+135>:	c9	leave  
    0x0003008d <+136>:	c3	ret    
 End of assembler dump.
+Dump of assembler code for function main:
+   0x00030144 <+0>:	8d 4c 24 04	lea    0x4(%esp),%ecx
+   0x00030148 <+4>:	83 e4 f0	and    $0xfffffff0,%esp
+   0x0003014b <+7>:	ff 71 fc	pushl  -0x4(%ecx)
+   0x0003014e <+10>:	55	push   %ebp
+   0x0003014f <+11>:	89 e5	mov    %esp,%ebp
+   0x00030151 <+13>:	53	push   %ebx
+   0x00030152 <+14>:	51	push   %ecx
+   0x00030153 <+15>:	83 ec 10	sub    $0x10,%esp
+   0x00030156 <+18>:	e8 99 00 00 00	call   0x301f4 <__x86.get_pc_thunk.bx>
+   0x0003015b <+23>:	81 c3 a5 1e 00 00	add    $0x1ea5,%ebx
+   0x00030161 <+29>:	83 ec 04	sub    $0x4,%esp
+   0x00030164 <+32>:	6a 63	push   $0x63
+   0x00030166 <+34>:	6a 00	push   $0x0
+   0x00030168 <+36>:	8d 83 20 00 00 00	lea    0x20(%ebx),%eax
+   0x0003016e <+42>:	50	push   %eax
+   0x0003016f <+43>:	e8 73 ff ff ff	call   0x300e7 <quick_sort>
+   0x00030174 <+48>:	83 c4 10	add    $0x10,%esp
+   0x00030177 <+51>:	c7 45 f4 00 00 00 00	movl   $0x0,-0xc(%ebp)
+   0x0003017e <+58>:	eb 18	jmp    0x30198 <main+84>
+   0x00030180 <+60>:	8b 45 f4	mov    -0xc(%ebp),%eax
+   0x00030183 <+63>:	8b 84 83 20 00 00 00	mov    0x20(%ebx,%eax,4),%eax
+   0x0003018a <+70>:	3b 45 f4	cmp    -0xc(%ebp),%eax
+   0x0003018d <+73>:	74 06	je     0x30195 <main+81>
+   0x0003018f <+75>:	b8 01 00 00 00	mov    $0x1,%eax
+   0x00030194 <+80>:	82	(bad)  
+   0x00030195 <+81>:	ff 45 f4	incl   -0xc(%ebp)
+   0x00030198 <+84>:	83 7d f4 63	cmpl   $0x63,-0xc(%ebp)
+   0x0003019c <+88>:	7e e2	jle    0x30180 <main+60>
+   0x0003019e <+90>:	83 ec 04	sub    $0x4,%esp
+   0x000301a1 <+93>:	6a 63	push   $0x63
+   0x000301a3 <+95>:	6a 00	push   $0x0
+   0x000301a5 <+97>:	8d 83 20 00 00 00	lea    0x20(%ebx),%eax
+   0x000301ab <+103>:	50	push   %eax
+   0x000301ac <+104>:	e8 36 ff ff ff	call   0x300e7 <quick_sort>
+   0x000301b1 <+109>:	83 c4 10	add    $0x10,%esp
+   0x000301b4 <+112>:	c7 45 f4 00 00 00 00	movl   $0x0,-0xc(%ebp)
+   0x000301bb <+119>:	eb 18	jmp    0x301d5 <main+145>
+   0x000301bd <+121>:	8b 45 f4	mov    -0xc(%ebp),%eax
+   0x000301c0 <+124>:	8b 84 83 20 00 00 00	mov    0x20(%ebx,%eax,4),%eax
+   0x000301c7 <+131>:	3b 45 f4	cmp    -0xc(%ebp),%eax
+   0x000301ca <+134>:	74 06	je     0x301d2 <main+142>
+   0x000301cc <+136>:	b8 01 00 00 00	mov    $0x1,%eax
+   0x000301d1 <+141>:	82	(bad)  
+   0x000301d2 <+142>:	ff 45 f4	incl   -0xc(%ebp)
+   0x000301d5 <+145>:	83 7d f4 63	cmpl   $0x63,-0xc(%ebp)
+   0x000301d9 <+149>:	7e e2	jle    0x301bd <main+121>
+   0x000301db <+151>:	b8 00 00 00 00	mov    $0x0,%eax
+   0x000301e0 <+156>:	82	(bad)  
+   0x000301e1 <+157>:	b8 00 00 00 00	mov    $0x0,%eax
+   0x000301e6 <+162>:	8d 65 f8	lea    -0x8(%ebp),%esp
+   0x000301e9 <+165>:	59	pop    %ecx
+   0x000301ea <+166>:	5b	pop    %ebx
+   0x000301eb <+167>:	5d	pop    %ebp
+   0x000301ec <+168>:	8d 61 fc	lea    -0x4(%ecx),%esp
+   0x000301ef <+171>:	c3	ret    
+End of assembler dump.
+Dump of assembler code for function quick_sort:
+   0x000300e7 <+0>:	55	push   %ebp
+   0x000300e8 <+1>:	89 e5	mov    %esp,%ebp
+   0x000300ea <+3>:	83 ec 18	sub    $0x18,%esp
+   0x000300ed <+6>:	e8 fe 00 00 00	call   0x301f0 <__x86.get_pc_thunk.ax>
+   0x000300f2 <+11>:	05 0e 1f 00 00	add    $0x1f0e,%eax
+   0x000300f7 <+16>:	8b 45 0c	mov    0xc(%ebp),%eax
+   0x000300fa <+19>:	3b 45 10	cmp    0x10(%ebp),%eax
+   0x000300fd <+22>:	7d 42	jge    0x30141 <quick_sort+90>
+   0x000300ff <+24>:	ff 75 10	pushl  0x10(%ebp)
+   0x00030102 <+27>:	ff 75 0c	pushl  0xc(%ebp)
+   0x00030105 <+30>:	ff 75 08	pushl  0x8(%ebp)
+   0x00030108 <+33>:	e8 f8 fe ff ff	call   0x30005 <partition>
+   0x0003010d <+38>:	83 c4 0c	add    $0xc,%esp
+   0x00030110 <+41>:	89 45 f4	mov    %eax,-0xc(%ebp)
+   0x00030113 <+44>:	8b 45 f4	mov    -0xc(%ebp),%eax
+   0x00030116 <+47>:	48	dec    %eax
+   0x00030117 <+48>:	83 ec 04	sub    $0x4,%esp
+   0x0003011a <+51>:	50	push   %eax
+   0x0003011b <+52>:	ff 75 0c	pushl  0xc(%ebp)
+   0x0003011e <+55>:	ff 75 08	pushl  0x8(%ebp)
+   0x00030121 <+58>:	e8 c1 ff ff ff	call   0x300e7 <quick_sort>
+   0x00030126 <+63>:	83 c4 10	add    $0x10,%esp
+   0x00030129 <+66>:	8b 45 f4	mov    -0xc(%ebp),%eax
+   0x0003012c <+69>:	40	inc    %eax
+   0x0003012d <+70>:	83 ec 04	sub    $0x4,%esp
+   0x00030130 <+73>:	ff 75 10	pushl  0x10(%ebp)
+   0x00030133 <+76>:	50	push   %eax
+   0x00030134 <+77>:	ff 75 08	pushl  0x8(%ebp)
+   0x00030137 <+80>:	e8 ab ff ff ff	call   0x300e7 <quick_sort>
+   0x0003013c <+85>:	83 c4 10	add    $0x10,%esp
+   0x0003013f <+88>:	eb 01	jmp    0x30142 <quick_sort+91>
+   0x00030141 <+90>:	90	nop
+   0x00030142 <+91>:	c9	leave  
+   0x00030143 <+92>:	c3	ret    
+End of assembler dump.
+Dump of assembler code for function partition:
+   0x00030005 <+0>:	55	push   %ebp
+   0x00030006 <+1>:	89 e5	mov    %esp,%ebp
+   0x00030008 <+3>:	83 ec 10	sub    $0x10,%esp
+   0x0003000b <+6>:	e8 e0 01 00 00	call   0x301f0 <__x86.get_pc_thunk.ax>
+   0x00030010 <+11>:	05 f0 1f 00 00	add    $0x1ff0,%eax
+   0x00030015 <+16>:	8b 45 0c	mov    0xc(%ebp),%eax
+   0x00030018 <+19>:	8d 14 85 00 00 00 00	lea    0x0(,%eax,4),%edx
+   0x0003001f <+26>:	8b 45 08	mov    0x8(%ebp),%eax
+   0x00030022 <+29>:	01 d0	add    %edx,%eax
+   0x00030024 <+31>:	8b 00	mov    (%eax),%eax
+   0x00030026 <+33>:	89 45 f4	mov    %eax,-0xc(%ebp)
+   0x00030029 <+36>:	8b 45 0c	mov    0xc(%ebp),%eax
+   0x0003002c <+39>:	89 45 fc	mov    %eax,-0x4(%ebp)
+   0x0003002f <+42>:	8b 45 10	mov    0x10(%ebp),%eax
+   0x00030032 <+45>:	89 45 f8	mov    %eax,-0x8(%ebp)
+   0x00030035 <+48>:	e9 88 00 00 00	jmp    0x300c2 <partition+189>
+   0x0003003a <+53>:	ff 4d f8	decl   -0x8(%ebp)
+   0x0003003d <+56>:	8b 45 fc	mov    -0x4(%ebp),%eax
+   0x00030040 <+59>:	3b 45 f8	cmp    -0x8(%ebp),%eax
+   0x00030043 <+62>:	7d 16	jge    0x3005b <partition+86>
+   0x00030045 <+64>:	8b 45 f8	mov    -0x8(%ebp),%eax
+   0x00030048 <+67>:	8d 14 85 00 00 00 00	lea    0x0(,%eax,4),%edx
+   0x0003004f <+74>:	8b 45 08	mov    0x8(%ebp),%eax
+   0x00030052 <+77>:	01 d0	add    %edx,%eax
+   0x00030054 <+79>:	8b 00	mov    (%eax),%eax
+   0x00030056 <+81>:	3b 45 f4	cmp    -0xc(%ebp),%eax
+   0x00030059 <+84>:	7f df	jg     0x3003a <partition+53>
+   0x0003005b <+86>:	8b 45 fc	mov    -0x4(%ebp),%eax
+   0x0003005e <+89>:	8d 14 85 00 00 00 00	lea    0x0(,%eax,4),%edx
+   0x00030065 <+96>:	8b 45 08	mov    0x8(%ebp),%eax
+   0x00030068 <+99>:	01 c2	add    %eax,%edx
+   0x0003006a <+101>:	8b 45 f8	mov    -0x8(%ebp),%eax
+   0x0003006d <+104>:	8d 0c 85 00 00 00 00	lea    0x0(,%eax,4),%ecx
+   0x00030074 <+111>:	8b 45 08	mov    0x8(%ebp),%eax
+   0x00030077 <+114>:	01 c8	add    %ecx,%eax
+   0x00030079 <+116>:	8b 00	mov    (%eax),%eax
+   0x0003007b <+118>:	89 02	mov    %eax,(%edx)
+   0x0003007d <+120>:	eb 03	jmp    0x30082 <partition+125>
+   0x0003007f <+122>:	ff 45 fc	incl   -0x4(%ebp)
+   0x00030082 <+125>:	8b 45 fc	mov    -0x4(%ebp),%eax
+   0x00030085 <+128>:	3b 45 f8	cmp    -0x8(%ebp),%eax
+   0x00030088 <+131>:	7d 16	jge    0x300a0 <partition+155>
+   0x0003008a <+133>:	8b 45 fc	mov    -0x4(%ebp),%eax
+   0x0003008d <+136>:	8d 14 85 00 00 00 00	lea    0x0(,%eax,4),%edx
+   0x00030094 <+143>:	8b 45 08	mov    0x8(%ebp),%eax
+   0x00030097 <+146>:	01 d0	add    %edx,%eax
+   0x00030099 <+148>:	8b 00	mov    (%eax),%eax
+   0x0003009b <+150>:	3b 45 f4	cmp    -0xc(%ebp),%eax
+   0x0003009e <+153>:	7e df	jle    0x3007f <partition+122>
+   0x000300a0 <+155>:	8b 45 f8	mov    -0x8(%ebp),%eax
+   0x000300a3 <+158>:	8d 14 85 00 00 00 00	lea    0x0(,%eax,4),%edx
+   0x000300aa <+165>:	8b 45 08	mov    0x8(%ebp),%eax
+   0x000300ad <+168>:	01 c2	add    %eax,%edx
+   0x000300af <+170>:	8b 45 fc	mov    -0x4(%ebp),%eax
+   0x000300b2 <+173>:	8d 0c 85 00 00 00 00	lea    0x0(,%eax,4),%ecx
+   0x000300b9 <+180>:	8b 45 08	mov    0x8(%ebp),%eax
+   0x000300bc <+183>:	01 c8	add    %ecx,%eax
+   0x000300be <+185>:	8b 00	mov    (%eax),%eax
+   0x000300c0 <+187>:	89 02	mov    %eax,(%edx)
+   0x000300c2 <+189>:	8b 45 fc	mov    -0x4(%ebp),%eax
+   0x000300c5 <+192>:	3b 45 f8	cmp    -0x8(%ebp),%eax
+   0x000300c8 <+195>:	0f 8c 6f ff ff ff	jl     0x3003d <partition+56>
+   0x000300ce <+201>:	8b 45 fc	mov    -0x4(%ebp),%eax
+   0x000300d1 <+204>:	8d 14 85 00 00 00 00	lea    0x0(,%eax,4),%edx
+   0x000300d8 <+211>:	8b 45 08	mov    0x8(%ebp),%eax
+   0x000300db <+214>:	01 c2	add    %eax,%edx
+   0x000300dd <+216>:	8b 45 f4	mov    -0xc(%ebp),%eax
+   0x000300e0 <+219>:	89 02	mov    %eax,(%edx)
+   0x000300e2 <+221>:	8b 45 fc	mov    -0x4(%ebp),%eax
+   0x000300e5 <+224>:	c9	leave  
+   0x000300e6 <+225>:	c3	ret    
+End of assembler dump.
