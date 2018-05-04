@@ -111,8 +111,9 @@ void print_asm_3(char * instr, char * suffix, uint8_t len, OPERAND * opr_1, OPER
 #define make_instr_impl_1op_dec_reg(reg, suffix) \
 	make_instr_func(concat5(dec, _, reg, _, suffix)) {\
 		int len = 1; \
-		opr_src.addr = cpu.reg; \
+		opr_src.val = cpu.reg; \
 		instr_execute_1op_dec_reg(); \
+		cpu.reg = opr_src.val; \
 		print_asm_1("dec","", len, &opr_src); \
 		return len; \
 	}
