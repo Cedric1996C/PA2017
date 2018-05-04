@@ -123,7 +123,7 @@ make_instr_func(jbe_b)
 
 	len += 1;
 
-	print_asm_1("jne", "", len, &imm);
+	print_asm_1("jbe", "", len, &imm);
 
 	if (cpu.eflags.CF == 1 || cpu.eflags.ZF == 1)
 		len += (int8_t)imm.val;
