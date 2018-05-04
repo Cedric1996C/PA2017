@@ -108,6 +108,16 @@ void print_asm_3(char * instr, char * suffix, uint8_t len, OPERAND * opr_1, OPER
 		return len; \
 	}
 
+#define make_instr_impl_1op_dec(src_type, suffix) \
+	make_instr_func(concat5(dec, _, src_type, _, suffix)) {\
+		int len = 1; \
+		concat(decode_data_size_, suffix) \
+		concat3(decode_operand, _, src_type) \
+		print_asm_1("dec","", len, &opr_src); \
+		instr_execute_1op_dev(); \
+		return len; \
+	}
+
 #define make_instr_impl_1op_dec_reg(reg, suffix) \
 	make_instr_func(concat5(dec, _, reg, _, suffix)) {\
 		int len = 1; \
