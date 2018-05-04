@@ -4,11 +4,12 @@ static void instr_execute_2op_adc()
 {
   operand_read(&opr_src);
   operand_read(&opr_dest);
-  opr_dest = alu_adc(opr_src.val, opr_dest.val);
+  opr_dest.val = alu_adc(opr_src.val, opr_dest.val);
   operand_write(&opr_dest);
 }
 
-make_instr_impl_2op_adc(adc, r, rm ,v); 
+make_instr_impl_2op_adc(adc, r, rm ,v);
+
 // make_instr_func(adc_r2rm_v)
 // {
 //   OPERAND reg, rm;
