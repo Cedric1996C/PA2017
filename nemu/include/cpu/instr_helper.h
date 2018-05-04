@@ -100,8 +100,10 @@ void print_asm_3(char * instr, char * suffix, uint8_t len, OPERAND * opr_1, OPER
 	make_instr_func(concat5(pop, _, reg, _, suffix)) {\
 		int len = 1; \
 		instr_execute_1op_pop_reg(); \
-		opr_src.addr = cpu.reg;\
-		operand_write(&opr_src);\
+		if(data_size == 16)\
+			cpu.reg = (opr_src.val & 0xffff) | (cpu.reg & 0xffff0000);\
+		else\
+			cpu.reg = opr_src.val;\
 		print_asm_1("pop","", len, &opr_src); \
 		return len; \
 	}

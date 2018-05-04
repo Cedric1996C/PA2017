@@ -14,12 +14,12 @@
 
 static void instr_execute_1op_pop_reg()
 {
-  cpu.esp += data_size / 8;
   opr_src.type = OPR_MEM;
   opr_src.data_size = data_size;
   // temp_ebp.sreg = SREG_SS;
-  opr_src.val = cpu.esp;
-  // cpu.esp += data_size / 8;
+  opr_src.addr = cpu.esp;
+  operand_read(&opr_src);
+  cpu.esp += data_size / 8;
 }
 
 make_instr_impl_1op_pop_reg(ebx, v);
