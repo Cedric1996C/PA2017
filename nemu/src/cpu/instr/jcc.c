@@ -30,7 +30,6 @@ jcc_helper(short_)
 make_instr_impl_1op_cc(j, i, short_, ecxz);
 
 make_instr_impl_1op_cc(j, i, v, be);
-make_instr_impl_1op_cc(j, i, b, ge);
 
 make_instr_func(je_b)
 {
@@ -47,6 +46,26 @@ make_instr_func(je_b)
 	print_asm_1("je", "", len, &imm);
 
 	if (cpu.eflags.ZF == 1)
+		len += (int8_t)imm.val;
+
+	return len;
+}
+
+make_instr_func(jge_b)
+{
+	OPERAND imm;
+	int len = 1;
+
+	imm.type = OPR_IMM;
+	imm.data_size = 8;
+	imm.addr = eip + 1;
+	operand_read(&imm);
+
+	len += 1;
+
+	print_asm_1("jge", "", len, &imm);
+
+	if (cpu.eflags.SF == cpu.eflags.OF)
 		len += (int8_t)imm.val;
 
 	return len;
