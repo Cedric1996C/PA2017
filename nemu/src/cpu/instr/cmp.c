@@ -4,7 +4,7 @@ static void instr_execute_2op_cmp()
 {
   operand_read(&opr_src);
   operand_read(&opr_dest);
-  opr_dest.val = alu_sub(reg.val, rm.val);
+  opr_dest.val = alu_sub(opr_src.val, opr_dest.val);
 }
 
 make_instr_impl_2op_cmp(r, rm, v);
