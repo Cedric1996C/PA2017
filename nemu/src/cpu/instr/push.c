@@ -22,7 +22,6 @@ static void instr_execute_1op_push_reg()
 }
 
 make_instr_impl_1op_push(rm, v);
-make_instr_impl_1op_push(i, b);
 
 make_instr_impl_1op_push_reg(ebp, v);
 make_instr_impl_1op_push_reg(ebx, v);
@@ -33,22 +32,26 @@ make_instr_impl_1op_push_reg(edi, v);
 make_instr_impl_1op_push_reg(esi, v);
 make_instr_impl_1op_push_reg(esp, v);
 
-// make_instr_func(push_ebp_v)
-// {
-//   OPERAND reg;
-//   cpu.esp -= data_size / 8;
-//   int len = 1;
+make_instr_func(push_i_b)
+{
+  OPERAND imm;
+  int len = 1;
 
-//   reg.type = OPR_MEM;
-//   reg.data_size = data_size;
-//   reg.val = cpu.ebp;
-//   // temp_ebp.sreg = SREG_SS;
-//   reg.addr = cpu.esp;
+  imm.type = OPR_IMM;
+  imm.data_size = 8;
+  imm.addr = eip+1;
+  len += 1;
+  operand_read(&imm);
 
-//   operand_write(&reg);
+  cpu.esp -= 4;
+  imm.addr = cpu.esp;
+  imm.type = OPR_MEM;
+  imm.data_size = 32;
+  // imm.sreg = SREG_SS;
+  operand_write(&imm);
 
-//   return len;
-// }
+  return len;
+}
 
 // make_instr_func(push_ebx_v)
 // {
