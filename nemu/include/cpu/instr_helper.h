@@ -136,7 +136,7 @@ void print_asm_3(char * instr, char * suffix, uint8_t len, OPERAND * opr_1, OPER
 		concat(decode_data_size_, suffix) \
 		concat3(decode_operand, _, concat3(src_type, 2, dest_type)) \
 		print_asm_2(#x, "", len, &opr_src, &opr_dest); \
-		concat(instr_execute_2op_, x); \
+		concat(instr_execute_2op_, x)(); \
 		return len; \
 	}
 
