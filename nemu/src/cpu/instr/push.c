@@ -12,7 +12,18 @@ static void instr_execute_1op_push()
   operand_write(&reg);
 }
 
+static void instr_execute_1op_push_reg()
+{
+  cpu.esp -= data_size / 8;
+  opr_src.type = OPR_MEM;
+  opr_src.data_size = data_size;
+  // temp_ebp.sreg = SREG_SS;
+  opr_src.addr = cpu.esp;
+}
+
 make_instr_impl_1op_push(rm, v);
+
+make_instr_impl_1op_push_reg(edi, v);
 
 make_instr_func(push_ebp_v)
 {
@@ -82,19 +93,19 @@ make_instr_func(push_eax_v)
   return len;
 }
 
-make_instr_func(push_edi_v)
-{
-  OPERAND reg;
-  cpu.esp -= data_size / 8;
-  int len = 1;
+// make_instr_func(push_edi_v)
+// {
+//   OPERAND reg;
+//   cpu.esp -= data_size / 8;
+//   int len = 1;
 
-  reg.type = OPR_MEM;
-  reg.data_size = data_size;
-  reg.val = cpu.edi;
-  // temp_ebp.sreg = SREG_SS;
-  reg.addr = cpu.esp;
+//   reg.type = OPR_MEM;
+//   reg.data_size = data_size;
+//   reg.val = cpu.edi;
+//   // temp_ebp.sreg = SREG_SS;
+//   reg.addr = cpu.esp;
 
-  operand_write(&reg);
+//   operand_write(&reg);
 
-  return len;
-}
+//   return len;
+// }
