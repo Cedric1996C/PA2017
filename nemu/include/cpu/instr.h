@@ -52,5 +52,8 @@ int inc_rm_v(uint32_t eip, uint8_t opcode);
 int and_i2rm_bv(uint32_t eip, uint8_t opcode);
 int push_rm_v(uint32_t eip, uint8_t opcode);
 int push_edi_v(uint32_t eip, uint8_t opcode);
+int push_ecx_v(uint32_t eip, uint8_t opcode);
+int push_esi_v(uint32_t eip, uint8_t opcode);
+int push_esp_v(uint32_t eip, uint8_t opcode);
 
 #endif
