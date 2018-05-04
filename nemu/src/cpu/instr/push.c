@@ -27,7 +27,10 @@ make_instr_impl_1op_push_reg(ebp, v);
 make_instr_impl_1op_push_reg(ebx, v);
 make_instr_impl_1op_push_reg(edx, v);
 make_instr_impl_1op_push_reg(eax, v);
+make_instr_impl_1op_push_reg(ecx, v);
 make_instr_impl_1op_push_reg(edi, v);
+make_instr_impl_1op_push_reg(esi, v);
+make_instr_impl_1op_push_reg(esp, v);
 
 // make_instr_func(push_ebp_v)
 // {
