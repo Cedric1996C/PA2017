@@ -318,7 +318,7 @@ void print_asm_3(char * instr, char * suffix, uint8_t len, OPERAND * opr_1, OPER
 	inv_cc()
 
 #define condition_ge \
-	inv_cc()
+	cpu.eflags.SF == cpu.eflags.OF
 
 #define condition_l \
 	inv_cc()

@@ -68,5 +68,6 @@ int sub_rm2r_v(uint32_t eip, uint8_t opcode);
 int cmp_rm2r_v(uint32_t eip, uint8_t opcode);
 int inc_edx_v(uint32_t eip, uint8_t opcode);
 int push_i_b(uint32_t eip, uint8_t opcode);
+int jge_b(uint32_t eip, uint8_t opcode);
 
 #endif
