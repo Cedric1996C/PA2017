@@ -8,7 +8,8 @@ static void instr_execute_2op_cmp()
 }
 
 make_instr_impl_2op_cmp(r, rm, v);
-make_instr_impl_2op_cmp(i ,rm ,v);
+make_instr_impl_2op_cmp(i, rm ,v);
+make_instr_impl_2op_cmp(rm, r, v);
 
 // make_instr_func(cmp_r2rm_v)
 // {
