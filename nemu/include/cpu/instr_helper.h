@@ -130,13 +130,13 @@ void print_asm_3(char * instr, char * suffix, uint8_t len, OPERAND * opr_1, OPER
 		return len; \
 	}
 
-#define make_instr_impl_2op_xor(src_type, dest_type, suffix) \
-	make_instr_func(concat6(xor_, src_type, 2, dest_type, _, suffix)) {\
+#define make_instr_impl_2op_or(x, src_type, dest_type, suffix) \
+	make_instr_func(concat7(x, _, src_type, 2, dest_type, _, suffix)) {\
 		int len = 1; \
 		concat(decode_data_size_, suffix) \
 		concat3(decode_operand, _, concat3(src_type, 2, dest_type)) \
-		print_asm_2("xor", "", len, &opr_src, &opr_dest); \
-		instr_execute_2op_xor(); \
+		print_asm_2(#x, "", len, &opr_src, &opr_dest); \
+		concat(instr_execute_2op_, x); \
 		return len; \
 	}
 
