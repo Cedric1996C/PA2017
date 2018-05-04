@@ -11,7 +11,9 @@ make_instr_func(test_r2rm_v)
   operand_read(&reg);
   operand_read(&rm);
   print_asm_2("test", "", len, &reg, &rm);
-  alu_add(reg.val, rm.val);
+  rm.val = alu_and(reg.val, rm.val);
+  cpu.eflags.CF = 0;
+  cpu.eflags.OF = 0;
   
   return len;
 }
