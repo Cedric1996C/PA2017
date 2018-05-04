@@ -96,6 +96,16 @@ void print_asm_3(char * instr, char * suffix, uint8_t len, OPERAND * opr_1, OPER
 		return len; \
 	}
 
+#define make_instr_impl_1op_pop_reg(reg, suffix) \
+	make_instr_func(concat5(pop, _, reg, _, suffix)) {\
+		int len = 1; \
+		instr_execute_1op_pop_reg(); \
+		opr_src.addr = cpu.reg;\
+		operand_write(&opr_src);\
+		print_asm_1("pop","", len, &opr_src); \
+		return len; \
+	}
+
 // macro for generating the implementation of an instruction with one operand and condition
 // for inc, the opcode type are always fixed so it will not appear in the function name
 #define make_instr_impl_1op_inc(src_type, suffix) \
@@ -208,10 +218,11 @@ void print_asm_3(char * instr, char * suffix, uint8_t len, OPERAND * opr_1, OPER
 	opr_src.addr = REG_AL; \
 	len += 4;
 
-// conditions
-// possible condition: e, a, ae, b, be, o, p, s , ne, na, no, np, ns, g, ge, l, le, ecxz
+		// conditions
+		// possible condition: e, a, ae, b, be, o, p, s , ne, na, no, np, ns, g, ge, l, le, ecxz
 
-static inline bool inv_cc();
+		static inline bool
+		inv_cc();
 
 #define condition_e \
 	cpu.eflags.ZF == 1
