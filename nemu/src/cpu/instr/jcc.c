@@ -30,7 +30,7 @@ jcc_helper(short_)
 make_instr_impl_1op_cc(j, i, short_, ecxz);
 
 make_instr_impl_1op_cc(j, i, v, be);
-make_instr_impl_1op_cc(j, i, v, ge);
+make_instr_impl_1op_cc(j, i, b, ge);
 
 make_instr_func(je_b)
 {
