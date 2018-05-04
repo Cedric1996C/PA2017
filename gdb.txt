@@ -1,0 +1,80 @@
+Dump of assembler code for function main:
+   0x0003008e <+0>:	55	push   %ebp
+   0x0003008f <+1>:	89 e5	mov    %esp,%ebp
+   0x00030091 <+3>:	53	push   %ebx
+   0x00030092 <+4>:	83 ec 10	sub    $0x10,%esp
+   0x00030095 <+7>:	e8 73 00 00 00	call   0x3010d <__x86.get_pc_thunk.bx>
+   0x0003009a <+12>:	81 c3 66 1f 00 00	add    $0x1f66,%ebx
+   0x000300a0 <+18>:	e8 60 ff ff ff	call   0x30005 <bubble_sort>
+   0x000300a5 <+23>:	c7 45 f8 00 00 00 00	movl   $0x0,-0x8(%ebp)
+   0x000300ac <+30>:	eb 18	jmp    0x300c6 <main+56>
+   0x000300ae <+32>:	8b 45 f8	mov    -0x8(%ebp),%eax
+   0x000300b1 <+35>:	8b 84 83 20 00 00 00	mov    0x20(%ebx,%eax,4),%eax
+   0x000300b8 <+42>:	3b 45 f8	cmp    -0x8(%ebp),%eax
+   0x000300bb <+45>:	74 06	je     0x300c3 <main+53>
+   0x000300bd <+47>:	b8 01 00 00 00	mov    $0x1,%eax
+   0x000300c2 <+52>:	82	(bad)  
+   0x000300c3 <+53>:	ff 45 f8	incl   -0x8(%ebp)
+   0x000300c6 <+56>:	83 7d f8 63	cmpl   $0x63,-0x8(%ebp)
+   0x000300ca <+60>:	7e e2	jle    0x300ae <main+32>
+   0x000300cc <+62>:	e8 34 ff ff ff	call   0x30005 <bubble_sort>
+   0x000300d1 <+67>:	c7 45 f8 00 00 00 00	movl   $0x0,-0x8(%ebp)
+   0x000300d8 <+74>:	eb 18	jmp    0x300f2 <main+100>
+   0x000300da <+76>:	8b 45 f8	mov    -0x8(%ebp),%eax
+   0x000300dd <+79>:	8b 84 83 20 00 00 00	mov    0x20(%ebx,%eax,4),%eax
+   0x000300e4 <+86>:	3b 45 f8	cmp    -0x8(%ebp),%eax
+   0x000300e7 <+89>:	74 06	je     0x300ef <main+97>
+   0x000300e9 <+91>:	b8 01 00 00 00	mov    $0x1,%eax
+   0x000300ee <+96>:	82	(bad)  
+   0x000300ef <+97>:	ff 45 f8	incl   -0x8(%ebp)
+   0x000300f2 <+100>:	83 7d f8 63	cmpl   $0x63,-0x8(%ebp)
+   0x000300f6 <+104>:	7e e2	jle    0x300da <main+76>
+   0x000300f8 <+106>:	b8 00 00 00 00	mov    $0x0,%eax
+   0x000300fd <+111>:	82	(bad)  
+   0x000300fe <+112>:	b8 00 00 00 00	mov    $0x0,%eax
+   0x00030103 <+117>:	83 c4 10	add    $0x10,%esp
+   0x00030106 <+120>:	5b	pop    %ebx
+   0x00030107 <+121>:	5d	pop    %ebp
+   0x00030108 <+122>:	c3	ret    
+End of assembler dump.
+Dump of assembler code for function bubble_sort:
+   0x00030005 <+0>:	55	push   %ebp
+   0x00030006 <+1>:	89 e5	mov    %esp,%ebp
+   0x00030008 <+3>:	83 ec 10	sub    $0x10,%esp
+   0x0003000b <+6>:	e8 f9 00 00 00	call   0x30109 <__x86.get_pc_thunk.ax>
+   0x00030010 <+11>:	05 f0 1f 00 00	add    $0x1ff0,%eax
+   0x00030015 <+16>:	c7 45 f8 00 00 00 00	movl   $0x0,-0x8(%ebp)
+   0x0003001c <+23>:	eb 67	jmp    0x30085 <bubble_sort+128>
+   0x0003001e <+25>:	c7 45 fc 00 00 00 00	movl   $0x0,-0x4(%ebp)
+   0x00030025 <+32>:	eb 4e	jmp    0x30075 <bubble_sort+112>
+   0x00030027 <+34>:	8b 55 fc	mov    -0x4(%ebp),%edx
+   0x0003002a <+37>:	8b 8c 90 20 00 00 00	mov    0x20(%eax,%edx,4),%ecx
+   0x00030031 <+44>:	8b 55 fc	mov    -0x4(%ebp),%edx
+   0x00030034 <+47>:	42	inc    %edx
+   0x00030035 <+48>:	8b 94 90 20 00 00 00	mov    0x20(%eax,%edx,4),%edx
+   0x0003003c <+55>:	39 d1	cmp    %edx,%ecx
+   0x0003003e <+57>:	7e 32	jle    0x30072 <bubble_sort+109>
+   0x00030040 <+59>:	8b 55 fc	mov    -0x4(%ebp),%edx
+   0x00030043 <+62>:	8b 94 90 20 00 00 00	mov    0x20(%eax,%edx,4),%edx
+   0x0003004a <+69>:	89 55 f4	mov    %edx,-0xc(%ebp)
+   0x0003004d <+72>:	8b 55 fc	mov    -0x4(%ebp),%edx
+   0x00030050 <+75>:	42	inc    %edx
+   0x00030051 <+76>:	8b 8c 90 20 00 00 00	mov    0x20(%eax,%edx,4),%ecx
+   0x00030058 <+83>:	8b 55 fc	mov    -0x4(%ebp),%edx
+   0x0003005b <+86>:	89 8c 90 20 00 00 00	mov    %ecx,0x20(%eax,%edx,4)
+   0x00030062 <+93>:	8b 55 fc	mov    -0x4(%ebp),%edx
+   0x00030065 <+96>:	8d 4a 01	lea    0x1(%edx),%ecx
+   0x00030068 <+99>:	8b 55 f4	mov    -0xc(%ebp),%edx
+   0x0003006b <+102>:	89 94 88 20 00 00 00	mov    %edx,0x20(%eax,%ecx,4)
+   0x00030072 <+109>:	ff 45 fc	incl   -0x4(%ebp)
+   0x00030075 <+112>:	ba 63 00 00 00	mov    $0x63,%edx
+   0x0003007a <+117>:	2b 55 f8	sub    -0x8(%ebp),%edx
+   0x0003007d <+120>:	3b 55 fc	cmp    -0x4(%ebp),%edx
+   0x00030080 <+123>:	7f a5	jg     0x30027 <bubble_sort+34>
+   0x00030082 <+125>:	ff 45 f8	incl   -0x8(%ebp)
+   0x00030085 <+128>:	83 7d f8 63	cmpl   $0x63,-0x8(%ebp)
+   0x00030089 <+132>:	7e 93	jle    0x3001e <bubble_sort+25>
+   0x0003008b <+134>:	90	nop
+   0x0003008c <+135>:	c9	leave  
+   0x0003008d <+136>:	c3	ret    
+End of assembler dump.
