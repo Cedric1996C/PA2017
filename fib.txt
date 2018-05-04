@@ -1,0 +1,35 @@
+Undefined command: "ls".  Try "help".
+Dump of assembler code for function main:
+   0x00030005 <+0>:	55	push   %ebp
+   0x00030006 <+1>:	89 e5	mov    %esp,%ebp
+   0x00030008 <+3>:	83 ec 10	sub    $0x10,%esp
+   0x0003000b <+6>:	e8 67 00 00 00	call   0x30077 <__x86.get_pc_thunk.dx>
+   0x00030010 <+11>:	81 c2 f0 1f 00 00	add    $0x1ff0,%edx
+   0x00030016 <+17>:	c7 45 fc 02 00 00 00	movl   $0x2,-0x4(%ebp)
+   0x0003001d <+24>:	eb 45	jmp    0x30064 <main+95>
+   0x0003001f <+26>:	8b 45 fc	mov    -0x4(%ebp),%eax
+   0x00030022 <+29>:	48	dec    %eax
+   0x00030023 <+30>:	8b 8c 82 20 00 00 00	mov    0x20(%edx,%eax,4),%ecx
+   0x0003002a <+37>:	8b 45 fc	mov    -0x4(%ebp),%eax
+   0x0003002d <+40>:	83 e8 02	sub    $0x2,%eax
+   0x00030030 <+43>:	8b 84 82 20 00 00 00	mov    0x20(%edx,%eax,4),%eax
+   0x00030037 <+50>:	01 c1	add    %eax,%ecx
+   0x00030039 <+52>:	8b 45 fc	mov    -0x4(%ebp),%eax
+   0x0003003c <+55>:	89 8c 82 20 00 00 00	mov    %ecx,0x20(%edx,%eax,4)
+   0x00030043 <+62>:	8b 45 fc	mov    -0x4(%ebp),%eax
+   0x00030046 <+65>:	8b 8c 82 20 00 00 00	mov    0x20(%edx,%eax,4),%ecx
+   0x0003004d <+72>:	8b 45 fc	mov    -0x4(%ebp),%eax
+   0x00030050 <+75>:	8b 84 82 c0 00 00 00	mov    0xc0(%edx,%eax,4),%eax
+   0x00030057 <+82>:	39 c1	cmp    %eax,%ecx
+   0x00030059 <+84>:	74 06	je     0x30061 <main+92>
+   0x0003005b <+86>:	b8 01 00 00 00	mov    $0x1,%eax
+   0x00030060 <+91>:	82	(bad)  
+   0x00030061 <+92>:	ff 45 fc	incl   -0x4(%ebp)
+   0x00030064 <+95>:	83 7d fc 27	cmpl   $0x27,-0x4(%ebp)
+   0x00030068 <+99>:	7e b5	jle    0x3001f <main+26>
+   0x0003006a <+101>:	b8 00 00 00 00	mov    $0x0,%eax
+   0x0003006f <+106>:	82	(bad)  
+   0x00030070 <+107>:	b8 00 00 00 00	mov    $0x0,%eax
+   0x00030075 <+112>:	c9	leave  
+   0x00030076 <+113>:	c3	ret    
+End of assembler dump.
