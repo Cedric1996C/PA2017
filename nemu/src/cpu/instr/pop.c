@@ -21,4 +21,5 @@ static void instr_execute_1op_pop_reg()
   cpu.esp += data_size / 8;
 }
 
+make_instr_impl_1op_pop_reg(ebx, v);
 make_instr_impl_1op_pop_reg(ebp, v);
