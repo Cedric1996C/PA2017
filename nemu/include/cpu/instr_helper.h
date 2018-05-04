@@ -79,8 +79,8 @@ void print_asm_3(char * instr, char * suffix, uint8_t len, OPERAND * opr_1, OPER
 	make_instr_func(concat5(push, _, reg, _, suffix)) {\
 		int len = 1; \
 		instr_execute_1op_push_reg(); \
+		opr_src.val = cpu.reg;\
 		print_asm_1("push","", len, &opr_src); \
-		concat4(opr_src.val =, cpu, ., reg);\
 		operand_write(&opr_src);\
 		return len; \
 	}
