@@ -72,5 +72,6 @@ int jge_b(uint32_t eip, uint8_t opcode);
 int jl_v(uint32_t eip, uint8_t opcode);
 int cmp_rm2r_b(uint32_t eip, uint8_t opcode);
 int dec_rm_v(uint32_t eip, uint8_t opcode);
+int inc_eax_v(uint32_t eip, uint8_t opcode);
 
 #endif

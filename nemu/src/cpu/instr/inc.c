@@ -18,3 +18,4 @@ static void instr_execute_1op_inc_reg()
 
 make_instr_impl_1op_inc(rm, v);
 make_instr_impl_1op_inc_reg(edx, v);
+make_instr_impl_1op_inc_reg(eax, v);
