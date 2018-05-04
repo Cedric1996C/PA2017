@@ -22,6 +22,7 @@ static void instr_execute_1op_push_reg()
 }
 
 make_instr_impl_1op_push(rm, v);
+make_instr_impl_1op_push(i, b);
 
 make_instr_impl_1op_push_reg(ebp, v);
 make_instr_impl_1op_push_reg(ebx, v);
