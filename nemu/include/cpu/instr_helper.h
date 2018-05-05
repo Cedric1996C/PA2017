@@ -177,7 +177,7 @@ void print_asm_3(char * instr, char * suffix, uint8_t len, OPERAND * opr_1, OPER
 		concat(decode_data_size_, suffix) \
 		concat3(decode_operand, _, concat3(src_type, 2, dest_type)) \
 		instr_execute_2op_cmp(); \
-		print_asm_2("cmp", "", len, &opr_src, &opr_dest); \
+		print_asm_2("cmp", opr_dest.data_size == 8 ? "b" : (opr_dest.data_size == 16 ? "w" : "l"), len, &opr_src, &opr_dest); \
 		return len; \
 	}
 
