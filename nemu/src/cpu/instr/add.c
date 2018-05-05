@@ -91,7 +91,7 @@ make_instr_func(add_i2rm_bv)
 
   if(data_size == 16){
     imm.val = (int16_t)(imm.val << 8) >> 8;
-  } else {
+  } else if(data_size == 32){
     imm.val = (int32_t)(imm.val << 24) >> 24;
   }
 
