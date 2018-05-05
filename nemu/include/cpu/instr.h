@@ -66,12 +66,12 @@ int cmp_i2rm_v(uint32_t eip, uint8_t opcode);
 int dec_eax_v(uint32_t eip, uint8_t opcode);
 int sub_rm2r_v(uint32_t eip, uint8_t opcode);
 int cmp_rm2r_v(uint32_t eip, uint8_t opcode);
-int inc_edx_v(uint32_t eip, uint8_t opcode);
+int inc_REG_EDX_v(uint32_t eip, uint8_t opcode);
 int push_i_b(uint32_t eip, uint8_t opcode);
 int jge_b(uint32_t eip, uint8_t opcode);
 int jl_v(uint32_t eip, uint8_t opcode);
 int cmp_rm2r_b(uint32_t eip, uint8_t opcode);
 int dec_rm_v(uint32_t eip, uint8_t opcode);
-int inc_eax_v(uint32_t eip, uint8_t opcode);
+int inc_REG_EAX_v(uint32_t eip, uint8_t opcode);
 
 #endif
