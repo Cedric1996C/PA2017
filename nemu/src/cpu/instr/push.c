@@ -12,15 +12,6 @@ static void instr_execute_1op()
   operand_write(&reg);
 }
 
-// static void instr_execute_1op_reg()
-// {
-//   cpu.esp -= data_size / 8;
-//   opr_src.type = OPR_MEM;
-//   opr_src.data_size = data_size;
-//   // temp_ebp.sreg = SREG_SS;
-//   opr_src.addr = cpu.esp;
-// }
-
 make_instr_impl_1op(push, rm, v);
 
 make_instr_impl_1op_reg(push, REG_EBP, v);

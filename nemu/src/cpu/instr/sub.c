@@ -25,10 +25,11 @@ make_instr_func(sub_i2rm_bv)
   imm.addr = eip + len;
   operand_read(&imm);
   len += 1;
+
   if(data_size == 16){
-    imm.val = (uint16_t)(imm.val << 8) >> 8;
+    imm.val = (int16_t)(imm.val << 8) >> 8;
   } else if(data_size == 32){
-    imm.val = (uint32_t)(imm.val << 24) >> 24;
+    imm.val = (int32_t)(imm.val << 24) >> 24;
   }
   rm.val = alu_sub(imm.val, rm.val);
   operand_write(&rm);
