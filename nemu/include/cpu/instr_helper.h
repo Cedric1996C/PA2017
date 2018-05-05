@@ -171,16 +171,6 @@ void print_asm_3(char * instr, char * suffix, uint8_t len, OPERAND * opr_1, OPER
 		return len; \
 	}
 
-#define make_instr_impl_2op_cmp(src_type, dest_type, suffix) \
-	make_instr_func(concat6(cmp_, src_type, 2, dest_type, _, suffix)) {\
-		int len = 1; \
-		concat(decode_data_size_, suffix) \
-		concat3(decode_operand, _, concat3(src_type, 2, dest_type)) \
-		instr_execute_2op_cmp(); \
-		print_asm_2("cmp", opr_dest.data_size == 8 ? "b" : (opr_dest.data_size == 16 ? "w" : "l"), len, &opr_src, &opr_dest); \
-		return len; \
-	}
-
 #define make_instr_impl_2op_sub(src_type, dest_type, suffix) \
 	make_instr_func(concat6(sub_, src_type, 2, dest_type, _, suffix)) {\
 		int len = 1; \
