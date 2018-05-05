@@ -56,6 +56,6 @@ make_instr_func(cmp_i2rm_bv)
 	imm.val = (int32_t)(imm.val << 24) >> 24; // sign extension
 
 	rm.val = alu_sub(imm.val, rm.val);
-	print_asm_2("cmp", opr_dest.data_size == 8 ? "b" : (opr_dest.data_size == 16 ? "w" : "l"), len, &imm, &rm);
+	print_asm_2("cmp", "", len, &imm, &rm);
 	return len;
 }

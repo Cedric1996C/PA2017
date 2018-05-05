@@ -58,4 +58,5 @@ Dump of assembler code for function max:
    0x00030028 <+35>:	89 45 fc	mov    %eax,-0x4(%ebp)
    0x0003002b <+38>:	8b 45 fc	mov    -0x4(%ebp),%eax
    0x0003002e <+41>:	c9	leave  
-   0x0003002f <+42>:	c3	ret  
+   0x0003002f <+42>:	c3	ret    
+End of assembler dump.
