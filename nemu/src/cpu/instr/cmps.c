@@ -64,10 +64,10 @@ make_instr_func(cmp_i2rm_bv)
 	len += 1;
 	operand_read(&imm);
 
+	print_asm_2("cmp", "", len, &imm, &rm);
 	imm.data_size = 32;
 	imm.val = sign_ext(imm.val, 32); // sign extension
 	rm.val = alu_sub(imm.val, rm.val);
-	// operand_write(&rm);
-	print_asm_2("cmp", "", len, &imm, &rm);
+	// operand_write(&rm);;
 	return len;
 }
