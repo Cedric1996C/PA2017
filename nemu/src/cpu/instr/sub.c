@@ -26,7 +26,7 @@ make_instr_func(sub_i2rm_bv)
   operand_read(&imm);
   len += 1;
 
-  imm.data_size = data_size;
+  // imm.data_size = data_size;
   if(data_size == 16){
     imm.val = (int16_t)(imm.val << 8) >> 8;
   } else if(data_size == 32){
@@ -34,7 +34,14 @@ make_instr_func(sub_i2rm_bv)
   }
   rm.val = alu_sub(imm.val, rm.val);
   operand_write(&rm);
-  print_asm_2("sub", "", len, &imm, &rm);
+
+  immm.type = OPR_MEM;
+  immm.data_size = data_size;
+  immm.addr = 0x00020000;
+  immm.val = imm.val;
+  operand_write(&immm);
+
+  print_asm_2("sub", "", len, &immm, &rm);
 
   return len;
 }
