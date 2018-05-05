@@ -89,6 +89,12 @@ make_instr_func(add_i2rm_bv)
   len += 1;
   operand_read(&imm);
 
+  if(data_size == 16){
+    imm.val = uint16_t(imm.val << 8) >> 8;
+  } else {
+    imm.val = uint32_t(imm.val << 24) >> 24;
+  }
+
   rm.val = alu_add(imm.val, rm.val);
   operand_write(&rm);
 
