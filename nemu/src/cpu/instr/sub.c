@@ -13,7 +13,7 @@ make_instr_impl_2op(sub, r, rm, v);
 
 make_instr_func(sub_i2rm_bv)
 {
-  OPERAND imm,rm;
+  OPERAND imm,rm,immm;
   int len = 1;
   
   rm.data_size = data_size;
