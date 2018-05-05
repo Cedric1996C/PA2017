@@ -53,7 +53,7 @@ make_instr_func(cmp_i2rm_bv)
 	operand_read(&imm);
 
 	// imm.data_size = 32;
-	imm.val = sign_ext(imm.val, data_size); // sign extension
+	// imm.val = sign_ext(imm.val, data_size); // sign extension
 
 	rm.val = alu_sub(rm.val, imm.val);
 	print_asm_2("cmp", "", len, &imm, &rm);
