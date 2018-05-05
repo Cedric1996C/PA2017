@@ -20,7 +20,17 @@ void print_asm_3(char * instr, char * suffix, uint8_t len, OPERAND * opr_1, OPER
 		concat3(decode_operand, _, src_type) \
 		print_asm_1(#inst_name, opr_dest.data_size == 8 ? "b" : (opr_dest.data_size == 16 ? "w" : "l"), len, &opr_src); \
 		instr_execute_1op(); \
-		print_asm_1("pushl", "", len, &rm);\
+		return len; \
+	}
+
+#define make_instr_impl_1op_reg(inst_name, reg, suffix) \
+	make_instr_func(concat5(inst_name, _, reg, _, suffix)) {\
+		int len = 1; \
+		concat(decode_data_size_, suffix); \
+		opr_src.type = OPR_REG; \
+		opr_src.addr = reg; \
+		print_asm_1(""#inst_name"", "", len, &opr_src); \
+		instr_execute_1op(); \
 		return len; \
 	}
 
