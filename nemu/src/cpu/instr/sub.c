@@ -27,11 +27,7 @@ make_instr_func(sub_i2rm_bv)
   len += 1;
 
   // imm.data_size = data_size;
-  if(data_size == 16){
-    imm.val = (int16_t)(imm.val << 8) >> 8;
-  } else if(data_size == 32){
-    imm.val = (int32_t)(imm.val << 24) >> 24;
-  }
+  imm.val = sign_ext(imm.val, data_size);
   rm.val = alu_sub(imm.val, rm.val);
   operand_write(&rm);
 
