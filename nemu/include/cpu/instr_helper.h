@@ -61,17 +61,6 @@ void print_asm_3(char * instr, char * suffix, uint8_t len, OPERAND * opr_1, OPER
 		return len; \
 	}
 
-	// macro for generating the implementation of an instruction with two operands
-#define make_instr_impl_2op_adc(inst_name, src_type, dest_type, suffix) \
-	make_instr_func(concat7(inst_name, _, src_type, 2, dest_type, _, suffix)) {\
-		int len = 1; \
-		concat(decode_data_size_, suffix) \
-		concat3(decode_operand, _, concat3(src_type, 2, dest_type)) \
-		print_asm_2(#inst_name, "", len, &opr_src, &opr_dest); \
-		instr_execute_2op_adc(); \
-		return len; \
-	}
-
 // macro for generating the implementation of an instruction with two operands and condition
 #define make_instr_impl_2op_cc(inst_name, src_type, dest_type, suffix, cc) \
 	make_instr_func(concat7(concat(inst_name, cc), _, src_type, 2, dest_type, _, suffix)) {\
@@ -83,26 +72,6 @@ void print_asm_3(char * instr, char * suffix, uint8_t len, OPERAND * opr_1, OPER
 			instr_execute_2op_cc_pass(); \
 		else \
 			instr_execute_2op_cc_fail(); \
-		return len; \
-	}
-
-#define make_instr_impl_1op_push(src_type, suffix) \
-	make_instr_func(concat5(push, _, src_type, _, suffix)) {\
-		int len = 1; \
-		concat(decode_data_size_, suffix) \
-		concat3(decode_operand, _, src_type) \
-		print_asm_1("push","", len, &opr_src); \
-		instr_execute_1op_push(); \
-		return len; \
-	}
-
-#define make_instr_impl_1op_push_reg(reg, suffix) \
-	make_instr_func(concat5(push, _, reg, _, suffix)) {\
-		int len = 1; \
-		instr_execute_1op_push_reg(); \
-		opr_src.val = cpu.reg;\
-		operand_write(&opr_src);\
-		print_asm_1("push","", len, &opr_src); \
 		return len; \
 	}
 

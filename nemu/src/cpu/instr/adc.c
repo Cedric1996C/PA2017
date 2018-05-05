@@ -1,6 +1,6 @@
 #include "cpu/instr.h"
 
-static void instr_execute_2op_adc()
+static void instr_execute_2op()
 {
   operand_read(&opr_src);
   operand_read(&opr_dest);
@@ -8,7 +8,7 @@ static void instr_execute_2op_adc()
   operand_write(&opr_dest);
 }
 
-make_instr_impl_2op_adc(adc, r, rm ,v);
+make_instr_impl_2op(adc, r, rm ,v);
 
 // make_instr_func(adc_r2rm_v)
 // {

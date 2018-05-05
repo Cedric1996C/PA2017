@@ -24,7 +24,7 @@ extern uint8_t data_size;
 /* TODO: add more instructions here */
 int jmp_rel_v(uint32_t eip, uint8_t opcode);
 int cmp_i2rm_bv(uint32_t eip, uint8_t opcode);
-int push_ebp_v(uint32_t eip, uint8_t opcode);
+int push_REG_EBP_v(uint32_t eip, uint8_t opcode);
 int call_rel_v(uint32_t eip, uint8_t opcode);
 int ret_v(uint32_t eip, uint8_t opcode);
 int add_i2rm_v(uint32_t eip, uint8_t opcode);
@@ -35,12 +35,12 @@ int jle_b(uint32_t eip, uint8_t opcode);
 int jne_b(uint32_t eip, uint8_t opcode);
 int add_rm2r_b(uint32_t eip, uint8_t opcode);
 
-int push_ebx_v(uint32_t eip, uint8_t opcode);
+int push_REG_EBX_v(uint32_t eip, uint8_t opcode);
 int sub_i2rm_bv(uint32_t eip, uint8_t opcode);
 int jmp_rel_b(uint32_t eip, uint8_t opcode);
 int jbe_b(uint32_t eip, uint8_t opcode);
-int push_edx_v(uint32_t eip, uint8_t opcode);
-int push_eax_v(uint32_t eip, uint8_t opcode);
+int push_REG_EDX_v(uint32_t eip, uint8_t opcode);
+int push_REG_EAX_v(uint32_t eip, uint8_t opcode);
 int add_i2eax_v(uint32_t eip, uint8_t opcode);
 int add_r2rm_v(uint32_t eip, uint8_t opcode);
 int leave_v(uint32_t eip, uint8_t opcode);
@@ -51,10 +51,10 @@ int inc_rm_v(uint32_t eip, uint8_t opcode);
 
 int and_i2rm_bv(uint32_t eip, uint8_t opcode);
 int push_rm_v(uint32_t eip, uint8_t opcode);
-int push_edi_v(uint32_t eip, uint8_t opcode);
-int push_ecx_v(uint32_t eip, uint8_t opcode);
-int push_esi_v(uint32_t eip, uint8_t opcode);
-int push_esp_v(uint32_t eip, uint8_t opcode);
+int push_REG_EDI_v(uint32_t eip, uint8_t opcode);
+int push_REG_ECX_v(uint32_t eip, uint8_t opcode);
+int push_REG_ESI_v(uint32_t eip, uint8_t opcode);
+int push_REG_ESP_v(uint32_t eip, uint8_t opcode);
 int jbe_v(uint32_t eip, uint8_t opcode);
 int adc_r2rm_v(uint32_t eip, uint8_t opcode);
 int pop_ebx_v(uint32_t eip, uint8_t opcode);
@@ -73,5 +73,6 @@ int jl_v(uint32_t eip, uint8_t opcode);
 int cmp_rm2r_b(uint32_t eip, uint8_t opcode);
 int dec_rm_v(uint32_t eip, uint8_t opcode);
 int inc_REG_EAX_v(uint32_t eip, uint8_t opcode);
+int sub_r2rm_v(uint32_t eip, uint8_t opcode);
 
 #endif

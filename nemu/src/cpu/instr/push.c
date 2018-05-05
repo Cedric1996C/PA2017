@@ -1,6 +1,6 @@
 #include "cpu/instr.h"
 
-static void instr_execute_1op_push()
+static void instr_execute_1op()
 {
   cpu.esp -= data_size / 8;
   operand_read(&opr_src);
@@ -12,25 +12,25 @@ static void instr_execute_1op_push()
   operand_write(&reg);
 }
 
-static void instr_execute_1op_push_reg()
-{
-  cpu.esp -= data_size / 8;
-  opr_src.type = OPR_MEM;
-  opr_src.data_size = data_size;
-  // temp_ebp.sreg = SREG_SS;
-  opr_src.addr = cpu.esp;
-}
+// static void instr_execute_1op_reg()
+// {
+//   cpu.esp -= data_size / 8;
+//   opr_src.type = OPR_MEM;
+//   opr_src.data_size = data_size;
+//   // temp_ebp.sreg = SREG_SS;
+//   opr_src.addr = cpu.esp;
+// }
 
-make_instr_impl_1op_push(rm, v);
+make_instr_impl_1op(push, rm, v);
 
-make_instr_impl_1op_push_reg(ebp, v);
-make_instr_impl_1op_push_reg(ebx, v);
-make_instr_impl_1op_push_reg(edx, v);
-make_instr_impl_1op_push_reg(eax, v);
-make_instr_impl_1op_push_reg(ecx, v);
-make_instr_impl_1op_push_reg(edi, v);
-make_instr_impl_1op_push_reg(esi, v);
-make_instr_impl_1op_push_reg(esp, v);
+make_instr_impl_1op_reg(push, REG_EBP, v);
+make_instr_impl_1op_reg(push, REG_EBX, v);
+make_instr_impl_1op_reg(push, REG_EDX, v);
+make_instr_impl_1op_reg(push, REG_EAX, v);
+make_instr_impl_1op_reg(push, REG_ECX, v);
+make_instr_impl_1op_reg(push, REG_EDI, v);
+make_instr_impl_1op_reg(push, REG_ESI, v);
+make_instr_impl_1op_reg(push, REG_ESP, v);
 
 make_instr_func(push_i_b)
 {
