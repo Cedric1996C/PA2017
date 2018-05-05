@@ -10,7 +10,7 @@ static void instr_execute_1op_dec_reg()
 static void instr_execute_1op_dec()
 {
   operand_read(&opr_src);
-  int32_t temp_CF = cpu.eflags.CF;
+  uint32_t temp_CF = cpu.eflags.CF;
   opr_src.val = alu_sub(1, opr_src.val);
   cpu.eflags.CF = temp_CF;
   operand_write(&opr_src);

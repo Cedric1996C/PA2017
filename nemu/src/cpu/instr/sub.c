@@ -13,7 +13,7 @@ make_instr_impl_2op(sub, r, rm, v);
 
 make_instr_func(sub_i2rm_bv)
 {
-  OPERAND imm,rm,immm;
+  OPERAND imm,rm;
   int len = 1;
   
   rm.data_size = data_size;
@@ -35,13 +35,7 @@ make_instr_func(sub_i2rm_bv)
   rm.val = alu_sub(imm.val, rm.val);
   operand_write(&rm);
 
-  immm.type = OPR_MEM;
-  immm.data_size = data_size;
-  immm.addr = 0x00020000;
-  immm.val = imm.val;
-  operand_write(&immm);
-
-  print_asm_2("sub", "", len, &immm, &rm);
+  print_asm_2("sub", "", len, &imm, &rm);
 
   return len;
 }
