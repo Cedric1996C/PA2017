@@ -89,7 +89,8 @@ make_instr_func(add_i2rm_bv)
   len += 1;
   operand_read(&imm);
 
-  imm.val = sign_ext(imm.val, data_size);
+  imm.data_size = 32
+  imm.val = sign_ext(imm.val, 32);
   rm.val = alu_add(imm.val, rm.val);
   operand_write(&rm);
   print_asm_2("add", "", len, &imm, &rm);
