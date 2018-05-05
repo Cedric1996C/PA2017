@@ -1,5 +1,17 @@
 #include "cpu/instr.h"
 
+static void instr_execute_2op()
+{
+	operand_read(&opr_src);
+	operand_read(&opr_dest);
+	opr_dest.val = alu_sub(opr_src.val, opr_dest.val);
+}
+
+make_instr_impl_2op(cmp, r, rm, v);
+make_instr_impl_2op(cmp, i, rm, v);
+make_instr_impl_2op(cmp, rm, r, v);
+make_instr_impl_2op(cmp, rm, r, b);
+
 make_instr_func(cmps_v) {
 	OPERAND msi, mdi;
 	msi.data_size = mdi.data_size = data_size;
