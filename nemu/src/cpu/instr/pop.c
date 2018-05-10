@@ -25,3 +25,4 @@ static void instr_execute_1op_pop_reg()
 make_instr_impl_1op_pop_reg(ebx, v);
 make_instr_impl_1op_pop_reg(ebp, v);
 make_instr_impl_1op_pop_reg(esi, v);
+make_instr_impl_1op_pop_reg(edi, v);
