@@ -10,7 +10,6 @@ static void instr_execute_2op()
 
 make_instr_impl_2op(add, i, rm ,b);
 
-
 make_instr_func(add_i2rm_v)
 {
   OPERAND imm, rm;
