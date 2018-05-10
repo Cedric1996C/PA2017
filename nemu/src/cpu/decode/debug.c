@@ -41,7 +41,7 @@ void print_asm_2(char * instr, char * suffix, uint8_t len, OPERAND * opr_1, OPER
 			printf("%02x ", instr_fetch(cpu.eip + i, 1));
 		}
 		for(i = 0 ; i <= MAX_INSTR_BYTES - len ; i++) printf("   ");
-			printf("%s%s %s, %s", instr, suffix,addr_str_1, addr_str_2);
+			printf("%s%s %s, %s\n", instr, suffix,addr_str_1, addr_str_2);
 			// printf("%x %x\n", opr_1->val, opr_2->val);
 	}
 }
