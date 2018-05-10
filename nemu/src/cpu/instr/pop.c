@@ -1,6 +1,6 @@
 #include "cpu/instr.h"
 
-// static void instr_execute_1op()
+// static void instr_execute_1op_pop()
 // {
 //   cpu.esp -= data_size / 8;
 //   operand_read(&opr_src);
@@ -12,7 +12,7 @@
 //   operand_write(&reg);
 // }
 
-static void instr_execute_1op()
+static void instr_execute_1op_pop_reg()
 {
   opr_src.type = OPR_MEM;
   opr_src.data_size = data_size;
@@ -22,6 +22,6 @@ static void instr_execute_1op()
   cpu.esp += data_size / 8;
 }
 
-make_instr_impl_1op_reg(pop, REG_EBX, v);
-make_instr_impl_1op_reg(pop, REG_EBP, v);
-make_instr_impl_1op_reg(pop, REG_ESI, v);
+make_instr_impl_1op_pop_reg(ebx, v);
+make_instr_impl_1op_pop_reg(ebp, v);
+make_instr_impl_1op_pop_reg(esi, v);
