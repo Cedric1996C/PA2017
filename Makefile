@@ -2,7 +2,7 @@
 
 include Makefile.git
 
-testcase_name = struct
+testcase_name = string
 
 nemu:
 	$(call git_commit, "nemu")
