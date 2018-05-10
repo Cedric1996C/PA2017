@@ -33,7 +33,7 @@ make_instr_impl_1op_cc(j, i, v, be);
 make_instr_impl_1op_cc(j, i, v, l);
 make_instr_impl_1op_cc(j, i, v, le);
 
-make_instr_func(je_b)
+make_instr_func(jl_b)
 {
 	OPERAND imm;
 	int len = 1;
