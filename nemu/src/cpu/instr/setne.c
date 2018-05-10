@@ -11,4 +11,4 @@ static void instr_execute_1op_cc_fail(){
 }
 
 
-make_instr_impl_1op_cc(setne, rm, b);
+make_instr_impl_1op_cc(setne, rm, b, cc);
