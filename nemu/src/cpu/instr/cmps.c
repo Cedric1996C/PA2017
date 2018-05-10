@@ -4,7 +4,9 @@ static void instr_execute_2op()
 {
 	operand_read(&opr_src);
 	operand_read(&opr_dest);
+	print_asm_2("cmp", "", 2, &opr_src, &opr_dest);
 	opr_dest.val = alu_sub(opr_src.val, opr_dest.val);
+	print_asm_2("cmp", "", 2, &opr_src, &opr_dest);
 }
 
 make_instr_impl_2op(cmp, r, rm, v);
