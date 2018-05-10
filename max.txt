@@ -1,3 +1,21 @@
+Dump of assembler code for function max:
+   0x00030005 <+0>:	55	push   %ebp
+   0x00030006 <+1>:	89 e5	mov    %esp,%ebp
+   0x00030008 <+3>:	83 ec 10	sub    $0x10,%esp
+   0x0003000b <+6>:	e8 ab 00 00 00	call   0x300bb <__x86.get_pc_thunk.ax>
+   0x00030010 <+11>:	05 f0 1f 00 00	add    $0x1ff0,%eax
+   0x00030015 <+16>:	8b 45 08	mov    0x8(%ebp),%eax
+   0x00030018 <+19>:	3b 45 0c	cmp    0xc(%ebp),%eax
+   0x0003001b <+22>:	7e 08	jle    0x30025 <max+32>
+   0x0003001d <+24>:	8b 45 08	mov    0x8(%ebp),%eax
+   0x00030020 <+27>:	89 45 fc	mov    %eax,-0x4(%ebp)
+   0x00030023 <+30>:	eb 06	jmp    0x3002b <max+38>
+   0x00030025 <+32>:	8b 45 0c	mov    0xc(%ebp),%eax
+   0x00030028 <+35>:	89 45 fc	mov    %eax,-0x4(%ebp)
+   0x0003002b <+38>:	8b 45 fc	mov    -0x4(%ebp),%eax
+   0x0003002e <+41>:	c9	leave  
+   0x0003002f <+42>:	c3	ret    
+End of assembler dump.
 Dump of assembler code for function main:
    0x00030030 <+0>:	55	push   %ebp
    0x00030031 <+1>:	89 e5	mov    %esp,%ebp
@@ -41,22 +59,4 @@ Dump of assembler code for function main:
    0x000300b6 <+134>:	8b 5d fc	mov    -0x4(%ebp),%ebx
    0x000300b9 <+137>:	c9	leave  
    0x000300ba <+138>:	c3	ret    
-End of assembler dump.
-Dump of assembler code for function max:
-   0x00030005 <+0>:	55	push   %ebp
-   0x00030006 <+1>:	89 e5	mov    %esp,%ebp
-   0x00030008 <+3>:	83 ec 10	sub    $0x10,%esp
-   0x0003000b <+6>:	e8 ab 00 00 00	call   0x300bb <__x86.get_pc_thunk.ax>
-   0x00030010 <+11>:	05 f0 1f 00 00	add    $0x1ff0,%eax
-   0x00030015 <+16>:	8b 45 08	mov    0x8(%ebp),%eax
-   0x00030018 <+19>:	3b 45 0c	cmp    0xc(%ebp),%eax
-   0x0003001b <+22>:	7e 08	jle    0x30025 <max+32>
-   0x0003001d <+24>:	8b 45 08	mov    0x8(%ebp),%eax
-   0x00030020 <+27>:	89 45 fc	mov    %eax,-0x4(%ebp)
-   0x00030023 <+30>:	eb 06	jmp    0x3002b <max+38>
-   0x00030025 <+32>:	8b 45 0c	mov    0xc(%ebp),%eax
-   0x00030028 <+35>:	89 45 fc	mov    %eax,-0x4(%ebp)
-   0x0003002b <+38>:	8b 45 fc	mov    -0x4(%ebp),%eax
-   0x0003002e <+41>:	c9	leave  
-   0x0003002f <+42>:	c3	ret    
 End of assembler dump.
