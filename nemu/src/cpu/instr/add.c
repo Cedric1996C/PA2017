@@ -52,7 +52,7 @@ make_instr_func(add_i2eax_v)
   imm.data_size = data_size;
   imm.addr = eip+1;
   operand_read(&imm);
-
+  print_asm_2("add", "", len, &imm, &reg);
   reg.val = alu_add(imm.val, reg.val);
   operand_write(&reg);
 
