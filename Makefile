@@ -2,7 +2,7 @@
 
 include Makefile.git
 
-testcase_name = mul-longlong
+testcase_name = shuixianhua
 
 nemu:
 	$(call git_commit, "nemu")
