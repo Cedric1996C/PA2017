@@ -24,3 +24,4 @@ static void instr_execute_2op_or()
 
 make_instr_impl_2op_or(xor, r, rm, v);
 make_instr_impl_2op_or(or, r, rm, v);
+make_instr_impl_2op_or(or, r, rm, b);
