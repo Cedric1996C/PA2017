@@ -77,7 +77,7 @@ int sub_r2rm_v(uint32_t eip, uint8_t opcode);
 
 int jle_v(uint32_t eip, uint8_t opcode);
 int jl_b(uint32_t eip, uint8_t opcode);
-int and_rm2_r_b(uint32_t eip, uint8_t opcode);
+int and_rm2r_b(uint32_t eip, uint8_t opcode);
 // int jl_b(uint32_t eip, uint8_t opcode);
 
 #endif
