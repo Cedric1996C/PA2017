@@ -235,43 +235,43 @@ void print_asm_3(char * instr, char * suffix, uint8_t len, OPERAND * opr_1, OPER
 	cpu.eflags.ZF == 1
 
 #define condition_a \
-	inv_cc()
+	cpu.eflags.ZF == 0 && cpu.eflags.CF == 0
 
 #define condition_ae \
-	inv_cc()
+	cpu.eflags.CF == 0
 
 #define condition_b \
-	inv_cc()
+	cpu.eflags.CF == 1
 
 #define condition_be \
 	cpu.eflags.CF == 1 || cpu.eflags.ZF == 1
 
 #define condition_o \
-	inv_cc()
+	cpu.eflags.OF == 0
 
 #define condition_p \
-	inv_cc()
+	cpu.eflags.PF == 1
 
 #define condition_s \
-	inv_cc()
+	cpu.eflags.SF == 1
 
 #define condition_ne \
-	inv_cc()
+	cpu.eflags.ZF == 0;
 
 #define condition_na \
-	inv_cc()
+	cpu.eflags.CF == 1 || cpu.eflags.ZF == 1
 
 #define condition_no \
-	inv_cc()
+	cpu.eflags.OF == 0
 
 #define condition_np \
-	inv_cc()
+	cpu.eflags.PF == 0
 
 #define condition_ns \
-	inv_cc()
+	cpu.eflags.SF == 0
 
 #define condition_g \
-	inv_cc()
+	cpu.eflags.ZF == 1 || cpu.eflags.SF != cpu.eflags.OF
 
 #define condition_ge \
 	cpu.eflags.SF == cpu.eflags.OF
