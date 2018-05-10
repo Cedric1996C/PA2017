@@ -103,7 +103,7 @@ int ret_i_v(uint32_t eip, uint8_t opcode);
 int and_i2rm_v(uint32_t eip, uint8_t opcode);
 int test_i2rm_v(uint32_t eip, uint8_t opcode);
 int test_i2eax_v(uint32_t eip, uint8_t opcode);
-// int pop_edi_v(uint32_t eip, uint8_t opcode);
+int add_i2rm_b(uint32_t eip, uint8_t opcode);
 // int ret_i_v(uint32_t eip, uint8_t opcode);
 // int and_i2rm_v(uint32_t eip, uint8_t opcode);
 
