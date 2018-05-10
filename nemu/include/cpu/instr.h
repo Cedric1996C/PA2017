@@ -76,5 +76,6 @@ int inc_REG_EAX_v(uint32_t eip, uint8_t opcode);
 int sub_r2rm_v(uint32_t eip, uint8_t opcode);
 
 int jle_v(uint32_t eip, uint8_t opcode);
+int jl_b(uint32_t eip, uint8_t opcode);
 
 #endif
