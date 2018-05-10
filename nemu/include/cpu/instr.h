@@ -57,8 +57,8 @@ int push_REG_ESI_v(uint32_t eip, uint8_t opcode);
 int push_REG_ESP_v(uint32_t eip, uint8_t opcode);
 int jbe_v(uint32_t eip, uint8_t opcode);
 int adc_r2rm_v(uint32_t eip, uint8_t opcode);
-int pop_ebx_v(uint32_t eip, uint8_t opcode);
-int pop_ebp_v(uint32_t eip, uint8_t opcode);
+int pop_REG_EBX_v(uint32_t eip, uint8_t opcode);
+int pop_REG_EBP_v(uint32_t eip, uint8_t opcode);
 int xor_r2rm_v(uint32_t eip, uint8_t opcode);
 int or_r2rm_v(uint32_t eip, uint8_t opcode);
 
