@@ -1,0 +1,116 @@
+No symbol "mian" in current context.
+Dump of assembler code for function main:
+   0x00030005 <+0>:	55	push   %ebp
+   0x00030006 <+1>:	89 e5	mov    %esp,%ebp
+   0x00030008 <+3>:	56	push   %esi
+   0x00030009 <+4>:	53	push   %ebx
+   0x0003000a <+5>:	83 ec 10	sub    $0x10,%esp
+   0x0003000d <+8>:	e8 58 01 00 00	call   0x3016a <__x86.get_pc_thunk.dx>
+   0x00030012 <+13>:	81 c2 ee 1f 00 00	add    $0x1fee,%edx
+   0x00030018 <+19>:	c7 45 f4 00 00 00 00	movl   $0x0,-0xc(%ebp)
+   0x0003001f <+26>:	eb 7b	jmp    0x3009c <main+151>
+   0x00030021 <+28>:	c7 c0 a0 20 03 00	mov    $0x320a0,%eax
+   0x00030027 <+34>:	8b 4d f4	mov    -0xc(%ebp),%ecx
+   0x0003002a <+37>:	c1 e1 07	shl    $0x7,%ecx
+   0x0003002d <+40>:	01 c8	add    %ecx,%eax
+   0x0003002f <+42>:	c7 00 01 00 00 00	movl   $0x1,(%eax)
+   0x00030035 <+48>:	c7 c0 a0 20 03 00	mov    $0x320a0,%eax
+   0x0003003b <+54>:	8b 4d f4	mov    -0xc(%ebp),%ecx
+   0x0003003e <+57>:	c1 e1 07	shl    $0x7,%ecx
+   0x00030041 <+60>:	01 c8	add    %ecx,%eax
+   0x00030043 <+62>:	8b 08	mov    (%eax),%ecx
+   0x00030045 <+64>:	c7 c6 a0 20 03 00	mov    $0x320a0,%esi
+   0x0003004b <+70>:	8b 5d f4	mov    -0xc(%ebp),%ebx
+   0x0003004e <+73>:	89 d8	mov    %ebx,%eax
+   0x00030050 <+75>:	c1 e0 05	shl    $0x5,%eax
+   0x00030053 <+78>:	29 d8	sub    %ebx,%eax
+   0x00030055 <+80>:	c1 e0 02	shl    $0x2,%eax
+   0x00030058 <+83>:	01 f0	add    %esi,%eax
+   0x0003005a <+85>:	89 08	mov    %ecx,(%eax)
+   0x0003005c <+87>:	c7 c3 a0 20 03 00	mov    $0x320a0,%ebx
+   0x00030062 <+93>:	8b 4d f4	mov    -0xc(%ebp),%ecx
+   0x00030065 <+96>:	89 c8	mov    %ecx,%eax
+   0x00030067 <+98>:	c1 e0 05	shl    $0x5,%eax
+   0x0003006a <+101>:	29 c8	sub    %ecx,%eax
+   0x0003006c <+103>:	c1 e0 02	shl    $0x2,%eax
+   0x0003006f <+106>:	01 d8	add    %ebx,%eax
+   0x00030071 <+108>:	8b 00	mov    (%eax),%eax
+   0x00030073 <+110>:	83 f8 01	cmp    $0x1,%eax
+   0x00030076 <+113>:	74 06	je     0x3007e <main+121>
+   0x00030078 <+115>:	b8 01 00 00 00	mov    $0x1,%eax
+   0x0003007d <+120>:	82	(bad)  
+   0x0003007e <+121>:	c7 c0 a0 20 03 00	mov    $0x320a0,%eax
+   0x00030084 <+127>:	8b 4d f4	mov    -0xc(%ebp),%ecx
+   0x00030087 <+130>:	c1 e1 07	shl    $0x7,%ecx
+   0x0003008a <+133>:	01 c8	add    %ecx,%eax
+   0x0003008c <+135>:	8b 00	mov    (%eax),%eax
+   0x0003008e <+137>:	83 f8 01	cmp    $0x1,%eax
+   0x00030091 <+140>:	74 06	je     0x30099 <main+148>
+   0x00030093 <+142>:	b8 01 00 00 00	mov    $0x1,%eax
+   0x00030098 <+147>:	82	(bad)  
+   0x00030099 <+148>:	ff 45 f4	incl   -0xc(%ebp)
+   0x0003009c <+151>:	83 7d f4 1e	cmpl   $0x1e,-0xc(%ebp)
+   0x000300a0 <+155>:	0f 8e 7b ff ff ff	jle    0x30021 <main+28>
+   0x000300a6 <+161>:	c7 45 f4 02 00 00 00	movl   $0x2,-0xc(%ebp)
+   0x000300ad <+168>:	eb 6b	jmp    0x3011a <main+277>
+   0x000300af <+170>:	c7 45 f0 01 00 00 00	movl   $0x1,-0x10(%ebp)
+   0x000300b6 <+177>:	eb 57	jmp    0x3010f <main+266>
+   0x000300b8 <+179>:	8b 45 f4	mov    -0xc(%ebp),%eax
+   0x000300bb <+182>:	8d 58 ff	lea    -0x1(%eax),%ebx
+   0x000300be <+185>:	8b 45 f0	mov    -0x10(%ebp),%eax
+   0x000300c1 <+188>:	8d 70 ff	lea    -0x1(%eax),%esi
+   0x000300c4 <+191>:	c7 c1 a0 20 03 00	mov    $0x320a0,%ecx
+   0x000300ca <+197>:	89 d8	mov    %ebx,%eax
+   0x000300cc <+199>:	c1 e0 05	shl    $0x5,%eax
+   0x000300cf <+202>:	29 d8	sub    %ebx,%eax
+   0x000300d1 <+204>:	01 f0	add    %esi,%eax
+   0x000300d3 <+206>:	8b 1c 81	mov    (%ecx,%eax,4),%ebx
+   0x000300d6 <+209>:	8b 45 f4	mov    -0xc(%ebp),%eax
+   0x000300d9 <+212>:	8d 70 ff	lea    -0x1(%eax),%esi
+   0x000300dc <+215>:	c7 c1 a0 20 03 00	mov    $0x320a0,%ecx
+   0x000300e2 <+221>:	89 f0	mov    %esi,%eax
+   0x000300e4 <+223>:	c1 e0 05	shl    $0x5,%eax
+   0x000300e7 <+226>:	29 f0	sub    %esi,%eax
+   0x000300e9 <+228>:	8b 75 f0	mov    -0x10(%ebp),%esi
+   0x000300ec <+231>:	01 f0	add    %esi,%eax
+   0x000300ee <+233>:	8b 04 81	mov    (%ecx,%eax,4),%eax
+   0x000300f1 <+236>:	8d 34 03	lea    (%ebx,%eax,1),%esi
+   0x000300f4 <+239>:	c7 c1 a0 20 03 00	mov    $0x320a0,%ecx
+   0x000300fa <+245>:	8b 5d f4	mov    -0xc(%ebp),%ebx
+   0x000300fd <+248>:	89 d8	mov    %ebx,%eax
+   0x000300ff <+250>:	c1 e0 05	shl    $0x5,%eax
+   0x00030102 <+253>:	29 d8	sub    %ebx,%eax
+   0x00030104 <+255>:	8b 5d f0	mov    -0x10(%ebp),%ebx
+   0x00030107 <+258>:	01 d8	add    %ebx,%eax
+   0x00030109 <+260>:	89 34 81	mov    %esi,(%ecx,%eax,4)
+   0x0003010c <+263>:	ff 45 f0	incl   -0x10(%ebp)
+   0x0003010f <+266>:	8b 45 f0	mov    -0x10(%ebp),%eax
+   0x00030112 <+269>:	3b 45 f4	cmp    -0xc(%ebp),%eax
+   0x00030115 <+272>:	7c a1	jl     0x300b8 <main+179>
+   0x00030117 <+274>:	ff 45 f4	incl   -0xc(%ebp)
+   0x0003011a <+277>:	83 7d f4 1e	cmpl   $0x1e,-0xc(%ebp)
+   0x0003011e <+281>:	7e 8f	jle    0x300af <main+170>
+   0x00030120 <+283>:	c7 45 f0 00 00 00 00	movl   $0x0,-0x10(%ebp)
+   0x00030127 <+290>:	eb 29	jmp    0x30152 <main+333>
+   0x00030129 <+292>:	c7 c0 a0 20 03 00	mov    $0x320a0,%eax
+   0x0003012f <+298>:	8b 4d f0	mov    -0x10(%ebp),%ecx
+   0x00030132 <+301>:	81 c1 a2 03 00 00	add    $0x3a2,%ecx
+   0x00030138 <+307>:	8b 0c 88	mov    (%eax,%ecx,4),%ecx
+   0x0003013b <+310>:	8b 45 f0	mov    -0x10(%ebp),%eax
+   0x0003013e <+313>:	8b 84 82 20 00 00 00	mov    0x20(%edx,%eax,4),%eax
+   0x00030145 <+320>:	39 c1	cmp    %eax,%ecx
+   0x00030147 <+322>:	74 06	je     0x3014f <main+330>
+   0x00030149 <+324>:	b8 01 00 00 00	mov    $0x1,%eax
+   0x0003014e <+329>:	82	(bad)  
+   0x0003014f <+330>:	ff 45 f0	incl   -0x10(%ebp)
+   0x00030152 <+333>:	83 7d f0 1e	cmpl   $0x1e,-0x10(%ebp)
+   0x00030156 <+337>:	7e d1	jle    0x30129 <main+292>
+   0x00030158 <+339>:	b8 00 00 00 00	mov    $0x0,%eax
+   0x0003015d <+344>:	82	(bad)  
+   0x0003015e <+345>:	b8 00 00 00 00	mov    $0x0,%eax
+   0x00030163 <+350>:	83 c4 10	add    $0x10,%esp
+   0x00030166 <+353>:	5b	pop    %ebx
+   0x00030167 <+354>:	5e	pop    %esi
+   0x00030168 <+355>:	5d	pop    %ebp
+   0x00030169 <+356>:	c3	ret    
+End of assembler dump.
