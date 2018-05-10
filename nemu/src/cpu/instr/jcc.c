@@ -31,6 +31,7 @@ make_instr_impl_1op_cc(j, i, short_, ecxz);
 
 make_instr_impl_1op_cc(j, i, v, be);
 make_instr_impl_1op_cc(j, i, v, l);
+make_instr_impl_1op_cc(j, i, v, le);
 
 make_instr_func(je_b)
 {
