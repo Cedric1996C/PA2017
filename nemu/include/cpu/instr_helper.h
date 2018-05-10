@@ -292,7 +292,7 @@ void print_asm_3(char * instr, char * suffix, uint8_t len, OPERAND * opr_1, OPER
 	cpu.eflags.SF != cpu.eflags.OF
 
 #define condition_le \
-	inv_cc()
+	cpu.eflags.ZF == 1 || cpu.eflags.SF != cpu.eflags.OF
 
 #define condition_ecxz \
 	cpu.ecx == 0
