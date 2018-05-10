@@ -88,7 +88,7 @@ make_instr_func(cmp_i2al_b)
 	reg.data_size = 8;
 	reg.type = OPR_REG;
 	reg.addr = REG_AL;
-	operand_read(&reg)
+	operand_read(&reg);
 	reg.val = alu_sub(imm.val, reg.val);
 	print_asm_2("cmp", "", len, &imm, &reg);
 
