@@ -2,7 +2,7 @@
 
 include Makefile.git
 
-testcase_name = gotbaha
+testcase_name = mul-longlong
 
 nemu:
 	$(call git_commit, "nemu")

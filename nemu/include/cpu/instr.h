@@ -91,7 +91,7 @@ int sbb_rm2r_v(uint32_t eip, uint8_t opcode);
 int imul_rm2r_v(uint32_t eip, uint8_t opcode);
 int idiv_rm2a_v(uint32_t eip, uint8_t opcode);
 int idiv_rm2a_b(uint32_t eip, uint8_t opcode);
-// int or_rm2r_v(uint32_t eip, uint8_t opcode);
+int mul_rm2a_v(uint32_t eip, uint8_t opcode);
 // int not_rm_v(uint32_t eip, uint8_t opcode);
 // int and_r2rm_v(uint32_t eip, uint8_t opcode);
 
