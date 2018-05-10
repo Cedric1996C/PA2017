@@ -10,9 +10,9 @@ nemu:
 
 run: nemu do_not_call_me_testcase
 	$(call git_commit, "run")
-	./nemu/nemu -run testcase_name
+	./nemu/nemu -run $(testcase_name)
 
-gdb: gdb ./testcase/bin/\testcase_name
+gdb: gdb ./testcase/bin/$(testcase_name)
 
 test: nemu do_not_call_me_testcase
 	$(call git_commit, "test")
