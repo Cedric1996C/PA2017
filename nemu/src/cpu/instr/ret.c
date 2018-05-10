@@ -36,7 +36,11 @@ make_instr_func(ret_i_v)
 
   cpu.esp += sign_ext(imm.val, 32);
   cpu.esp += data_size / 8;
-  cpu.eip = rel.val;
+  if(data_size == 16){
+    cpu.eip = rel.val & 0x0000ffff;
+  } else {
+    cpu.eip = rel.val;
+  }
 
   return 0;
 }
