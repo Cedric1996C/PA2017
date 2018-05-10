@@ -73,3 +73,24 @@ make_instr_func(cmp_i2rm_bv)
 	// operand_write(&rm);;
 	return len;
 }
+
+make_instr_func(cmp_i2al_b)
+{
+	OPERAND imm, reg;
+	int len = 1;
+
+	imm.data_size = 8;
+	imm.type = OPR_IMM;
+	imm.addr = eip+1;
+	len += 1;
+	operand_read(&imm);
+
+	reg.data_size = 8;
+	reg.type = OPR_REG;
+	reg.addr = REG_AL;
+	operand_read(&reg)
+	reg.val = alu_sub(imm.val, reg.val);
+	print_asm_2("cmp", "", len, &imm, &reg);
+
+	return len;
+}
