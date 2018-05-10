@@ -20,11 +20,11 @@ make_instr_func(test_i2eax_v){
   imm.type = OPR_IMM;
   imm.data_size = data_size;
   imm.addr = eip + len;
-  len += 1;
+  len += data_size / 8;
   eax.type = OPR_REG;
   eax.addr = REG_EAX;
   eax.data_size = data_size;
-  
+
   print_asm_2("test", "", len, &imm, &eax);
   operand_read(&imm);
   operand_read(&eax);
