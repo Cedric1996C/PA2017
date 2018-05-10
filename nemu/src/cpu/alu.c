@@ -63,7 +63,7 @@ void set_CF_sub(uint32_t src, uint32_t dest){
 
 void set_OF_sub(uint32_t src, uint32_t dest){
   uint32_t src_neg = ~(src+1) + 1;
-  set_OF_add(src_neg + dest, src_neg, dest);
+  set_OF_add(dest-src, src_neg, dest);
 }
 
 uint32_t alu_sub(uint32_t src, uint32_t dest) {
