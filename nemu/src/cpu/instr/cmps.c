@@ -4,7 +4,7 @@ static void instr_execute_2op()
 {
 	operand_read(&opr_src);
 	operand_read(&opr_dest);
-	// print_asm_2("cmp", "", 2, &opr_src, &opr_dest);
+	opr_src.val = sign_ext(opr_src.val, data_size);
 	opr_dest.val = alu_sub(opr_src.val, opr_dest.val);
 	print_asm_2("cmp", "", 2, &opr_src, &opr_dest);
 }
