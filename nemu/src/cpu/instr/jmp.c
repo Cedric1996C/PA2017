@@ -41,7 +41,7 @@ make_instr_func(jmp_rm_v)
 
   int len = 1;
   rm.data_size = data_size;
-  len += modrm_opcode_rm(eip, &opcode, &rm);
+  len += modrm_opcode_rm(eip+1, &opcode, &rm);
   operand_read(&rm);
   if (rm.data_size == 16)
     len += (int32_t)(rm.val << 16) >> 16;
