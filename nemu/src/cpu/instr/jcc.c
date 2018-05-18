@@ -41,6 +41,10 @@ make_instr_impl_1op_cc(j, i, v, p);
 make_instr_impl_1op_cc(j, i, v, np);
 make_instr_impl_1op_cc(j, i, v, ge);
 make_instr_impl_1op_cc(j, i, v, g);
+make_instr_impl_1op_cc(j, i, v, o);
+make_instr_impl_1op_cc(j, i, v, no);
+make_instr_impl_1op_cc(j, i, v, b);
+make_instr_impl_1op_cc(j, i, v, ae);
 
 make_instr_func(jl_b)
 {
