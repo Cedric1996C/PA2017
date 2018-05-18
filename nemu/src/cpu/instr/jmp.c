@@ -35,6 +35,21 @@ make_instr_func(jmp_rel_v)
   return len;
 }
 
+make_instr_func(jmp_rm_v)
+{
+  OPERAND rm;
+
+  int len = 1;
+  rm.data_size = data_size;
+  len += modrm_opcode_rm(eip, &opcode, &rm);
+  operand_read(&rm);
+  if (rm.data_size == 16)
+    len += (int32_t)(rm.val << 16) >> 16;
+  else
+    len += rm.val;
+  return len;
+}
+
 make_instr_func(jmp_rel_b)
 {
   OPERAND imm;
