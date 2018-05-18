@@ -1,0 +1,128 @@
+Undefined command: "disassenmble".  Try "help".
+Dump of assembler code for function main:
+   0x00030005 <+0>:	8d 4c 24 04	lea    0x4(%esp),%ecx
+   0x00030009 <+4>:	83 e4 f0	and    $0xfffffff0,%esp
+   0x0003000c <+7>:	ff 71 fc	pushl  -0x4(%ecx)
+   0x0003000f <+10>:	55	push   %ebp
+   0x00030010 <+11>:	89 e5	mov    %esp,%ebp
+   0x00030012 <+13>:	57	push   %edi
+   0x00030013 <+14>:	56	push   %esi
+   0x00030014 <+15>:	53	push   %ebx
+   0x00030015 <+16>:	51	push   %ecx
+   0x00030016 <+17>:	83 ec 08	sub    $0x8,%esp
+   0x00030019 <+20>:	e8 5e 01 00 00	call   0x3017c <__x86.get_pc_thunk.bx>
+   0x0003001e <+25>:	81 c3 e2 1f 00 00	add    $0x1fe2,%ebx
+   0x00030024 <+31>:	8b 93 1c 00 00 00	mov    0x1c(%ebx),%edx
+   0x0003002a <+37>:	8b 83 14 00 00 00	mov    0x14(%ebx),%eax
+   0x00030030 <+43>:	83 ec 08	sub    $0x8,%esp
+   0x00030033 <+46>:	52	push   %edx
+   0x00030034 <+47>:	50	push   %eax
+   0x00030035 <+48>:	e8 96 02 00 00	call   0x302d0 <strcmp>
+   0x0003003a <+53>:	83 c4 10	add    $0x10,%esp
+   0x0003003d <+56>:	85 c0	test   %eax,%eax
+   0x0003003f <+58>:	74 06	je     0x30047 <main+66>
+   0x00030041 <+60>:	b8 01 00 00 00	mov    $0x1,%eax
+   0x00030046 <+65>:	82	(bad)  
+   0x00030047 <+66>:	8b 93 18 00 00 00	mov    0x18(%ebx),%edx
+   0x0003004d <+72>:	8b 83 14 00 00 00	mov    0x14(%ebx),%eax
+   0x00030053 <+78>:	83 ec 08	sub    $0x8,%esp
+   0x00030056 <+81>:	52	push   %edx
+   0x00030057 <+82>:	50	push   %eax
+   0x00030058 <+83>:	e8 73 02 00 00	call   0x302d0 <strcmp>
+   0x0003005d <+88>:	83 c4 10	add    $0x10,%esp
+   0x00030060 <+91>:	83 f8 ff	cmp    $0xffffffff,%eax
+   0x00030063 <+94>:	74 06	je     0x3006b <main+102>
+   0x00030065 <+96>:	b8 01 00 00 00	mov    $0x1,%eax
+   0x0003006a <+101>:	82	(bad)  
+   0x0003006b <+102>:	8b 83 18 00 00 00	mov    0x18(%ebx),%eax
+   0x00030071 <+108>:	8d 50 01	lea    0x1(%eax),%edx
+   0x00030074 <+111>:	8b 83 14 00 00 00	mov    0x14(%ebx),%eax
+   0x0003007a <+117>:	40	inc    %eax
+   0x0003007b <+118>:	83 ec 08	sub    $0x8,%esp
+   0x0003007e <+121>:	52	push   %edx
+   0x0003007f <+122>:	50	push   %eax
+   0x00030080 <+123>:	e8 4b 02 00 00	call   0x302d0 <strcmp>
+   0x00030085 <+128>:	83 c4 10	add    $0x10,%esp
+   0x00030088 <+131>:	83 f8 ff	cmp    $0xffffffff,%eax
+   0x0003008b <+134>:	74 06	je     0x30093 <main+142>
+   0x0003008d <+136>:	b8 01 00 00 00	mov    $0x1,%eax
+   0x00030092 <+141>:	82	(bad)  
+   0x00030093 <+142>:	8b 83 18 00 00 00	mov    0x18(%ebx),%eax
+   0x00030099 <+148>:	8d 50 02	lea    0x2(%eax),%edx
+   0x0003009c <+151>:	8b 83 14 00 00 00	mov    0x14(%ebx),%eax
+   0x000300a2 <+157>:	83 c0 02	add    $0x2,%eax
+   0x000300a5 <+160>:	83 ec 08	sub    $0x8,%esp
+   0x000300a8 <+163>:	52	push   %edx
+   0x000300a9 <+164>:	50	push   %eax
+   0x000300aa <+165>:	e8 21 02 00 00	call   0x302d0 <strcmp>
+   0x000300af <+170>:	83 c4 10	add    $0x10,%esp
+   0x000300b2 <+173>:	83 f8 ff	cmp    $0xffffffff,%eax
+   0x000300b5 <+176>:	74 06	je     0x300bd <main+184>
+   0x000300b7 <+178>:	b8 01 00 00 00	mov    $0x1,%eax
+   0x000300bc <+183>:	82	(bad)  
+   0x000300bd <+184>:	8b 83 18 00 00 00	mov    0x18(%ebx),%eax
+   0x000300c3 <+190>:	8d 50 03	lea    0x3(%eax),%edx
+   0x000300c6 <+193>:	8b 83 14 00 00 00	mov    0x14(%ebx),%eax
+   0x000300cc <+199>:	83 c0 03	add    $0x3,%eax
+   0x000300cf <+202>:	83 ec 08	sub    $0x8,%esp
+   0x000300d2 <+205>:	52	push   %edx
+   0x000300d3 <+206>:	50	push   %eax
+   0x000300d4 <+207>:	e8 f7 01 00 00	call   0x302d0 <strcmp>
+   0x000300d9 <+212>:	83 c4 10	add    $0x10,%esp
+   0x000300dc <+215>:	83 f8 ff	cmp    $0xffffffff,%eax
+   0x000300df <+218>:	74 06	je     0x300e7 <main+226>
+   0x000300e1 <+220>:	b8 01 00 00 00	mov    $0x1,%eax
+   0x000300e6 <+225>:	82	(bad)  
+   0x000300e7 <+226>:	8b b3 24 00 00 00	mov    0x24(%ebx),%esi
+   0x000300ed <+232>:	8b bb 20 00 00 00	mov    0x20(%ebx),%edi
+   0x000300f3 <+238>:	83 ec 08	sub    $0x8,%esp
+   0x000300f6 <+241>:	8d 83 0c 00 00 00	lea    0xc(%ebx),%eax
+   0x000300fc <+247>:	50	push   %eax
+   0x000300fd <+248>:	c7 c0 2c 20 03 00	mov    $0x3202c,%eax
+   0x00030103 <+254>:	50	push   %eax
+   0x00030104 <+255>:	e8 37 02 00 00	call   0x30340 <strcpy>
+   0x00030109 <+260>:	83 c4 10	add    $0x10,%esp
+   0x0003010c <+263>:	83 ec 08	sub    $0x8,%esp
+   0x0003010f <+266>:	57	push   %edi
+   0x00030110 <+267>:	50	push   %eax
+   0x00030111 <+268>:	e8 4a 01 00 00	call   0x30260 <strcat>
+   0x00030116 <+273>:	83 c4 10	add    $0x10,%esp
+   0x00030119 <+276>:	83 ec 08	sub    $0x8,%esp
+   0x0003011c <+279>:	56	push   %esi
+   0x0003011d <+280>:	50	push   %eax
+   0x0003011e <+281>:	e8 ad 01 00 00	call   0x302d0 <strcmp>
+   0x00030123 <+286>:	83 c4 10	add    $0x10,%esp
+   0x00030126 <+289>:	85 c0	test   %eax,%eax
+   0x00030128 <+291>:	74 06	je     0x30130 <main+299>
+   0x0003012a <+293>:	b8 01 00 00 00	mov    $0x1,%eax
+   0x0003012f <+298>:	82	(bad)  
+   0x00030130 <+299>:	8b b3 28 00 00 00	mov    0x28(%ebx),%esi
+   0x00030136 <+305>:	83 ec 04	sub    $0x4,%esp
+   0x00030139 <+308>:	6a 05	push   $0x5
+   0x0003013b <+310>:	6a 23	push   $0x23
+   0x0003013d <+312>:	c7 c0 2c 20 03 00	mov    $0x3202c,%eax
+   0x00030143 <+318>:	50	push   %eax
+   0x00030144 <+319>:	e8 89 00 00 00	call   0x301d2 <memset>
+   0x00030149 <+324>:	83 c4 10	add    $0x10,%esp
+   0x0003014c <+327>:	83 ec 04	sub    $0x4,%esp
+   0x0003014f <+330>:	6a 05	push   $0x5
+   0x00030151 <+332>:	56	push   %esi
+   0x00030152 <+333>:	50	push   %eax
+   0x00030153 <+334>:	e8 28 00 00 00	call   0x30180 <memcmp>
+   0x00030158 <+339>:	83 c4 10	add    $0x10,%esp
+   0x0003015b <+342>:	85 c0	test   %eax,%eax
+   0x0003015d <+344>:	74 06	je     0x30165 <main+352>
+   0x0003015f <+346>:	b8 01 00 00 00	mov    $0x1,%eax
+   0x00030164 <+351>:	82	(bad)  
+   0x00030165 <+352>:	b8 00 00 00 00	mov    $0x0,%eax
+   0x0003016a <+357>:	82	(bad)  
+   0x0003016b <+358>:	b8 00 00 00 00	mov    $0x0,%eax
+   0x00030170 <+363>:	8d 65 f0	lea    -0x10(%ebp),%esp
+   0x00030173 <+366>:	59	pop    %ecx
+   0x00030174 <+367>:	5b	pop    %ebx
+   0x00030175 <+368>:	5e	pop    %esi
+   0x00030176 <+369>:	5f	pop    %edi
+   0x00030177 <+370>:	5d	pop    %ebp
+   0x00030178 <+371>:	8d 61 fc	lea    -0x4(%ecx),%esp
+   0x0003017b <+374>:	c3	ret    
+End of assembler dump.
