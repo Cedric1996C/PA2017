@@ -116,6 +116,11 @@ int je_v(uint32_t eip, uint8_t opcode);
 int jne_v(uint32_t eip, uint8_t opcode);
 int ja_v(uint32_t eip, uint8_t opcode);
 int jmp_rm_v(uint32_t eip, uint8_t opcode);
+int js_v(uint32_t eip, uint8_t opcode);
+int jns_v(uint32_t eip, uint8_t opcode);
+int jp_v(uint32_t eip, uint8_t opcode);
+int jnp_v(uint32_t eip, uint8_t opcode);
+
 int inc_REG_ESP_v(uint32_t eip, uint8_t opcode);
 int inc_REG_EBP_v(uint32_t eip, uint8_t opcode);
 int inc_REG_ESI_v(uint32_t eip, uint8_t opcode);
