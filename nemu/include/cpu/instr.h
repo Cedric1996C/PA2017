@@ -112,7 +112,7 @@ int cmps_b(uint32_t eip, uint8_t opcode);
 
 int inc_REG_EDI_v(uint32_t eip, uint8_t opcode);
 int test_i2rm_b(uint32_t eip, uint8_t opcode);
-int jz_v(uint32_t eip, uint8_t opcode);
+int je_v(uint32_t eip, uint8_t opcode);
 // int cmps_v(uint32_t eip, uint8_t opcode);
 // int cmps_b(uint32_t eip, uint8_t opcode);
 
