@@ -33,3 +33,25 @@ make_instr_func(test_i2eax_v){
 
   return len;
 }
+
+make_instr_func(test_i2al_b)
+{
+  OPERAND imm, al;
+  int len = 1;
+  imm.type = OPR_IMM;
+  imm.data_size = 8;
+  imm.addr = eip + len;
+  len += 1;
+  al.type = OPR_REG;
+  al.addr = REG_AL;
+  al.data_size = 8;
+
+  print_asm_2("test", "", len, &imm, &al);
+  operand_read(&imm);
+  operand_read(&al);
+  imm.val = alu_and(imm.val, al.val);
+  cpu.eflags.CF = 0;
+  cpu.eflags.OF = 0;
+
+  return len;
+}
