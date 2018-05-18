@@ -109,7 +109,8 @@ int stos_b(uint32_t eip, uint8_t opcode);
 int test_i2al_b(uint32_t eip, uint8_t opcode);
 int cmps_v(uint32_t eip, uint8_t opcode);
 int cmps_b(uint32_t eip, uint8_t opcode);
-// int add_i2rm_b(uint32_t eip, uint8_t opcode);
+
+int inc_REG_EDI_v(uint32_t eip, uint8_t opcode);
 // int stos_b(uint32_t eip, uint8_t opcode);
 // int test_i2al_b(uint32_t eip, uint8_t opcode);
 // int cmps_v(uint32_t eip, uint8_t opcode);
