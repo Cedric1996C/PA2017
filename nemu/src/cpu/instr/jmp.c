@@ -51,8 +51,8 @@ make_instr_func(jmp_rm_v)
   }
   else
     cpu.eip = rm.val;
-    
-  return len;
+
+  return 0;
 }
 
 make_instr_func(jmp_rel_b)
