@@ -41,11 +41,15 @@ make_instr_func(jmp_rm_v)
 
   int len = 1;
   rm.data_size = data_size;
-  len += modrm_rm(eip+1, &rm);
+
+  len += modrm_rm(eip + len, &rm);
   operand_read(&rm);
+
   print_asm_1("jmp rm", "", len, &rm);
 
-  if (rm.data_size == 16){
+  assert(data_size == 16 || data_size == 32);
+  if (data_size == 16)
+  {
     rm.val = (int32_t)(rm.val << 16) >> 16;
     cpu.eip = rm.val & 0xffff;
   }

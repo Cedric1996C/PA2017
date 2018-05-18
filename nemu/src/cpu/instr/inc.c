@@ -9,7 +9,22 @@ static void instr_execute_1op()
   operand_write(&opr_src);
 }
 
-make_instr_impl_1op(inc, rm, v);
+make_instr_func(inc_rm_v){
+  OPERAND rm;
+  int len = 1;
+
+  rm.data_size = data_size;
+  len += modrm_rm(eip + len, &rm);
+  operand_read(&rm);
+
+  rm.val = alu_add(1, rm.val);
+  operand_write(&rm);
+  print_asm_1("inc", "", len, &rm);
+
+  return len;
+}
+
+// make_instr_impl_1op(inc, rm, v);
 make_instr_impl_1op_reg(inc, REG_EDX, v);
 make_instr_impl_1op_reg(inc, REG_EAX, v);
 make_instr_impl_1op_reg(inc, REG_EDI, v);
