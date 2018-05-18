@@ -13,3 +13,6 @@ make_instr_impl_1op(inc, rm, v);
 make_instr_impl_1op_reg(inc, REG_EDX, v);
 make_instr_impl_1op_reg(inc, REG_EAX, v);
 make_instr_impl_1op_reg(inc, REG_EDI, v);
+make_instr_impl_1op_reg(inc, REG_ESP, v);
+make_instr_impl_1op_reg(inc, REG_EBP, v);
+make_instr_impl_1op_reg(inc, REG_ESI, v);
