@@ -2,7 +2,7 @@
 
 include Makefile.git
 
-testcase_name = string
+testcase_name = hello-str
 
 nemu:
 	$(call git_commit, "nemu")
