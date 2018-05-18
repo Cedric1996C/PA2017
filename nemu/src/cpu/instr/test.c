@@ -28,7 +28,7 @@ make_instr_func(test_i2eax_v){
   print_asm_2("test", "", len, &imm, &eax);
   operand_read(&imm);
   operand_read(&eax);
-  imm.val = alu_sub(imm.val, eax.val);
+  imm.val = alu_and(imm.val, eax.val);
   cpu.eflags.CF = 0;
   cpu.eflags.OF = 0;
 
