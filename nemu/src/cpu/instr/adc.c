@@ -10,23 +10,24 @@ static void instr_execute_2op()
 
 make_instr_impl_2op(adc, r, rm ,v);
 
-// make_instr_func(adc_r2rm_v)
-// {
-//   OPERAND reg, rm;
-//   int len = 1;
-//   int data_byte = data_size / 8;
-//   len += modrm_opcode_rm(eip + 1, &opcode, &rm);
+make_instr_func(adc_i2al_b)
+{
+  OPERAND imm, al;
+  int len = 1;
+  imm.type = OPR_IMM;
+  imm.data_size = 8;
+  imm.addr = eip+len;
+  len += 1;
+  operand_read(&imm);
 
-//   reg.type = OPR_reg;
-//   reg.data_size = data_size;
-//   reg.addr = eip + len;
-//   operand_read(&reg);
+  al.type = OPR_REG;
+  al.data_size = 8;
+  al.addr = REG_AL;
+  operand_read(&al);
 
-//   rm.data_size = data_size;
-//   operand_read(&rm);
-//   rm.val = alu_add(reg.val, rm.val);
-//   operand_write(&rm);
-//   print_asm_2("adc", "", len + data_byte, &reg, &rm);
+  al.val = alu_adc(imm.val, al.val);
+  operand_write(&al);
+  print_asm_2("adc", "", len, &imm, &al);
 
-//   return len + data_byte;
-// }
+  return len;
+}
