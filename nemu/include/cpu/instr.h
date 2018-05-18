@@ -126,12 +126,12 @@ int jo_v(uint32_t eip, uint8_t opcode);
 int jno_v(uint32_t eip, uint8_t opcode);
 int jb_v(uint32_t eip, uint8_t opcode);
 int jae_v(uint32_t eip, uint8_t opcode);
-
 int inc_REG_ESP_v(uint32_t eip, uint8_t opcode);
 int inc_REG_EBP_v(uint32_t eip, uint8_t opcode);
 int inc_REG_ESI_v(uint32_t eip, uint8_t opcode);
 int adc_i2al_b(uint32_t eip, uint8_t opcode);
 int dec_ebp_v(uint32_t eip, uint8_t opcode);
 int adc_r2rm_b(uint32_t eip, uint8_t opcode);
-// int ja_v(uint32_t eip, uint8_t opcode);
+int add_r2rm_b(uint32_t eip, uint8_t opcode);
+
 #endif
