@@ -37,38 +37,19 @@ make_instr_func(jmp_rel_v)
 
 make_instr_func(jmp_rm_v)
 {
-  // OPERAND rm;
-
-  // int len = 1;
-  // rm.data_size = data_size;
-
-  // len += modrm_rm(eip + len, &rm);
-  // operand_read(&rm);
-
-  // print_asm_1("jmp rm", "", len, &rm);
-
-  // assert(data_size == 16 || data_size == 32);
-  // if (data_size == 16)
-  // {
-  //   rm.val = (int32_t)(rm.val << 16) >> 16;
-  //   cpu.eip = rm.val & 0xffff;
-  // }
-  // else
-  //   cpu.eip = rm.val;
-
-  // return 0;
   OPERAND rm;
 
   int len = 1;
   rm.data_size = data_size;
 
-  len += modrm_rm(eip + len, &rm);
+  len += modrm_opcode_rm(eip + len, &opcode, &rm);
   operand_read(&rm);
 
   print_asm_1("jmp rm", "", len, &rm);
 
   assert(data_size == 16 || data_size == 32);
-  if (data_size == 16){
+  if (data_size == 16)
+  {
     rm.val = (int32_t)(rm.val << 16) >> 16;
     cpu.eip = rm.val & 0xffff;
   }
