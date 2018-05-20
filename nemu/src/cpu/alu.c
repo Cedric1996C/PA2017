@@ -5,8 +5,12 @@ void set_CF_add(uint32_t result, uint32_t src){
 }
 
 void set_CF_adc(uint32_t result, uint32_t src, uint32_t dest){
-  if(cpu.eflags.CF && result <= src)
-    cpu.eflags.CF = 1;
+  if(cpu.eflags.CF){
+    if(result <= src || result <= dest)
+      cpu.eflags.CF = 1;
+    else
+      cpu.eflags.CF = 0;
+  }
   else
     set_CF_add(result, src);
 }
@@ -99,7 +103,7 @@ uint32_t alu_sbb(uint32_t src, uint32_t dest) {
   set_ZF(result);
   set_SF(result);
   set_OF_sbb(src, dest);
-  set_CF_sbb(src, dest);
+  set_CF_sbb(result, dest);
 	return result;
 }
 
