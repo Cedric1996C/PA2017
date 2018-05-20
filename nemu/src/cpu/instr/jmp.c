@@ -42,7 +42,7 @@ make_instr_func(jmp_rm_v)
   int len = 1;
   rm.data_size = data_size;
 
-  len += modrm_rm(eip + len, &opcode, &rm);
+  len += modrm_rm(eip + len, &rm);
   operand_read(&rm);
 
   print_asm_1("jmp rm", "", len, &rm);
