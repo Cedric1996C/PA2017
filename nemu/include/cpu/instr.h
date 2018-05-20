@@ -127,11 +127,26 @@ int jno_v(uint32_t eip, uint8_t opcode);
 int jb_v(uint32_t eip, uint8_t opcode);
 int jae_v(uint32_t eip, uint8_t opcode);
 int ja_b(uint32_t eip, uint8_t opcode);
+int je_b(uint32_t eip, uint8_t opcode);
+int jne_b(uint32_t eip, uint8_t opcode);
+int ja_b(uint32_t eip, uint8_t opcode);
+int js_b(uint32_t eip, uint8_t opcode);
+int jns_b(uint32_t eip, uint8_t opcode);
+int jp_b(uint32_t eip, uint8_t opcode);
+int jnp_b(uint32_t eip, uint8_t opcode);
+int jge_b(uint32_t eip, uint8_t opcode);
+int jg_b(uint32_t eip, uint8_t opcode);
+int jo_b(uint32_t eip, uint8_t opcode);
+int jno_b(uint32_t eip, uint8_t opcode);
+int jb_b(uint32_t eip, uint8_t opcode);
+int jae_b(uint32_t eip, uint8_t opcode);
 
 int inc_REG_ESP_v(uint32_t eip, uint8_t opcode);
 int inc_REG_EBP_v(uint32_t eip, uint8_t opcode);
 int inc_REG_ESI_v(uint32_t eip, uint8_t opcode);
 int dec_REG_EBP_v(uint32_t eip, uint8_t opcode);
 int and_i2rm_b(uint32_t eip, uint8_t opcode);
+
+
 
 #endif

@@ -45,8 +45,25 @@ make_instr_impl_1op_cc(j, i, v, o);
 make_instr_impl_1op_cc(j, i, v, no);
 make_instr_impl_1op_cc(j, i, v, b);
 make_instr_impl_1op_cc(j, i, v, ae);
-make_instr_impl_1op_cc(j, i, b, a);
 
+make_instr_impl_1op_cc(j, i, b, a);
+make_instr_impl_1op_cc(j, i, b, be);
+make_instr_impl_1op_cc(j, i, b, l);
+make_instr_impl_1op_cc(j, i, b, le);
+make_instr_impl_1op_cc(j, i, b, e);
+make_instr_impl_1op_cc(j, i, b, ne);
+make_instr_impl_1op_cc(j, i, b, s);
+make_instr_impl_1op_cc(j, i, b, ns);
+make_instr_impl_1op_cc(j, i, b, p);
+make_instr_impl_1op_cc(j, i, b, np);
+make_instr_impl_1op_cc(j, i, b, ge);
+make_instr_impl_1op_cc(j, i, b, g);
+make_instr_impl_1op_cc(j, i, b, o);
+make_instr_impl_1op_cc(j, i, b, no);
+make_instr_impl_1op_cc(j, i, b, b);
+make_instr_impl_1op_cc(j, i, b, ae);
+
+/*
 make_instr_func(jl_b)
 {
 	OPERAND imm;
@@ -186,3 +203,5 @@ make_instr_func(jbe_b)
 
 	return len;
 }
+
+*/
