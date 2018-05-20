@@ -188,7 +188,7 @@ void print_asm_3(char * instr, char * suffix, uint8_t len, OPERAND * opr_1, OPER
 	cpu.eflags.ZF == 0 && cpu.eflags.CF == 0
 
 #define condition_ae \
-	cpu.eflags.CF == 1
+	cpu.eflags.CF == 0
 
 #define condition_b \
 	cpu.eflags.CF == 1

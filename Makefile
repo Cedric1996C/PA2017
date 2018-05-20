@@ -2,7 +2,7 @@
 
 include Makefile.git
 
-testcase_name = mov-jcc
+testcase_name = hello-str
 
 nemu:
 	$(call git_commit, "nemu")
