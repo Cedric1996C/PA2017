@@ -1570,7 +1570,7 @@ Dump of assembler code for function _svfprintf_r:
    0x00031c3f <+6623>:	e9 07 fd ff ff	jmp    0x3194b <_svfprintf_r+5867>
    0x00031c44 <+6628>:	8b 85 28 ff ff ff	mov    -0xd8(%ebp),%eax
    0x00031c4a <+6634>:	89 04 24	mov    %eax,(%esp)
-   0x00031c4d <+6637>:	e8 ee 30 00 00	call   0x34d40 <strlen>
+   0x00031c4d <+6637>:	e8 ee 30 00 00	call   0x34d40 <strlen> **
    0x00031c52 <+6642>:	e9 6a e8 ff ff	jmp    0x304c1 <_svfprintf_r+609>
    0x00031c57 <+6647>:	8d 85 74 ff ff ff	lea    -0x8c(%ebp),%eax
    0x00031c5d <+6653>:	89 44 24 08	mov    %eax,0x8(%esp)
