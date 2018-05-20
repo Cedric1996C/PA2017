@@ -70,7 +70,7 @@ make_instr_func(jmp_rel_b)
 
   operand_read(&imm);
   print_asm_1("jmp", "", len, &imm);
-  len += (uint8_t)imm.val;
-  
+  cpu.eip -= (uint8_t)imm.val;
+
   return len;
 }
