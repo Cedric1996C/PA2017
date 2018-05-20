@@ -63,7 +63,7 @@ make_instr_impl_1op_cc(j, i, b, no);
 make_instr_impl_1op_cc(j, i, b, b);
 make_instr_impl_1op_cc(j, i, b, ae);
 
-
+/*
 make_instr_func(ja_b)
 {
 	OPERAND imm;
@@ -84,7 +84,6 @@ make_instr_func(ja_b)
 	return len;
 }
 
-/*
 make_instr_func(je_b)
 {
 	OPERAND imm;

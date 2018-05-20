@@ -17,3 +17,10 @@ make_instr_func(sahf) {
 	print_asm_0("sahf", "", 1);
 	return 1;
 }
+
+make_instr_func(std)
+{
+	cpu.eflags.DF = 1;
+	print_asm_0("std", "", 1);
+	return 1;
+}
