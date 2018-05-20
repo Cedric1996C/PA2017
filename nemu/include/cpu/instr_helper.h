@@ -87,27 +87,6 @@ void print_asm_3(char * instr, char * suffix, uint8_t len, OPERAND * opr_1, OPER
 		return len; \
 	}
 
-#define make_instr_impl_1op_inc(src_type, suffix) \
-	make_instr_func(concat5(inc, _, src_type, _, suffix)) {\
-		int len = 1; \
-		concat(decode_data_size_, suffix) \
-		concat3(decode_operand, _, src_type) \
-		print_asm_1("incl","", len, &opr_src); \
-		instr_execute_1op_inc(); \
-		return len; \
-	}
-
-#define make_instr_impl_1op_inc_reg(reg, suffix) \
-	make_instr_func(concat5(inc, _, reg, _, suffix)) {\
-		int len = 1; \
-		concat(decode_data_size_, suffix) \
-		opr_src.val = cpu.reg; \
-		instr_execute_1op_inc_reg(); \
-		cpu.reg = opr_src.val; \
-		print_asm_1("inc","", len, &opr_src); \
-		return len; \
-	}
-
 // determine the data size of operands
 // possible sizes b, w, l, v, bv, short, near
 #define decode_data_size_b opr_src.data_size = opr_dest.data_size = 8;
