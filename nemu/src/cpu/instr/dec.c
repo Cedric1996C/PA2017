@@ -7,5 +7,11 @@ static void instr_execute_1op(){
 }
 
 make_instr_impl_1op(dec, rm, v);
-make_instr_impl_1op_reg(dec, REG_EAX, v);
-make_instr_impl_1op_reg(dec, REG_EBP, v);
+make_instr_impl_1op_reg(dec, REG_EAX, v)
+make_instr_impl_1op_reg(dec, REG_ECX, v)
+make_instr_impl_1op_reg(dec, REG_EDX, v)
+make_instr_impl_1op_reg(dec, REG_EBX, v)
+make_instr_impl_1op_reg(dec, REG_EBP, v)
+make_instr_impl_1op_reg(dec, REG_ESP, v)
+make_instr_impl_1op_reg(dec, REG_ESI, v)
+make_instr_impl_1op_reg(dec, REG_EDI, v)

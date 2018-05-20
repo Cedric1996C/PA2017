@@ -145,6 +145,13 @@ int inc_REG_ESP_v(uint32_t eip, uint8_t opcode);
 int inc_REG_EBP_v(uint32_t eip, uint8_t opcode);
 int inc_REG_ESI_v(uint32_t eip, uint8_t opcode);
 int dec_REG_EBP_v(uint32_t eip, uint8_t opcode);
+int dec_REG_ECX_v(uint32_t eip, uint8_t opcode);
+int dec_REG_EDX_v(uint32_t eip, uint8_t opcode);
+int dec_REG_EBX_v(uint32_t eip, uint8_t opcode);
+int dec_REG_EBP_v(uint32_t eip, uint8_t opcode);
+int dec_REG_ESP_v(uint32_t eip, uint8_t opcode);
+int dec_REG_ESI_v(uint32_t eip, uint8_t opcode);
+int dec_REG_EDI_v(uint32_t eip, uint8_t opcode);
 int and_i2rm_b(uint32_t eip, uint8_t opcode);
 int std(uint32_t eip, uint8_t opcode);
 
