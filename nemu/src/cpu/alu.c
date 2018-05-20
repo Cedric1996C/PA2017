@@ -65,9 +65,9 @@ void set_CF_sub(uint32_t src, uint32_t dest){
   cpu.eflags.CF = dest < src;
 }
 
-void set_OF_sub(uint32_t src, uint32_t dest){
+void set_OF_sub(uint32_t result, uint32_t src, uint32_t dest){
   uint32_t src_neg = ~(src+1) + 1;
-  set_OF_add(dest-src, src_neg, dest);
+  set_OF_add(result, src_neg, dest);
 }
 
 uint32_t alu_sub(uint32_t src, uint32_t dest) {
@@ -76,7 +76,7 @@ uint32_t alu_sub(uint32_t src, uint32_t dest) {
   set_PF(result);
   set_ZF(result);
   set_SF(result);
-  set_OF_sub(src, dest);
+  set_OF_sub(result, src, dest);
 	return result;
 }
 
@@ -93,7 +93,7 @@ uint32_t alu_sbb(uint32_t src, uint32_t dest) {
   set_PF(result);
   set_ZF(result);
   set_SF(result);
-  set_OF_sub(src, dest);
+  set_OF_sub(result, src, dest);
   set_CF_sbb(result, dest);
 	return result;
 }
