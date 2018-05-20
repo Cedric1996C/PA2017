@@ -1,21 +1,11 @@
 #include "cpu/instr.h"
 
-static void instr_execute_1op_dec_reg()
-{
-  // uint32_t temp_CF = cpu.eflags.CF;
-  opr_src.val = alu_sub(1, opr_src.val);
-  // cpu.eflags.CF = temp_CF;
-}
-
-static void instr_execute_1op_dec()
-{
+static void instr_execute_1op(){
   operand_read(&opr_src);
-  // uint32_t temp_CF = cpu.eflags.CF;
   opr_src.val = alu_sub(1, opr_src.val);
-  // cpu.eflags.CF = temp_CF;
   operand_write(&opr_src);
 }
 
-make_instr_impl_1op_dec(rm, v);
-make_instr_impl_1op_dec_reg(eax, v);
-make_instr_impl_1op_dec_reg(ebp, v);
+make_instr_impl_1op(dec, rm, v);
+make_instr_impl_1op_reg(dec, REG_EAX, v);
+make_instr_impl_1op_reg(dec, REG_EBP, v);
