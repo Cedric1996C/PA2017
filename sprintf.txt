@@ -13,7 +13,7 @@ Dump of assembler code for function sprintf:
    0x000301a9 <+41>:	89 45 90	mov    %eax,-0x70(%ebp)
    0x000301ac <+44>:	89 45 a0	mov    %eax,-0x60(%ebp)
    0x000301af <+47>:	c7 45 a4 ff ff ff 7f	movl   $0x7fffffff,-0x5c(%ebp)
-   0x000301b6 <+54>:	e8 95 33 00 00	call   0x33550 <__getreent>
+   0x000301b6 <+54>:	e8 95 33 00 00	call   0x2b3sddasdas <__getreent>
    0x000301bb <+59>:	8b 55 0c	mov    0xc(%ebp),%edx
    0x000301be <+62>:	89 5c 24 0c	mov    %ebx,0xc(%esp)
    0x000301c2 <+66>:	89 54 24 08	mov    %edx,0x8(%esp)
@@ -567,7 +567,7 @@ Dump of assembler code for function _svfprintf_r:
    0x00030b86 <+2342>:	83 f8 07	cmp    $0x7,%eax
    0x00030b89 <+2345>:	89 85 78 ff ff ff	mov    %eax,-0x88(%ebp)
    0x00030b8f <+2351>:	0f 8f 7b 06 00 00	jg     0x31210 <_svfprintf_r+4016>
-   0x00030b95 <+2357>:	8b 9d 30 ff ff ff	mov    -0xd0(%ebp),%ebx
+   0x00030b95 <+2357>:	8b 9d 30 ff ff ff	mov    -0xd0(%ebp),%ebx **
    0x00030b9b <+2363>:	85 db	test   %ebx,%ebx
    0x00030b9d <+2365>:	74 33	je     0x30bd2 <_svfprintf_r+2418>
    0x00030b9f <+2367>:	8d 85 5a ff ff ff	lea    -0xa6(%ebp),%eax
@@ -1570,7 +1570,7 @@ Dump of assembler code for function _svfprintf_r:
    0x00031c3f <+6623>:	e9 07 fd ff ff	jmp    0x3194b <_svfprintf_r+5867>
    0x00031c44 <+6628>:	8b 85 28 ff ff ff	mov    -0xd8(%ebp),%eax
    0x00031c4a <+6634>:	89 04 24	mov    %eax,(%esp)
-   0x00031c4d <+6637>:	e8 ee 30 00 00	call   0x34d40 <strlen> **
+   0x00031c4d <+6637>:	e8 ee 30 00 00	call   0x34d40 <strlen> 
    0x00031c52 <+6642>:	e9 6a e8 ff ff	jmp    0x304c1 <_svfprintf_r+609>
    0x00031c57 <+6647>:	8d 85 74 ff ff ff	lea    -0x8c(%ebp),%eax
    0x00031c5d <+6653>:	89 44 24 08	mov    %eax,0x8(%esp)
