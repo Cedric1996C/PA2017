@@ -11,17 +11,19 @@ make_instr_func(call_rel_v)
   temp_eip.data_size = data_size;
   temp_eip.val = eip+len;
   temp_eip.addr = cpu.esp;
+  opr_eip.sreg = SREG_SS;
   operand_write(&temp_eip);
 
   rel.type = OPR_IMM;
   rel.data_size = data_size;
   rel.addr = eip + 1;
   operand_read(&rel);
-  
-  if(data_size == 16){
-    cpu.eip = (cpu.eip + rel.val)&0x0000ffff;
-  } else {
-    cpu.eip += rel.val;
+  print_asm_1("call", "", len, &imm);
+
+  if (data_size == 16){
+    imm.val = (int32_t)(imm.val << 16) >> 16;
   }
+  len += (int32_t)imm.val;
+  
   return len;
 }
