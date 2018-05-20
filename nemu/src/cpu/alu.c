@@ -80,7 +80,7 @@ uint32_t alu_sub(uint32_t src, uint32_t dest) {
 	return result;
 }
 
-void set_CF_sbb(unit32_t result, uint32_t src, uint32_t dest){
+void set_CF_sbb(uint32_t result, uint32_t src, uint32_t dest){
   if(!cpu.eflags.CF){
     set_CF_sub(result, dest);
   } else {
