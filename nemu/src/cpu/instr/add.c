@@ -43,7 +43,7 @@ make_instr_func(add_rm2r_b)
   operand_read(&reg);
   operand_read(&rm);
 
-  reg.val = alu_add(rm.val, reg.val);
+  reg.val = alu_add(reg.val, rm.val);
   operand_write(&reg);
 
   return len;

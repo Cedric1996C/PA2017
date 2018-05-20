@@ -6,8 +6,6 @@ static void instr_execute_2op()
   operand_read(&opr_dest);
   opr_dest.val = alu_and(opr_src.val, opr_dest.val);
   operand_write(&opr_dest);
-  cpu.eflags.OF = 0;
-  cpu.eflags.CF = 0;
 }
 
 make_instr_impl_2op(and, i, rm, v);
@@ -39,8 +37,6 @@ make_instr_func(and_i2rm_bv)
   rm.val = alu_and(imm.val, rm.val);
   operand_write(&rm);
   print_asm_2("and", "", len, &imm, &rm);
-  cpu.eflags.OF = 0;
-  cpu.eflags.CF = 0;
 
   return len;
 }
