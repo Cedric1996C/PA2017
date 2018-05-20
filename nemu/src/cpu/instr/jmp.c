@@ -28,7 +28,7 @@ make_instr_func(jmp_rel_v)
   len += data_size / 8;
   imm.data_size = data_size;
   operand_read(&imm);
-  print_asm_1("jmp", "", len, &imm);
+  print_asm_1("jmp", "", len, &rm);
   if (imm.data_size == 16)
     len += (int32_t)(imm.val << 16) >> 16;
   else
@@ -71,7 +71,7 @@ make_instr_func(jmp_rel_b)
 
   operand_read(&imm);
   print_asm_1("jmp", "", len, &imm);
-  len += (uint8_t)imm.val;
+  len += (int8_t)imm.val;
 
   return len;
 }

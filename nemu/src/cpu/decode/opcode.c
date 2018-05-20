@@ -19,8 +19,8 @@ instr_func opcode_entry[256] = {
 /* 0x3c - 0x3f*/	cmp_i2al_b, inv, inv, inv,
 /* 0x40 - 0x43*/	inc_REG_EAX_v, inv, inc_REG_EDX_v, inv,
 /* 0x44 - 0x47*/	inc_REG_ESP_v, inc_REG_EBP_v, inc_REG_ESI_v, inc_REG_EDI_v,
-/* 0x48 - 0x4b*/	dec_REG_EAX_v, dec_REG_ECX_v, dec_REG_EDX_v, dec_REG_EBX_v,
-/* 0x4c - 0x4f*/	dec_REG_EBP_v, dec_REG_ESP_v, dec_REG_ESI_v, dec_REG_EDI_v,
+/* 0x48 - 0x4b*/	dec_REG_EAX_v, inv, inv, inv,
+/* 0x4c - 0x4f*/	inv, dec_REG_EBP_v, inv, inv,
 /* 0x50 - 0x53*/	push_REG_EAX_v, push_REG_ECX_v, push_REG_EDX_v, push_REG_EBX_v,
 /* 0x54 - 0x57*/	push_REG_ESP_v, push_REG_EBP_v, push_REG_ESI_v, push_REG_EDI_v,
 /* 0x58 - 0x5b*/	inv, inv, inv, pop_ebx_v,
@@ -29,10 +29,10 @@ instr_func opcode_entry[256] = {
 /* 0x64 - 0x67*/	inv, inv, data_size_16, inv,
 /* 0x68 - 0x6b*/	inv, inv, push_i_b, inv,
 /* 0x6c - 0x6f*/	inv, inv, inv, inv,
-/* 0x70 - 0x73*/	jo_b, jno_b, jb_b, jae_b,
+/* 0x70 - 0x73*/	inv, inv, inv, inv,
 /* 0x74 - 0x77*/	je_b, jne_b, jbe_b, ja_b,
-/* 0x78 - 0x7b*/	js_b, jns_b, jp_b, jnp_b,
-/* 0x7c - 0x7f*/	jl_b, jge_b, jle_b, jg_b,
+/* 0x78 - 0x7b*/	inv, inv, inv, inv,
+/* 0x7c - 0x7f*/	jl_b, jge_b, jle_b, jnle_b,
 /* 0x80 - 0x83*/	group_1_b, group_1_v, nemu_trap, group_1_bv,
 /* 0x84 - 0x87*/	test_r2rm_b, test_r2rm_v, inv, inv,
 /* 0x88 - 0x8b*/	mov_r2rm_b, mov_r2rm_v, mov_rm2r_b, mov_rm2r_v,
@@ -64,7 +64,7 @@ instr_func opcode_entry[256] = {
 /* 0xf0 - 0xf3*/	inv, break_point, inv, rep_repe,
 /* 0xf4 - 0xf7*/	hlt, inv, group_3_b, group_3_v,
 /* 0xf8 - 0xfb*/	clc, inv, inv, inv,
-/* 0xfc - 0xff*/	cld, std, inv, group_5_indirect,
+/* 0xfc - 0xff*/	cld, inv, inv, group_5_indirect,
 };
 
 /* 0x80 */
