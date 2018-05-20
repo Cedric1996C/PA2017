@@ -63,7 +63,7 @@ int xor_r2rm_v(uint32_t eip, uint8_t opcode);
 int or_r2rm_v(uint32_t eip, uint8_t opcode);
 
 int cmp_i2rm_v(uint32_t eip, uint8_t opcode);
-int dec_eax_v(uint32_t eip, uint8_t opcode);
+int dec_REG_EAX_v(uint32_t eip, uint8_t opcode);
 int sub_rm2r_v(uint32_t eip, uint8_t opcode);
 int cmp_rm2r_v(uint32_t eip, uint8_t opcode);
 int inc_REG_EDX_v(uint32_t eip, uint8_t opcode);
@@ -130,7 +130,7 @@ int jae_v(uint32_t eip, uint8_t opcode);
 int inc_REG_ESP_v(uint32_t eip, uint8_t opcode);
 int inc_REG_EBP_v(uint32_t eip, uint8_t opcode);
 int inc_REG_ESI_v(uint32_t eip, uint8_t opcode);
-int dec_ebp_v(uint32_t eip, uint8_t opcode);
+int dec_REG_EBP_v(uint32_t eip, uint8_t opcode);
 int and_i2rm_b(uint32_t eip, uint8_t opcode);
 
 #endif
