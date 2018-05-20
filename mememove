@@ -1,0 +1,70 @@
+Dump of assembler code for function memmove:
+   0x000361a0 <+0>:	55	push   %ebp
+   0x000361a1 <+1>:	89 e5	mov    %esp,%ebp
+   0x000361a3 <+3>:	56	push   %esi
+   0x000361a4 <+4>:	57	push   %edi
+   0x000361a5 <+5>:	53	push   %ebx
+   0x000361a6 <+6>:	8b 7d 08	mov    0x8(%ebp),%edi
+   0x000361a9 <+9>:	8b 4d 10	mov    0x10(%ebp),%ecx
+   0x000361ac <+12>:	8b 75 0c	mov    0xc(%ebp),%esi
+   0x000361af <+15>:	fc	cld    
+   0x000361b0 <+16>:	39 fe	cmp    %edi,%esi
+   0x000361b2 <+18>:	73 43	jae    0x361f7 <memmove+87>
+   0x000361b4 <+20>:	8d 5c 31 ff	lea    -0x1(%ecx,%esi,1),%ebx
+   0x000361b8 <+24>:	39 df	cmp    %ebx,%edi
+   0x000361ba <+26>:	77 3b	ja     0x361f7 <memmove+87>
+   0x000361bc <+28>:	01 ce	add    %ecx,%esi
+   0x000361be <+30>:	01 cf	add    %ecx,%edi
+   0x000361c0 <+32>:	fd	std    
+   0x000361c1 <+33>:	83 f9 08	cmp    $0x8,%ecx
+   0x000361c4 <+36>:	76 2b	jbe    0x361f1 <memmove+81>
+   0x000361c6 <+38>:	89 fa	mov    %edi,%edx
+   0x000361c8 <+40>:	89 cb	mov    %ecx,%ebx
+   0x000361ca <+42>:	83 e2 03	and    $0x3,%edx
+   0x000361cd <+45>:	74 0c	je     0x361db <memmove+59>
+   0x000361cf <+47>:	89 d1	mov    %edx,%ecx
+   0x000361d1 <+49>:	4e	dec    %esi
+   0x000361d2 <+50>:	4f	dec    %edi
+   0x000361d3 <+51>:	29 cb	sub    %ecx,%ebx
+   0x000361d5 <+53>:	f3 a4	rep movsb %ds:(%esi),%es:(%edi)
+   0x000361d7 <+55>:	89 d9	mov    %ebx,%ecx
+   0x000361d9 <+57>:	46	inc    %esi
+   0x000361da <+58>:	47	inc    %edi
+   0x000361db <+59>:	c1 e9 02	shr    $0x2,%ecx
+   0x000361de <+62>:	83 ee 04	sub    $0x4,%esi
+   0x000361e1 <+65>:	83 ef 04	sub    $0x4,%edi
+   0x000361e4 <+68>:	f3 a5	rep movsl %ds:(%esi),%es:(%edi)
+   0x000361e6 <+70>:	83 c6 04	add    $0x4,%esi
+   0x000361e9 <+73>:	83 c7 04	add    $0x4,%edi
+   0x000361ec <+76>:	89 d9	mov    %ebx,%ecx
+   0x000361ee <+78>:	83 e1 03	and    $0x3,%ecx
+   0x000361f1 <+81>:	4e	dec    %esi
+   0x000361f2 <+82>:	4f	dec    %edi
+   0x000361f3 <+83>:	f3 a4	rep movsb %ds:(%esi),%es:(%edi)
+   0x000361f5 <+85>:	eb 2a	jmp    0x36221 <memmove+129>
+   0x000361f7 <+87>:	83 f9 08	cmp    $0x8,%ecx
+   0x000361fa <+90>:	76 23	jbe    0x3621f <memmove+127>
+   0x000361fc <+92>:	89 fa	mov    %edi,%edx
+   0x000361fe <+94>:	89 cb	mov    %ecx,%ebx
+   0x00036200 <+96>:	83 e2 03	and    $0x3,%edx
+   0x00036203 <+99>:	74 10	je     0x36215 <memmove+117>
+   0x00036205 <+101>:	b9 04 00 00 00	mov    $0x4,%ecx
+   0x0003620a <+106>:	29 d1	sub    %edx,%ecx
+   0x0003620c <+108>:	83 e1 03	and    $0x3,%ecx
+   0x0003620f <+111>:	29 cb	sub    %ecx,%ebx
+   0x00036211 <+113>:	f3 a4	rep movsb %ds:(%esi),%es:(%edi)
+   0x00036213 <+115>:	89 d9	mov    %ebx,%ecx
+   0x00036215 <+117>:	c1 e9 02	shr    $0x2,%ecx
+   0x00036218 <+120>:	f3 a5	rep movsl %ds:(%esi),%es:(%edi)
+   0x0003621a <+122>:	89 d9	mov    %ebx,%ecx
+   0x0003621c <+124>:	83 e1 03	and    $0x3,%ecx
+   0x0003621f <+127>:	f3 a4	rep movsb %ds:(%esi),%es:(%edi)
+   0x00036221 <+129>:	8b 45 08	mov    0x8(%ebp),%eax
+   0x00036224 <+132>:	fc	cld    
+   0x00036225 <+133>:	8d 65 f4	lea    -0xc(%ebp),%esp
+   0x00036228 <+136>:	5b	pop    %ebx
+   0x00036229 <+137>:	5f	pop    %edi
+   0x0003622a <+138>:	5e	pop    %esi
+   0x0003622b <+139>:	c9	leave  
+   0x0003622c <+140>:	c3	ret    
+End of assembler dump.

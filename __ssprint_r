@@ -1,0 +1,159 @@
+Dump of assembler code for function __ssprint_r:
+   0x00034d80 <+0>:	55	push   %ebp
+   0x00034d81 <+1>:	89 e5	mov    %esp,%ebp
+   0x00034d83 <+3>:	57	push   %edi
+   0x00034d84 <+4>:	56	push   %esi
+   0x00034d85 <+5>:	53	push   %ebx
+   0x00034d86 <+6>:	83 ec 2c	sub    $0x2c,%esp
+   0x00034d89 <+9>:	8b 45 10	mov    0x10(%ebp),%eax
+   0x00034d8c <+12>:	8b 5d 0c	mov    0xc(%ebp),%ebx
+   0x00034d8f <+15>:	8b 00	mov    (%eax),%eax
+   0x00034d91 <+17>:	89 c7	mov    %eax,%edi
+   0x00034d93 <+19>:	8b 45 10	mov    0x10(%ebp),%eax
+   0x00034d96 <+22>:	8b 40 08	mov    0x8(%eax),%eax
+   0x00034d99 <+25>:	85 c0	test   %eax,%eax
+   0x00034d9b <+27>:	0f 84 af 01 00 00	je     0x34f50 <__ssprint_r+464>
+   0x00034da1 <+33>:	31 c9	xor    %ecx,%ecx
+   0x00034da3 <+35>:	31 d2	xor    %edx,%edx
+   0x00034da5 <+37>:	8b 03	mov    (%ebx),%eax
+   0x00034da7 <+39>:	89 ce	mov    %ecx,%esi
+   0x00034da9 <+41>:	85 f6	test   %esi,%esi
+   0x00034dab <+43>:	89 55 e4	mov    %edx,-0x1c(%ebp)
+   0x00034dae <+46>:	0f 84 ec 00 00 00	je     0x34ea0 <__ssprint_r+288>
+   0x00034db4 <+52>:	8b 53 08	mov    0x8(%ebx),%edx
+   0x00034db7 <+55>:	39 d6	cmp    %edx,%esi
+   0x00034db9 <+57>:	0f 82 fc 00 00 00	jb     0x34ebb <__ssprint_r+315>
+   0x00034dbf <+63>:	0f b7 4b 0c	movzwl 0xc(%ebx),%ecx
+   0x00034dc3 <+67>:	66 f7 c1 80 04	test   $0x480,%cx
+   0x00034dc8 <+72>:	0f 84 fa 00 00 00	je     0x34ec8 <__ssprint_r+328>
+   0x00034dce <+78>:	8b 53 10	mov    0x10(%ebx),%edx
+   0x00034dd1 <+81>:	29 d0	sub    %edx,%eax
+   0x00034dd3 <+83>:	89 45 dc	mov    %eax,-0x24(%ebp)
+   0x00034dd6 <+86>:	8b 43 14	mov    0x14(%ebx),%eax
+   0x00034dd9 <+89>:	89 55 d8	mov    %edx,-0x28(%ebp)
+   0x00034ddc <+92>:	8d 04 40	lea    (%eax,%eax,2),%eax
+   0x00034ddf <+95>:	89 c2	mov    %eax,%edx
+   0x00034de1 <+97>:	c1 ea 1f	shr    $0x1f,%edx
+   0x00034de4 <+100>:	01 d0	add    %edx,%eax
+   0x00034de6 <+102>:	89 45 e0	mov    %eax,-0x20(%ebp)
+   0x00034de9 <+105>:	8b 45 dc	mov    -0x24(%ebp),%eax
+   0x00034dec <+108>:	d1 7d e0	sarl   -0x20(%ebp)
+   0x00034def <+111>:	8d 44 06 01	lea    0x1(%esi,%eax,1),%eax
+   0x00034df3 <+115>:	39 45 e0	cmp    %eax,-0x20(%ebp)
+   0x00034df6 <+118>:	0f 83 34 01 00 00	jae    0x34f30 <__ssprint_r+432>
+   0x00034dfc <+124>:	89 45 e0	mov    %eax,-0x20(%ebp)
+   0x00034dff <+127>:	80 e5 04	and    $0x4,%ch
+   0x00034e02 <+130>:	0f 84 c8 00 00 00	je     0x34ed0 <__ssprint_r+336>
+   0x00034e08 <+136>:	89 44 24 04	mov    %eax,0x4(%esp)
+   0x00034e0c <+140>:	8b 45 08	mov    0x8(%ebp),%eax
+   0x00034e0f <+143>:	89 04 24	mov    %eax,(%esp)
+   0x00034e12 <+146>:	e8 19 e8 ff ff	call   0x33630 <_malloc_r>
+   0x00034e17 <+151>:	85 c0	test   %eax,%eax
+   0x00034e19 <+153>:	89 c2	mov    %eax,%edx
+   0x00034e1b <+155>:	0f 84 e1 00 00 00	je     0x34f02 <__ssprint_r+386>
+   0x00034e21 <+161>:	8b 45 dc	mov    -0x24(%ebp),%eax
+   0x00034e24 <+164>:	89 55 d8	mov    %edx,-0x28(%ebp)
+   0x00034e27 <+167>:	89 44 24 08	mov    %eax,0x8(%esp)
+   0x00034e2b <+171>:	8b 43 10	mov    0x10(%ebx),%eax
+   0x00034e2e <+174>:	89 14 24	mov    %edx,(%esp)
+   0x00034e31 <+177>:	89 44 24 04	mov    %eax,0x4(%esp)
+   0x00034e35 <+181>:	e8 ce ef ff ff	call   0x33e08 <memcpy>
+   0x00034e3a <+186>:	0f b7 43 0c	movzwl 0xc(%ebx),%eax
+   0x00034e3e <+190>:	8b 55 d8	mov    -0x28(%ebp),%edx
+   0x00034e41 <+193>:	66 25 7f fb	and    $0xfb7f,%ax
+   0x00034e45 <+197>:	0c 80	or     $0x80,%al
+   0x00034e47 <+199>:	66 89 43 0c	mov    %ax,0xc(%ebx)
+   0x00034e4b <+203>:	8b 4d e0	mov    -0x20(%ebp),%ecx
+   0x00034e4e <+206>:	8b 45 dc	mov    -0x24(%ebp),%eax
+   0x00034e51 <+209>:	89 53 10	mov    %edx,0x10(%ebx)
+   0x00034e54 <+212>:	89 4b 14	mov    %ecx,0x14(%ebx)
+   0x00034e57 <+215>:	2b 4d dc	sub    -0x24(%ebp),%ecx
+   0x00034e5a <+218>:	01 d0	add    %edx,%eax
+   0x00034e5c <+220>:	89 03	mov    %eax,(%ebx)
+   0x00034e5e <+222>:	89 f2	mov    %esi,%edx
+   0x00034e60 <+224>:	89 4b 08	mov    %ecx,0x8(%ebx)
+   0x00034e63 <+227>:	89 f1	mov    %esi,%ecx
+   0x00034e65 <+229>:	89 4c 24 08	mov    %ecx,0x8(%esp)
+   0x00034e69 <+233>:	89 4d e0	mov    %ecx,-0x20(%ebp)
+   0x00034e6c <+236>:	8b 4d e4	mov    -0x1c(%ebp),%ecx
+   0x00034e6f <+239>:	89 04 24	mov    %eax,(%esp)
+   0x00034e72 <+242>:	89 55 dc	mov    %edx,-0x24(%ebp)
+   0x00034e75 <+245>:	89 4c 24 04	mov    %ecx,0x4(%esp)
+   0x00034e79 <+249>:	e8 22 13 00 00	call   0x361a0 <memmove>
+   0x00034e7e <+254>:	8b 03	mov    (%ebx),%eax
+   0x00034e80 <+256>:	8b 4d e0	mov    -0x20(%ebp),%ecx
+   0x00034e83 <+259>:	8b 55 dc	mov    -0x24(%ebp),%edx
+   0x00034e86 <+262>:	29 53 08	sub    %edx,0x8(%ebx)
+   0x00034e89 <+265>:	01 c8	add    %ecx,%eax
+   0x00034e8b <+267>:	8b 4d 10	mov    0x10(%ebp),%ecx
+   0x00034e8e <+270>:	89 03	mov    %eax,(%ebx)
+   0x00034e90 <+272>:	8b 51 08	mov    0x8(%ecx),%edx
+   0x00034e93 <+275>:	29 f2	sub    %esi,%edx
+   0x00034e95 <+277>:	85 d2	test   %edx,%edx
+   0x00034e97 <+279>:	89 51 08	mov    %edx,0x8(%ecx)
+   0x00034e9a <+282>:	0f 84 98 00 00 00	je     0x34f38 <__ssprint_r+440>
+   0x00034ea0 <+288>:	8b 77 04	mov    0x4(%edi),%esi
+   0x00034ea3 <+291>:	83 c7 08	add    $0x8,%edi
+   0x00034ea6 <+294>:	8b 4f f8	mov    -0x8(%edi),%ecx
+   0x00034ea9 <+297>:	85 f6	test   %esi,%esi
+   0x00034eab <+299>:	89 4d e4	mov    %ecx,-0x1c(%ebp)
+   0x00034eae <+302>:	74 f0	je     0x34ea0 <__ssprint_r+288>
+   0x00034eb0 <+304>:	8b 53 08	mov    0x8(%ebx),%edx
+   0x00034eb3 <+307>:	39 d6	cmp    %edx,%esi
+   0x00034eb5 <+309>:	0f 83 04 ff ff ff	jae    0x34dbf <__ssprint_r+63>
+   0x00034ebb <+315>:	89 f2	mov    %esi,%edx
+   0x00034ebd <+317>:	89 f1	mov    %esi,%ecx
+   0x00034ebf <+319>:	eb a4	jmp    0x34e65 <__ssprint_r+229>
+   0x00034ec1 <+321>:	8d b4 26 00 00 00 00	lea    0x0(%esi,%eiz,1),%esi
+   0x00034ec8 <+328>:	89 d1	mov    %edx,%ecx
+   0x00034eca <+330>:	eb 99	jmp    0x34e65 <__ssprint_r+229>
+   0x00034ecc <+332>:	8d 74 26 00	lea    0x0(%esi,%eiz,1),%esi
+   0x00034ed0 <+336>:	89 44 24 08	mov    %eax,0x8(%esp)
+   0x00034ed4 <+340>:	8b 45 d8	mov    -0x28(%ebp),%eax
+   0x00034ed7 <+343>:	89 44 24 04	mov    %eax,0x4(%esp)
+   0x00034edb <+347>:	8b 45 08	mov    0x8(%ebp),%eax
+   0x00034ede <+350>:	89 04 24	mov    %eax,(%esp)
+   0x00034ee1 <+353>:	e8 da 13 00 00	call   0x362c0 <_realloc_r>
+   0x00034ee6 <+358>:	85 c0	test   %eax,%eax
+   0x00034ee8 <+360>:	89 c2	mov    %eax,%edx
+   0x00034eea <+362>:	0f 85 5b ff ff ff	jne    0x34e4b <__ssprint_r+203>
+   0x00034ef0 <+368>:	8b 43 10	mov    0x10(%ebx),%eax
+   0x00034ef3 <+371>:	89 44 24 04	mov    %eax,0x4(%esp)
+   0x00034ef7 <+375>:	8b 45 08	mov    0x8(%ebp),%eax
+   0x00034efa <+378>:	89 04 24	mov    %eax,(%esp)
+   0x00034efd <+381>:	e8 3e 10 00 00	call   0x35f40 <_free_r>
+   0x00034f02 <+386>:	8b 45 08	mov    0x8(%ebp),%eax
+   0x00034f05 <+389>:	c7 00 0c 00 00 00	movl   $0xc,(%eax)
+   0x00034f0b <+395>:	8b 45 10	mov    0x10(%ebp),%eax
+   0x00034f0e <+398>:	66 83 4b 0c 40	orw    $0x40,0xc(%ebx)
+   0x00034f13 <+403>:	c7 40 08 00 00 00 00	movl   $0x0,0x8(%eax)
+   0x00034f1a <+410>:	c7 40 04 00 00 00 00	movl   $0x0,0x4(%eax)
+   0x00034f21 <+417>:	83 c4 2c	add    $0x2c,%esp
+   0x00034f24 <+420>:	b8 ff ff ff ff	mov    $0xffffffff,%eax
+   0x00034f29 <+425>:	5b	pop    %ebx
+   0x00034f2a <+426>:	5e	pop    %esi
+   0x00034f2b <+427>:	5f	pop    %edi
+   0x00034f2c <+428>:	5d	pop    %ebp
+   0x00034f2d <+429>:	c3	ret    
+   0x00034f2e <+430>:	66 90	xchg   %ax,%ax
+   0x00034f30 <+432>:	8b 45 e0	mov    -0x20(%ebp),%eax
+   0x00034f33 <+435>:	e9 c7 fe ff ff	jmp    0x34dff <__ssprint_r+127>
+   0x00034f38 <+440>:	c7 41 04 00 00 00 00	movl   $0x0,0x4(%ecx)
+   0x00034f3f <+447>:	83 c4 2c	add    $0x2c,%esp
+   0x00034f42 <+450>:	31 c0	xor    %eax,%eax
+   0x00034f44 <+452>:	5b	pop    %ebx
+   0x00034f45 <+453>:	5e	pop    %esi
+   0x00034f46 <+454>:	5f	pop    %edi
+   0x00034f47 <+455>:	5d	pop    %ebp
+   0x00034f48 <+456>:	c3	ret    
+   0x00034f49 <+457>:	8d b4 26 00 00 00 00	lea    0x0(%esi,%eiz,1),%esi
+   0x00034f50 <+464>:	8b 45 10	mov    0x10(%ebp),%eax
+   0x00034f53 <+467>:	c7 40 04 00 00 00 00	movl   $0x0,0x4(%eax)
+   0x00034f5a <+474>:	83 c4 2c	add    $0x2c,%esp
+   0x00034f5d <+477>:	31 c0	xor    %eax,%eax
+   0x00034f5f <+479>:	5b	pop    %ebx
+   0x00034f60 <+480>:	5e	pop    %esi
+   0x00034f61 <+481>:	5f	pop    %edi
+   0x00034f62 <+482>:	5d	pop    %ebp
+   0x00034f63 <+483>:	c3	ret    
+End of assembler dump.
