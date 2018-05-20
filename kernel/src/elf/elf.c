@@ -1,6 +1,9 @@
 #include "common.h"
 #include "memory.h"
 #include "string.h"
+
+#include <elf.h>
+
 #ifdef HAS_DEVICE_IDE
 #define ELF_OFFSET_IN_DISK 0
 #endif
