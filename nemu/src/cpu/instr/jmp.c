@@ -162,31 +162,31 @@ make_instr_func(jmp_rm_v)
   return 0;
 }
 
-make_instr_func(ljmp_v)
-{
-  OPERAND selector, offset;
-  int len = 1;
+// make_instr_func(ljmp_v)
+// {
+//   OPERAND selector, offset;
+//   int len = 1;
 
-  selector.data_size = 16;
-  offset.data_size = data_size;
+//   selector.data_size = 16;
+//   offset.data_size = data_size;
 
-  offset.type = OPR_IMM;
-  offset.addr = eip + len;
-  operand_read(&offset);
-  len += data_size / 8;
+//   offset.type = OPR_IMM;
+//   offset.addr = eip + len;
+//   operand_read(&offset);
+//   len += data_size / 8;
 
-  selector.type = OPR_IMM;
-  selector.addr = eip + len;
-  operand_read(&selector);
-  len += 2;
+//   selector.type = OPR_IMM;
+//   selector.addr = eip + len;
+//   operand_read(&selector);
+//   len += 2;
 
-  cpu.cs.val = selector.val;
-  load_sreg((uint8_t)cpu.cs.index);
-  assert(data_size == 16 || data_size == 32);
-  if (data_size == 16)
-    cpu.eip = (offset.val & 0xffff);
-  else
-    cpu.eip = offset.val;
+//   cpu.cs.val = selector.val;
+//   load_sreg((uint8_t)cpu.cs.index);
+//   assert(data_size == 16 || data_size == 32);
+//   if (data_size == 16)
+//     cpu.eip = (offset.val & 0xffff);
+//   else
+//     cpu.eip = offset.val;
 
-  return 0;
-}
+//   return 0;
+// }
