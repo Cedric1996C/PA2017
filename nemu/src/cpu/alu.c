@@ -88,21 +88,12 @@ void set_CF_sbb(uint32_t src, uint32_t dest){
   }
 }
 
-void set_OF_sbb(uint32_t src, uint32_t dest){
-  if(!cpu.eflags.CF){
-    set_OF_sub(src, dest);
-  } else {
-    uint32_t src_neg = ~(src+1) + 1;
-    set_OF_add(src_neg + dest, src_neg, dest);
-  }
-}
-
 uint32_t alu_sbb(uint32_t src, uint32_t dest) {
   uint32_t result = dest - (src + cpu.eflags.CF);
   set_PF(result);
   set_ZF(result);
   set_SF(result);
-  set_OF_sbb(src, dest);
+  set_OF_sub(src, dest);
   set_CF_sbb(result, dest);
 	return result;
 }
