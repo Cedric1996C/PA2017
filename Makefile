@@ -2,7 +2,7 @@
 
 include Makefile.git
 
-testcase_name = test-float
+testcase_name = hello-str
 
 nemu:
 	$(call git_commit, "nemu")
