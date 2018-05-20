@@ -63,7 +63,6 @@ make_instr_func(jmp_rel_b)
 {
   OPERAND imm;
   int len = 1;
-
   imm.type = OPR_IMM;
   imm.addr = eip + len;
   imm.data_size = 8;
@@ -71,7 +70,7 @@ make_instr_func(jmp_rel_b)
 
   operand_read(&imm);
   print_asm_1("jmp", "", len, &imm);
-  len += (int8_t)imm.val;
+  len += (uint8_t)imm.val;
 
   return len;
 }
