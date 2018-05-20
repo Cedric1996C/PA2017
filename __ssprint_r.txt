@@ -25,7 +25,7 @@ Dump of assembler code for function __ssprint_r:
    0x00034df9 <+57>:	0f 82 fc 00 00 00	jb     0x34efb <__ssprint_r+315>
    0x00034dff <+63>:	0f b7 4b 0c	movzwl 0xc(%ebx),%ecx
    0x00034e03 <+67>:	66 f7 c1 80 04	test   $0x480,%cx
-   0x00034e08 <+72>:	0f 84 fa 00 00 00	je     0x34f08 <__ssprint_r+328>
+   0x00034e08 <+72>:	0f 84 fa 00 00 00	je     0x34f08 <__ssprint_r+328> **
    0x00034e0e <+78>:	8b 53 10	mov    0x10(%ebx),%edx
    0x00034e11 <+81>:	29 d0	sub    %edx,%eax
    0x00034e13 <+83>:	89 45 dc	mov    %eax,-0x24(%ebp)
