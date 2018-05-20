@@ -11,8 +11,6 @@
 #define STACK_SIZE (1 << 20)
 
 void ide_read(uint8_t *, uint32_t, uint32_t);
-void ide_write(uint8_t *, uint32_t, uint32_t);
-void write_byte(uint32_t, uint8_t);
 void create_video_mapping();
 uint32_t get_ucr3();
 
@@ -20,7 +18,7 @@ uint32_t loader()
 {
 	Elf32_Ehdr *elf;
 	Elf32_Phdr *ph, *eph;
-
+	//BREAK_POINT
 #ifdef HAS_DEVICE_IDE
 	uint8_t buf[4096];
 	ide_read(buf, ELF_OFFSET_IN_DISK, 4096);
@@ -38,21 +36,29 @@ uint32_t loader()
 	{
 		if (ph->p_type == PT_LOAD)
 		{
-			uint8_t *p_dest;
 #ifdef IA32_PAGE
-			p_dest = (uint8_t *)mm_malloc(ph->p_vaddr, ph->p_memsz);
+			//panic("Please implement the loader");
+			uint32_t padd = mm_malloc(ph->p_vaddr, ph->p_memsz);
+			//BREAK_POINT
+			//Log("padd=%s",padd);
+#ifdef HAS_DEVICE_IDE
+			ide_read((void *)padd, ph->p_offset, ph->p_filesz);
+			/*if(ph->p_memsz > ph->p_filesz)
+				ide_write(padd+ph->p_filesz,  ?????
+				*/
 #else
-			p_dest = ph->p_vaddr;
+			memcpy((void *)padd, (void *)ph->p_offset, ph->p_filesz);
+			if (ph->p_memsz > ph->p_filesz)
+				memset((void *)padd + ph->p_filesz, 0, ph->p_memsz - ph->p_filesz);
 #endif
-
-#ifndef HAS_DEVICE_IDE
-			memcpy((void *)p_dest, (void *)elf + ph->p_offset, ph->p_filesz);
-			if (ph->p_filesz < ph->p_memsz)
-				memset((void *)p_dest + ph->p_filesz, 0, ph->p_memsz - ph->p_filesz);
 #else
-			ide_read(p_dest, (uint32_t)ph->p_offset, ph->p_filesz);
+			/* TODO: copy the segment from the ELF file to its proper memory area */
+			//printf("\nph_vadd=x,ph_filesz=%d,ph_memsz=%d\n",ph->p_filesz,ph->p_memsz);
+			memcpy((void *)ph->p_vaddr, (void *)ph->p_offset, ph->p_filesz);
+			/* TODO: zeror the memory area [vaddr + file_sz, vaddr + mem_sz) */
+			if (ph->p_memsz > ph->p_filesz)
+				memset((void *)ph->p_vaddr + ph->p_filesz, 0, ph->p_memsz - ph->p_filesz);
 #endif
-
 #ifdef IA32_PAGE
 			/* Record the program break for future use */
 			extern uint32_t brk;
@@ -61,6 +67,8 @@ uint32_t loader()
 			{
 				brk = new_brk;
 			}
+				/*uint32_t padd=mm_malloc(ph->p_vaddr,ph->p_memsz);
+			memcpy((void*)padd,(void*)ph->p_offset,ph->p_filesz);*/
 #endif
 		}
 	}
@@ -69,6 +77,7 @@ uint32_t loader()
 
 #ifdef IA32_PAGE
 	mm_malloc(KOFFSET - STACK_SIZE, STACK_SIZE);
+	//mm_malloc(ph->p_vaddr,ph->p_memsz);
 #ifdef HAS_DEVICE_VGA
 	create_video_mapping();
 #endif
