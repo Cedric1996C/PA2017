@@ -42,7 +42,7 @@ uint32_t loader()
 #ifdef IA32_PAGE
 			p_dest = (uint8_t *)mm_malloc(ph->p_vaddr, ph->p_memsz);
 #else
-			p_dest = ph->p_vaddr;
+			p_dest = *ph->p_vaddr;
 #endif
 
 #ifndef HAS_DEVICE_IDE
