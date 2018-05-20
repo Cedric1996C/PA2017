@@ -17,7 +17,6 @@ make_instr_func(jmp_near){
   return 1 + data_size / 8;
 }
 
-
 make_instr_func(jmp_rel_v)
 {
   OPERAND imm;
@@ -27,8 +26,10 @@ make_instr_func(jmp_rel_v)
   imm.addr = eip + len;
   len += data_size / 8;
   imm.data_size = data_size;
+  print_asm_1("jmp rel", "", len, &imm);
   operand_read(&imm);
 
+  assert(imm.data_size == 32 || imm.data_size == 16);
   if (imm.data_size == 16)
     len += (int32_t)(imm.val << 16) >> 16;
   else
