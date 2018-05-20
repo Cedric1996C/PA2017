@@ -80,11 +80,11 @@ uint32_t alu_sub(uint32_t src, uint32_t dest) {
 	return result;
 }
 
-void set_CF_sbb(uint32_t src, uint32_t dest){
+void set_CF_sbb(unit32_t result, uint32_t src, uint32_t dest){
   if(!cpu.eflags.CF){
-    set_CF_sub(src, dest);
+    set_CF_sub(result, dest);
   } else {
-    cpu.eflags.CF = src >= dest;
+    cpu.eflags.CF = result >= dest;
   }
 }
 
@@ -94,7 +94,7 @@ uint32_t alu_sbb(uint32_t src, uint32_t dest) {
   set_ZF(result);
   set_SF(result);
   set_OF_sub(result, src, dest);
-  set_CF_sbb(result, dest);
+  set_CF_sbb(result, src, dest);
 	return result;
 }
 
