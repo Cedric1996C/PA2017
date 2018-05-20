@@ -23,7 +23,8 @@ make_instr_func(call_rel_v)
   if (data_size == 16){
     rel.val = (int32_t)(rel.val << 16) >> 16;
   }
-  len += (int32_t)rel.val;
+  else 
+    len += (int32_t)rel.val;
 
   return len;
 }
