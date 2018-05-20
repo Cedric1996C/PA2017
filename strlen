@@ -1,0 +1,25 @@
+Dump of assembler code for function strlen:
+   0x00034d40 <+0>:	55	push   %ebp
+   0x00034d41 <+1>:	89 e5	mov    %esp,%ebp
+   0x00034d43 <+3>:	57	push   %edi
+   0x00034d44 <+4>:	8b 55 08	mov    0x8(%ebp),%edx
+   0x00034d47 <+7>:	89 d7	mov    %edx,%edi
+   0x00034d49 <+9>:	f7 c7 03 00 00 00	test   $0x3,%edi
+   0x00034d4f <+15>:	74 25	je     0x34d76 <L5>
+   0x00034d51 <+17>:	8a 0f	mov    (%edi),%cl
+   0x00034d53 <+19>:	47	inc    %edi
+   0x00034d54 <+20>:	84 c9	test   %cl,%cl
+   0x00034d56 <+22>:	74 56	je     0x34dae <L15>
+   0x00034d58 <+24>:	f7 c7 03 00 00 00	test   $0x3,%edi
+   0x00034d5e <+30>:	74 16	je     0x34d76 <L5>
+   0x00034d60 <+32>:	8a 0f	mov    (%edi),%cl
+   0x00034d62 <+34>:	47	inc    %edi
+   0x00034d63 <+35>:	84 c9	test   %cl,%cl
+   0x00034d65 <+37>:	74 47	je     0x34dae <L15>
+   0x00034d67 <+39>:	f7 c7 03 00 00 00	test   $0x3,%edi
+   0x00034d6d <+45>:	74 07	je     0x34d76 <L5>
+   0x00034d6f <+47>:	8a 0f	mov    (%edi),%cl
+   0x00034d71 <+49>:	47	inc    %edi
+   0x00034d72 <+50>:	84 c9	test   %cl,%cl
+   0x00034d74 <+52>:	74 38	je     0x34dae <L15>
+End of assembler dump.
