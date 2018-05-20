@@ -100,8 +100,12 @@ make_instr_func(add_i2rm_bv)
   len += 1;
   operand_read(&imm);
 
-  imm.data_size = 32;
-  imm.val = sign_ext(imm.val, 8);
+  assert(data_size == 16 || data_size == 32);
+  if (data_size == 16)
+    imm.val = (int16_t)(imm.val << 8) >> 8;
+  else
+    imm.val = (int32_t)(imm.val << 24) >> 24;
+    
   rm.val = alu_add(imm.val, rm.val);
   operand_write(&rm);
   print_asm_2("add", "", len, &imm, &rm);
