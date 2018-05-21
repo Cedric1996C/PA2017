@@ -145,5 +145,6 @@ int and_i2rm_b(uint32_t eip, uint8_t opcode);
 
 int push_i_v(uint32_t eip, uint8_t opcode);
 int call_rm_v(uint32_t eip, uint8_t opcode);
+int adc_rm2r_v(uint32_t eip, uint8_t opcode);
 
 #endif
