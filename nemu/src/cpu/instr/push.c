@@ -44,6 +44,27 @@ make_instr_func(push_i_b)
   return len;
 }
 
+make_instr_func(push_i_v)
+{
+  OPERAND imm;
+  int len = 1;
+
+  imm.type = OPR_IMM;
+  imm.data_size = data_size;
+  imm.addr = eip + 1;
+  len += data_size/8;
+  operand_read(&imm);
+
+  cpu.esp -= 4;
+  imm.addr = cpu.esp;
+  imm.type = OPR_MEM;
+  imm.data_size = 32;
+  // imm.sreg = SREG_SS;
+  operand_write(&imm);
+
+  return len;
+}
+
 // make_instr_func(push_ebx_v)
 // {
 //   OPERAND reg;
